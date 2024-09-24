@@ -1,0 +1,115 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
+  <diagram id="R2lEEEUBdFMjLlhIrx00" name="Page-1">
+    <mxGraphModel dx="2150" dy="1927" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0" extFonts="Permanent Marker^https://fonts.googleapis.com/css?family=Permanent+Marker">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-113" value="Products" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="480" width="300" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-114" value="&lt;div&gt;id_producto (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;nombre_producto (Texto)&lt;/div&gt;&lt;div&gt;precio (Decimal)&lt;/div&gt;&lt;div&gt;cantidad_en_stock (Entero)&lt;/div&gt;&lt;div&gt;id_proveedor (Clave foránea)&lt;/div&gt;&lt;div&gt;fecha_expiracion (Fecha)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-113">
+          <mxGeometry y="50" width="300" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-115" value="Employees" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="350" width="305" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-116" value="&lt;div&gt;id_employee (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;employee_name (Texto)&lt;/div&gt;&lt;div&gt;position (Texto)&lt;/div&gt;&lt;div&gt;salary (Decimal)&lt;/div&gt;&lt;div&gt;hiring_date (Fecha)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-115">
+          <mxGeometry y="50" width="305" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-117" value="Suppliers" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="330" y="360" width="300" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-118" value="&lt;div&gt;id_supplier (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;supplier_name (Texto)&lt;/div&gt;&lt;div&gt;telephone (Texto)&lt;/div&gt;&lt;div&gt;address (Texto)&lt;/div&gt;&lt;div&gt;email (Texto)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-117">
+          <mxGeometry y="50" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-119" value="&lt;span style=&quot;font-size: 12px; font-weight: 700; text-wrap: nowrap;&quot;&gt;Suppliers_invoices&lt;/span&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-180" y="120" width="490" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-120" value="&lt;div&gt;id_supplier_invoice (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;id_purchase_order (Clave foránea, referencia a la tabla Ordenes_Compra)&lt;/div&gt;&lt;div&gt;invoice_number (Texto, número único de la factura proporcionada por el proveedor)&lt;/div&gt;&lt;div&gt;issue_date (Fecha en que se emite la factura)&lt;/div&gt;&lt;div&gt;total_invoice (Decimal, total de la factura)&lt;/div&gt;&lt;div&gt;state (Texto, estado de la factura: pagada, pendiente, anulada, etc.)&lt;/div&gt;&lt;div&gt;expiration_date (Fecha en que vence la factura)&lt;/div&gt;&lt;div&gt;promotion_amount (Decimal, descuento o promoción aplicada)&lt;/div&gt;&lt;div&gt;alert_date (Fecha en que se debe enviar un recordatorio de pago)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-119">
+          <mxGeometry y="50" width="490" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-121" value="Customers" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="30" width="300" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-122" value="&lt;div&gt;id_customer (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;customer_name (Texto)&lt;/div&gt;&lt;div&gt;telephone (Texto)&lt;/div&gt;&lt;div&gt;address (Texto)&lt;/div&gt;&lt;div&gt;email (Texto)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-121">
+          <mxGeometry y="50" width="300" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-123" value="Sales" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="710" y="240" width="280" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-124" value="&lt;div&gt;id_sale (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;id_customer (Clave foránea)&lt;/div&gt;&lt;div&gt;id_employee (Clave foránea)&lt;/div&gt;&lt;div&gt;sale_date (Fecha)&lt;/div&gt;&lt;div&gt;total_sale (Decimal)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-123">
+          <mxGeometry y="50" width="280" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-127" value="Sales_Details" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="60" width="310" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-128" value="&lt;div&gt;&lt;span style=&quot;white-space-collapse: collapse;&quot;&gt;id_detail (Clave primaria, único, auto-incremental)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;id_sale (Clave foránea)&lt;/div&gt;&lt;div&gt;id_product (Clave foránea)&lt;/div&gt;&lt;div&gt;amount (Entero)&lt;/div&gt;&lt;div&gt;unit_price (Decimal)&lt;span style=&quot;white-space-collapse: preserve;&quot;&gt;&#x9;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;subtotal (Decimal)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-127">
+          <mxGeometry y="50" width="310" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-129" value="&lt;span style=&quot;font-size: 12px; font-weight: 700; text-wrap: nowrap;&quot;&gt;Purchase_orders&lt;/span&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="550" width="370" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-130" value="&lt;div&gt;id_purchase_order (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;id_supplier (Clave foránea, referencia a la tabla Proveedores)&lt;/div&gt;&lt;div&gt;order_date (Fecha en que se realiza la orden de compra)&lt;/div&gt;&lt;div&gt;total_order (Decimal, total del costo de la orden de compra)&lt;/div&gt;&lt;div&gt;state (Texto, estado de la orden: pendiente, completada, etc.)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-129">
+          <mxGeometry y="50" width="370" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-131" value="Purchase_Orders_Details" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-470" y="740" width="440" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-132" value="&lt;div&gt;id_order_detail (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;id_purchase_order (Clave foránea, referencia a la tabla Ordenes_Compra)&lt;/div&gt;&lt;div&gt;id_product (Clave foránea, referencia a la tabla Productos)&lt;/div&gt;&lt;div&gt;amount (Entero, cantidad de productos ordenados)&lt;/div&gt;&lt;div&gt;unit_price (Decimal, precio por unidad del producto)&lt;/div&gt;&lt;div&gt;subtotal (Decimal, cantidad * precio_unitario)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-131">
+          <mxGeometry y="50" width="440" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-133" value="&lt;span style=&quot;font-size: 12px; font-weight: 700; text-wrap: nowrap;&quot;&gt;Sales_invoices&lt;/span&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="760" y="-180" width="400" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-134" value="&lt;div&gt;id_invoice (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;id_sale (Clave foránea, referencia a la tabla Ventas)&lt;/div&gt;&lt;div&gt;bill_number (Texto, número único de la factura)&lt;/div&gt;&lt;div&gt;issue_date (Fecha en que se emite la factura)&lt;/div&gt;&lt;div&gt;total_invoice (Decimal, total de la factura)&lt;/div&gt;&lt;div&gt;state (Texto, estado de la factura: pagada, pendiente, anulada, etc.)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-133">
+          <mxGeometry y="50" width="400" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-135" value="&lt;span style=&quot;font-size: 12px; font-weight: 700; text-wrap: nowrap;&quot;&gt;Purchase_orders_invoice&lt;/span&gt;" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-550" y="390" width="440" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-136" value="&lt;div&gt;id_purchase_invoice (Clave primaria, único, auto-incremental)&lt;/div&gt;&lt;div&gt;id_purchase_order (Clave foránea, referencia a la tabla Ordenes_Compra)&lt;/div&gt;&lt;div&gt;invoice_number (Texto, número único de la factura)&lt;/div&gt;&lt;div&gt;issue_date (Fecha en que se emite la factura)&lt;/div&gt;&lt;div&gt;total_invoice (Decimal, total de la factura)&lt;/div&gt;&lt;div&gt;state (Texto, estado de la factura: pagada, pendiente, anulada, etc.)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="ZeAl7dUm6tv2jibx23Sj-135">
+          <mxGeometry y="50" width="440" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;endArrow=ERzeroToMany;endFill=0;startArrow=ERzeroToMany;startFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-118" target="ZeAl7dUm6tv2jibx23Sj-114">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-144" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-128" target="ZeAl7dUm6tv2jibx23Sj-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-146" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-120" target="ZeAl7dUm6tv2jibx23Sj-118">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-122" target="ZeAl7dUm6tv2jibx23Sj-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-150" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=ERzeroToMany;startFill=0;endArrow=ERmandOne;endFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-116" target="ZeAl7dUm6tv2jibx23Sj-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-152" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.219;entryY=1.066;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-113" target="ZeAl7dUm6tv2jibx23Sj-124">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERmandOne;endFill=0;startArrow=ERzeroToMany;startFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-130" target="ZeAl7dUm6tv2jibx23Sj-132">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-155" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=ERmandOne;endFill=0;startArrow=ERzeroToMany;startFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-114" target="ZeAl7dUm6tv2jibx23Sj-132">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-156" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=ERmandOne;startFill=0;endArrow=ERmandOne;endFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-130" target="ZeAl7dUm6tv2jibx23Sj-135">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-157" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;startArrow=ERmandOne;startFill=0;endArrow=ERmandOne;endFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-120" target="ZeAl7dUm6tv2jibx23Sj-129">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-159" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=ERmandOne;endFill=0;startArrow=ERzeroToMany;startFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-118" target="ZeAl7dUm6tv2jibx23Sj-130">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-160" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=ERmandOne;endFill=0;startArrow=ERmandOne;startFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-134" target="ZeAl7dUm6tv2jibx23Sj-123">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ZeAl7dUm6tv2jibx23Sj-161" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;startArrow=ERzeroToMany;startFill=0;endArrow=ERmandOne;endFill=0;" edge="1" parent="1" source="ZeAl7dUm6tv2jibx23Sj-114" target="ZeAl7dUm6tv2jibx23Sj-128">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
