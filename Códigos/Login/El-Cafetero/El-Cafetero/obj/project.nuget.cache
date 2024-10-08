@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "B3ZwpP4o/sE=",
+  "dgSpecHash": "CS9nb5wPFOk=",
   "success": true,
-  "projectFilePath": "C:\\Users\\gonza\\Desktop\\El-Cafetero\\El-Cafetero\\El-Cafetero.csproj",
+  "projectFilePath": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Códigos\\Login\\El-Cafetero\\El-Cafetero\\El-Cafetero.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gonza\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\gonza\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
