@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\buildMultiTargeting\Drogueria_Elcafetero.props" />
-</Project>
