@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Drogueria_Elcafetero")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+950014ce8590461744726ee29a29f60505631cd6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+99d19da5de970c1ce405ef01acf08aaf0b7d899e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Drogueria_Elcafetero")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Drogueria_Elcafetero")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

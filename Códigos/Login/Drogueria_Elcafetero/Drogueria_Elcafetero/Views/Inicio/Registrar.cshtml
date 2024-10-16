@@ -1,78 +1,156 @@
-﻿﻿
-@{
+﻿@{
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="es">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Registrar</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrarse - FarmaVida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #e6f3ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+        }
+        .card-header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .card-header h2 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .card-body {
+            padding: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #4a90e2;
+            font-weight: 600;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bbd8ff;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .btn-primary {
+            background-color: #4a90e2;
+            border: none;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #3a7bc8;
+        }
+        .btn-link {
+            color: #4a90e2;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .alert-danger {
+            background-color: #ffe6e6;
+            border: 1px solid #ffcccc;
+            color: #ff4444;
+        }
+        .alert-success {
+            background-color: #e6ffe6;
+            border: 1px solid #ccffcc;
+            color: #44aa44;
+        }
+    </style>
 </head>
 <body>
-    <div class="row justify-content-center mt-5">
-
-        <div class="col-5">
-
-            <div class="card">
-                <div class="card-header"><h3 class="text-center">Registrar cuenta</h3></div>
-                <div class="card-body">
-
-                    @if (ViewBag.Creado == null)
-                    {
-                        <form action="@Url.Action("Registrar","Inicio")" method="post">
-
-                            <div class="mb-3">
-                                <label>Nombre</label>
-                                <input type="text" class="form-control" name="customer_name" value="@(ViewBag.Nombre !=null ? ViewBag.Nombre : "")" required />
-                            </div>
-                            <div class="mb-3">
-                                <label>Correo</label>
-                                <input type="email" class="form-control" name="email" value="@(ViewBag.Correo !=null ? ViewBag.Correo : "")" required />
-                            </div>
-                            <div class="mb-3">
-                                <label>Contraseña</label>
-                                <input type="password" class="form-control" name="password_hash" required />
-                            </div>
-                            <div class="mb-3">
-                                <label>Confirmar Contraseña</label>
-                                <input type="password" class="form-control" name="confirmed_password" required />
-                            </div>
-
-                            @if (ViewBag.Mensaje != null)
-                            {
-                                <div class="alert alert-danger">
-                                    @ViewBag.Mensaje
-                                </div>
-                            }
-
-                            <div class="mb-3">
-                                <div class="d-grid">
-                                    <button class="btn btn-primary" type="submit">Registrarse </button>
-                                    <a class="btn btn-link" href="@Url.Action("Login","Inicio")">Ya tienes una cuenta? Inicia sesion</a>
-                                </div>
-                            </div>
-
-
-                        </form>
-                    }
-                    else
-                    {
-                        <div class="alert alert-success">
-                            <p>@ViewBag.Mensaje</p>
-                            <a class="btn btn-success" href="@Url.Action("Login","Inicio")">Ingresar</a>
-                        </div>
-                    }
-
-
-                </div>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h2>Registrarse en El Cafetero</h2>
             </div>
+            <div class="card-body">
+                @if (ViewBag.Creado == null)
+                {
+                    <form action="@Url.Action("Registrar","Inicio")" method="post">
+                        <div class="form-group">
+                            <label for="customer_name">Nombre</label>
+                            <input type="text" class="form-control" id="customer_name" name="customer_name" value="@(ViewBag.Nombre !=null ? ViewBag.Nombre : "")" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo</label>
+                            <input type="email" class="form-control" id="email" name="email" value="@(ViewBag.Correo !=null ? ViewBag.Correo : "")" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="password_hash">Contraseña</label>
+                            <input type="password" class="form-control" id="password_hash" name="password_hash" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmed_password">Confirmar Contraseña</label>
+                            <input type="password" class="form-control" id="confirmed_password" name="confirmed_password" required />
+                        </div>
 
+                        @if (ViewBag.Mensaje != null)
+                        {
+                            <div class="alert alert-danger">
+                                @ViewBag.Mensaje
+                            </div>
+                        }
+
+                        <button class="btn-primary" type="submit">Registrarse</button>
+                        <a class="btn-link" href="@Url.Action("Login","Inicio")">¿Ya tienes una cuenta? Inicia sesión</a>
+                    </form>
+                }
+                else
+                {
+                    <div class="alert alert-success">
+                        <p>@ViewBag.Mensaje</p>
+                        <a class="btn-primary" href="@Url.Action("Login","Inicio")" style="display: inline-block; text-decoration: none; margin-top: 10px;">Ingresar</a>
+                    </div>
+                }
+            </div>
         </div>
     </div>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

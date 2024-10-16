@@ -41,7 +41,7 @@ namespace WebAppCorreo.Controllers
                 }
                 else
                 {
-                    return RedirectToAction("Index", "Home");
+                    return View("IndexLogin");
                 }
 
             }

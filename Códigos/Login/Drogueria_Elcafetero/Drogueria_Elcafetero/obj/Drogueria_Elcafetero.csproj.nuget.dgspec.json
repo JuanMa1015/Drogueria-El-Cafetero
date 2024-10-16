@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj": {}
+    "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Códigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj": {
+    "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Códigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj",
+        "projectUniqueName": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Códigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj",
         "projectName": "Drogueria_Elcafetero",
-        "projectPath": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj",
+        "projectPath": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Códigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj",
         "packagesPath": "C:\\Users\\gonza\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\obj\\",
+        "outputPath": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Códigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,11 +58,11 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.8, )"
+              "version": "[8.0.10, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[8.0.5, )"
+              "version": "[8.0.6, )"
             },
             "Npgsql": {
               "target": "Package",
