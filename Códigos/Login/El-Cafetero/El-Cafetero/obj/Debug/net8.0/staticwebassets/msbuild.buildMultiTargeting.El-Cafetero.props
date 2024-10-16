@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\El-Cafetero.props" />
-</Project>

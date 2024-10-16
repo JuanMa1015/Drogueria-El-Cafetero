@@ -1,0 +1,140 @@
+﻿@model IEnumerable<Drogueria_el_cafetero.Models.customers>
+@{
+    ViewData["Title"] = "Índice de Clientes";
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Farmacia El Cafetero</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #4da6ff 0%, #2196f3 100%);
+            color: white;
+            text-align: center;
+            padding: 2em;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .create-new {
+            display: inline-block;
+            background: linear-gradient(45deg, #0066cc, #0099ff);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .create-new:hover {
+            background: linear-gradient(45deg, #0052a3, #007acc);
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+        }
+        .table-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        th {
+            background-color: #4da6ff;
+            color: white;
+            font-weight: 600;
+        }
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+        .actions a {
+            color: #0066cc;
+            margin-right: 10px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .actions a:hover {
+            color: #004499;
+        }
+        .icon {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Índice de Clientes</h1>
+    </header>
+
+    <div class="container">
+        <a asp-action="Create" class="create-new">
+            <i class="fas fa-plus-circle icon"></i>Crear Nuevo Cliente
+        </a>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.customer_name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.email)
+                        </th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.customer_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.email)
+                            </td>
+                            <td class="actions">
+                                <a asp-action="Edit" asp-route-id="@item.id_customer"><i class="fas fa-edit icon"></i>Editar</a>
+                                <a asp-action="Details" asp-route-id="@item.id_customer"><i class="fas fa-info-circle icon"></i>Detalles</a>
+                                <a asp-action="Delete" asp-route-id="@item.id_customer"><i class="fas fa-trash-alt icon"></i>Eliminar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
