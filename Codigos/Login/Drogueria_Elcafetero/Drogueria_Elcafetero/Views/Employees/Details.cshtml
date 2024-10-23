@@ -1,0 +1,55 @@
+﻿@model Drogueria_Elcafetero.Models.Employees
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = null;
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Employees</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.employee_name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.employee_name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.salary)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.salary)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.hiring_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.hiring_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.password_hash)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.password_hash)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_rol)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_rol)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id_employee">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

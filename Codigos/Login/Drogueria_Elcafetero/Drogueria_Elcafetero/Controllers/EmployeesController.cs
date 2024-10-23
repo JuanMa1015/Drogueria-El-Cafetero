@@ -1,57 +1,157 @@
-﻿using Drogueria_Elcafetero.Datos;
-using Drogueria_Elcafetero.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Newtonsoft.Json;
-
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using Drogueria_Elcafetero.Data;
+using Drogueria_Elcafetero.Models;
 
 namespace Drogueria_Elcafetero.Controllers
 {
-    public class EmployeesController : Controller
+    public class employeesController : Controller
     {
-        public IActionResult IndexEmployee()
+        private readonly Drogueria_ElcafeteroContext _context;
+
+        public employeesController(Drogueria_ElcafeteroContext context)
         {
-            return View();
+            _context = context;
         }
 
-        public IActionResult Login()
+        // GET: Employees
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _context.employees.ToListAsync());
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Login(string email, string password_hash)
+        // GET: Employees/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
-            Employees employees = new DBEmployee().EncontrarUsuarios(email, password_hash);
-
-            if (employees.employee_name != null)
+            if (id == null)
             {
-                var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Name, employees.employee_name),
-                    new Claim(ClaimTypes.Role, "Empleado")
-                };
-
-                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-
-                var authProperties = new AuthenticationProperties
-                {
-                    IsPersistent = true,
-                    ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(5)
-                };
-
-                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
-
-                HttpContext.Session.SetString("Empleado",JsonConvert.SerializeObject(employees));
-
-                return RedirectToAction("IndexEmployee", "Employees");
+                return NotFound();
             }
 
+            var Employees = await _context.employees
+                .FirstOrDefaultAsync(m => m.id_employee == id);
+            if (Employees == null)
+            {
+                return NotFound();
+            }
+
+            return View(Employees);
+        }
+
+        // GET: Employees/Create
+        public IActionResult Create()
+        {
             return View();
         }
 
-        
+        // POST: Employees/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("id_employee,employee_name,salary,hiring_date,email,password_hash,id_Rol")] Employees Employees)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(Employees);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(Employees);
+        }
+
+        // GET: Employees/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var Employees = await _context.employees.FindAsync(id);
+            if (Employees == null)
+            {
+                return NotFound();
+            }
+            return View(Employees);
+        }
+
+        // POST: Employees/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("id_employee,employee_name,salary,hiring_date,email,password_hash,id_Rol")] Employees Employees)
+        {
+            if (id != Employees.id_employee)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(Employees);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!EmployeesExists(Employees.id_employee))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(Employees);
+        }
+
+        // GET: Employees/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var Employees = await _context.employees
+                .FirstOrDefaultAsync(m => m.id_employee == id);
+            if (Employees == null)
+            {
+                return NotFound();
+            }
+
+            return View(Employees);
+        }
+
+        // POST: Employees/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var Employees = await _context.employees.FindAsync(id);
+            if (Employees != null)
+            {
+                _context.employees.Remove(Employees);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool EmployeesExists(int id)
+        {
+            return _context.employees.Any(e => e.id_employee == id);
+        }
     }
 }

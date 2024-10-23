@@ -1,12 +1,71 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\models\\vmdepartment_city_towns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\models\\vmdepartment_city_towns.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\city_townscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\city_townscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\data\\drogueria_elcafeterocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\data\\drogueria_elcafeterocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Drogueria_ElcafeteroContext.cs",
+              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Data\\Drogueria_ElcafeteroContext.cs",
+              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\Data\\Drogueria_ElcafeteroContext.cs",
+              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Data\\Drogueria_ElcafeteroContext.cs",
+              "RelativeToolTip": "Drogueria_Elcafetero\\Data\\Drogueria_ElcafeteroContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:36:28.875Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "city_townsController.cs",
+              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\city_townsController.cs",
+              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\city_townsController.cs",
+              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\city_townsController.cs",
+              "RelativeToolTip": "Drogueria_Elcafetero\\city_townsController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:34:58.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VMDepartment_City_towns.cs",
+              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Models\\VMDepartment_City_towns.cs",
+              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\Models\\VMDepartment_City_towns.cs",
+              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Models\\VMDepartment_City_towns.cs",
+              "RelativeToolTip": "Drogueria_Elcafetero\\Models\\VMDepartment_City_towns.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T15:29:20.132Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

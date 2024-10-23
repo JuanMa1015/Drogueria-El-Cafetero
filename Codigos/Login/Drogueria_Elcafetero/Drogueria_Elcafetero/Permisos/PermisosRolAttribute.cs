@@ -16,19 +16,26 @@ namespace Drogueria_Elcafetero.Permisos
 
         public override void OnActionExecuted(ActionExecutedContext context)
         {
-            var session = context.HttpContext.Session.GetString("Empleado");
+            var sessionEmployee = context.HttpContext.Session.GetString("Empleado");
+            var sessionAdmin = context.HttpContext.Session.GetString("Administrador");
 
-            if (session != null)
+            if (sessionEmployee != null)
             {
-                var employee = JsonConvert.DeserializeObject<Employees>(session);
+                var employee = JsonConvert.DeserializeObject<Employees>(sessionEmployee);
 
-                if (employee.id_Rol != id_rol)
+                if (employee.id_rol != id_rol)
                 {
                     context.Result = new RedirectToActionResult("SinPermiso","Home",null);
                 }
             }
+            else if (sessionAdmin != null)
+            {
+                var admin = JsonConvert.DeserializeObject<Employees>(sessionAdmin);
+                if (admin.id_rol != id_rol)
+                {
+                    context.Result = new RedirectToActionResult("SinPermiso", "Home", null);
+                }
+            }
         }
-
-
     }
 }
