@@ -1,0 +1,52 @@
+﻿using Drogueria_el_cafetero.Models;
+using Npgsql;
+using System.Data.SqlClient;
+using System.Data;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
+using NpgsqlTypes;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+using Microsoft.AspNetCore.Mvc;
+using Drogueria_Elcafetero.Models;
+
+namespace Drogueria_Elcafetero.Datos
+{
+    public class DBEmployee
+    {
+        private static string CadenaSQL = "Host=ep-delicate-bread-a5yfcfjs.us-east-2.aws.neon.tech;Port=5432;Database=Drogueria_El_Cafetero;Username=Drogueria_El_Cafetero_owner;Password=JZNHkhQ3Cl0V;SSL Mode=Require";
+
+        public Employees EncontrarUsuarios(string email, string password_hash)
+        {
+            Employees employees = new Employees();
+
+            using (NpgsqlConnection conexion = new NpgsqlConnection(CadenaSQL))
+            {
+                string query = "Select employee_name, email, password_hash, id_rol from Employees where @email = email and @password_hash = " +
+                    "password_hash";
+
+                NpgsqlCommand cmd = new NpgsqlCommand(query, conexion);
+
+                cmd.Parameters.AddWithValue("@email", email);
+                cmd.Parameters.AddWithValue("@password_hash", password_hash);
+
+                cmd.CommandType = CommandType.Text;
+
+                conexion.Open();    
+
+                using (NpgsqlDataReader dr = cmd.ExecuteReader())
+                {
+                    while (dr.Read())
+                    {
+                        employees = new Employees()
+                        {
+                            employee_name = dr["employee_name"].ToString(),
+                            email = dr["email"].ToString(),
+                            password_hash = dr["password_hash"].ToString(),
+                            id_Rol = (Rol)dr["id_Rol"]
+                        };
+                    }
+                }
+            }
+            return employees;
+        }
+    }
+}
