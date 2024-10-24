@@ -1,6 +1,9 @@
-﻿@model Drogueria_el_cafetero.Models.Customers
+﻿@model Drogueria_el_cafetero.Models.customers
 @{
     ViewData["Title"] = "Home Page";
+}
+@{
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -11,8 +14,6 @@
     <title>Farmacia El Cafetero - Tu bienestar, nuestra pasión</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
-
-
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #f0f8ff;
@@ -132,9 +133,54 @@
                 color: #4da6ff;
                 margin-bottom: 15px;
             }
+
+        .navbar {
+            background-color: #0066cc;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .navbar-logo {
+            color: white;
+            font-size: 1.5em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .navbar-login {
+            background-color: white;
+            color: #0066cc;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+            .navbar-login:hover {
+                background-color: #e6f3ff;
+            }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">Farmacia El Cafetero</a>
+            <a class="navbar-login" asp-area="" asp-controller="Inicio" asp-action="Login">Iniciar Sesión</a>
+        </div>
+    </nav>
+
     <header>
         <h1>Farmacia El Cafetero</h1>
         <p class="tagline">Tu bienestar, nuestra pasión</p>

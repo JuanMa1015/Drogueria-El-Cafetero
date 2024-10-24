@@ -12,10 +12,5 @@ namespace Drogueria_Elcafetero.Controllers
         {
             return View();
         }
-
-        public IActionResult NewEmployee()
-        {
-            return View();
-        }
     }
 }

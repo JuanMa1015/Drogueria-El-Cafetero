@@ -26,12 +26,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\gonza\Desktop\Drogueria-El-Cafetero\Codigos\Login\Drogueria_Elcafetero\Drogueria_Elcafetero
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Admin/AdminVM.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5WTS5jc2h0bWw=
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/addresses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRkcmVzc2VzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Admin/NewEmployee.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cTmV3RW1wbG95ZWUuY3NodG1s
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/addresses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRkcmVzc2VzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/addresses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRkcmVzc2VzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/addresses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRkcmVzc2VzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/addresses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRkcmVzc2VzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Admin/AdminVM.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cQWRtaW5WTS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Admin/_AdminLayout.cshtml]
@@ -56,6 +72,46 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/city_towns/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY2l0eV90b3duc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/customers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdG9tZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/customers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdG9tZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/customers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdG9tZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/customers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdG9tZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/customers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdG9tZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/discounts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGlzY291bnRzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/discounts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGlzY291bnRzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/discounts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGlzY291bnRzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/discounts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGlzY291bnRzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/discounts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGlzY291bnRzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/EmployeesHPJ/IndexEmployee.cshtml]
@@ -94,10 +150,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Home/IndexSinRegistrar.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFNpblJlZ2lzdHJhci5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -130,12 +182,92 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5pY2lvXFJlc3RhYmxlY2VyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Products/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Products/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Products/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Products/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Purchase_orders/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2Vfb3JkZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Purchase_orders/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2Vfb3JkZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Purchase_orders/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2Vfb3JkZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Purchase_orders/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2Vfb3JkZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Purchase_orders/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2Vfb3JkZXJzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/sales/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2FsZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/sales/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2FsZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/sales/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2FsZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/sales/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2FsZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/sales/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2FsZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/suppliers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3VwcGxpZXJzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/suppliers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3VwcGxpZXJzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/suppliers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3VwcGxpZXJzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/suppliers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3VwcGxpZXJzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/suppliers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc3VwcGxpZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/gonza/Desktop/Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero/Views/_ViewImports.cshtml]

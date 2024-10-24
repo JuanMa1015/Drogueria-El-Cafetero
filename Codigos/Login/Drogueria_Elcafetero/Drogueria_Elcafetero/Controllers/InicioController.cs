@@ -29,7 +29,7 @@ namespace WebAppCorreo.Controllers
         [HttpPost]
         public ActionResult Login(string email, string password_hash)
         {
-            Customers Customers = DBCustomers.Validar(email, UtilidadServicio.ConvertirSHA256(password_hash));
+            customers Customers = DBcustomers.Validar(email, UtilidadServicio.ConvertirSHA256(password_hash));
 
             if (Customers != null)
             {
@@ -69,45 +69,45 @@ namespace WebAppCorreo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Registrar(Customers Customers)
+        public ActionResult Registrar(customers customer)
         {
-            if (Customers.password_hash != Customers.confirmed_password)
+            if (customer.password_hash != customer.confirmed_password)
             {
-                ViewBag.Nombre = Customers.customer_name;
-                ViewBag.Correo = Customers.email;
+                ViewBag.Nombre = customer.customer_name;
+                ViewBag.Correo = customer.email;
                 ViewBag.Mensaje = "Las contraseñas no coinciden";
                 return View();
             }
 
-            if (DBCustomers.Obtener(Customers.email) == null)
+            if (DBcustomers.Obtener(customer.email) == null)
             {
-                Customers.password_hash = UtilidadServicio.ConvertirSHA256(Customers.password_hash);
-                Customers.token = UtilidadServicio.GenerarToken();
-                Customers.reset_password = false;
-                Customers.confirmed = false;
+                customer.password_hash = UtilidadServicio.ConvertirSHA256(customer.password_hash);
+                customer.token = UtilidadServicio.GenerarToken();
+                customer.reset_password = false;
+                customer.confirmed = false;
 
-                bool respuesta = DBCustomers.Registrar(Customers);
+                bool respuesta = DBcustomers.Registrar(customer);
 
                 if (respuesta)
                 {
                     string path = Path.Combine(_env.ContentRootPath, "Plantilla", "Confirmar.html");
 
                     string content = System.IO.File.ReadAllText(path);
-                    string url = $"{Request.Scheme}://{Request.Host}/Inicio/Confirmar?token={Customers.token}";
+                    string url = $"{Request.Scheme}://{Request.Host}/Inicio/Confirmar?token={customer.token}";
 
-                    string htmlbody = string.Format(content, Customers.customer_name, url);
+                    string htmlbody = string.Format(content, customer.customer_name, url);
 
 
                     Correo correoDTO = new Correo()
                     {
-                        Para = Customers.email,
+                        Para = customer.email,
                         Asunto = "Correo confirmacion",
                         Contenido = htmlbody
                     };
 
                     bool enviado = CorreoServicio.Enviar(correoDTO);
                     ViewBag.Creado = true;
-                    ViewBag.Mensaje = $"Su cuenta ha sido creada. Hemos enviado un mensaje al correo {Customers.email} para confirmar su cuenta";
+                    ViewBag.Mensaje = $"Su cuenta ha sido creada. Hemos enviado un mensaje al correo {customer.email} para confirmar su cuenta";
                 }
                 else
                 {
@@ -128,7 +128,7 @@ namespace WebAppCorreo.Controllers
 
         public ActionResult Confirmar(string token)
         {
-            ViewBag.Respuesta = DBCustomers.Confirmar(token);
+            ViewBag.Respuesta = DBcustomers.Confirmar(token);
             return View();
         }
 
@@ -139,11 +139,11 @@ namespace WebAppCorreo.Controllers
         [HttpPost]
         public ActionResult Restablecer(string email)
         {
-            Customers Customers = DBCustomers.Obtener(email);
+            customers Customers = DBcustomers.Obtener(email);
             ViewBag.Correo = email;
             if (Customers != null)
             {
-                bool respuesta = DBCustomers.RestablecerActualizar(true, Customers.password_hash, Customers.token);
+                bool respuesta = DBcustomers.RestablecerActualizar(true, Customers.password_hash, Customers.token);
 
                 if (respuesta)
                 {
@@ -197,7 +197,7 @@ namespace WebAppCorreo.Controllers
                 return View();
             }
 
-            bool respuesta = DBCustomers.RestablecerActualizar(false, UtilidadServicio.ConvertirSHA256(password_hash), token);
+            bool respuesta = DBcustomers.RestablecerActualizar(false, UtilidadServicio.ConvertirSHA256(password_hash), token);
 
             if (respuesta)
                 ViewBag.Restablecido = true;

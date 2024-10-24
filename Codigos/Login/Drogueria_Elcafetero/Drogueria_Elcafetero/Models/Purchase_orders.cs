@@ -2,7 +2,7 @@
 
 namespace Drogueria_Elcafetero.Models
 {
-    public class Purchase_orders 
+    public class purchase_orders 
     {
         [Key] public int id_purchase_order { get; set; }
         public int id_supplier { get; set; }

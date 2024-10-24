@@ -114,6 +114,7 @@ CREATE TABLE Customers (
     token VARCHAR(50) NOT NULL UNIQUE,
     confirmed BOOLEAN NOT NULL,
     reset_password BOOLEAN NOT NULL
+    confirmed_password VARCHAR(255)
 );
 
 -- Tabla Sales

@@ -1,0 +1,42 @@
+﻿@model Drogueria_Elcafetero.Models.purchase_orders
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Purchase_orders</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_supplier)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_supplier)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.order_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.order_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.total_order)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.total_order)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.state)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.state)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id_purchase_order">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

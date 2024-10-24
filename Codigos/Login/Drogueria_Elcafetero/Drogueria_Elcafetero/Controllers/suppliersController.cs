@@ -7,38 +7,27 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Drogueria_Elcafetero.Data;
 using Drogueria_Elcafetero.Models;
+using Drogueria_Elcafetero.Permisos;
 
-namespace Drogueria_Elcafetero
+namespace Drogueria_Elcafetero.Controllers
 {
-    public class city_townsController : Controller
+    [PermisosRol(Rol.Administrador)]
+    public class suppliersController : Controller
     {
         private readonly Drogueria_ElcafeteroContext _context;
 
-        public city_townsController(Drogueria_ElcafeteroContext context)
+        public suppliersController(Drogueria_ElcafeteroContext context)
         {
             _context = context;
         }
 
-        // GET: city_towns
+        // GET: suppliers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.city_towns.ToListAsync());
+            return View(await _context.suppliers.ToListAsync());
         }
 
-        public async Task<IActionResult> IndexCity_towns()
-        {
-            var departmentcity_towns = await _context.department_City_Towns
-                .FromSqlRaw(@" SELECT d.department_name,
-                                c.city_name
-                                FROM 
-                                 Department d
-                                LEFT JOIN 
-                                City_towns c ON d.department_name = c.department_name;
-                ").ToListAsync();
-            return View(await _context.city_towns.ToListAsync());
-        }
-
-        // GET: city_towns/Details/5
+        // GET: suppliers/Details/5
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -46,39 +35,39 @@ namespace Drogueria_Elcafetero
                 return NotFound();
             }
 
-            var city_towns = await _context.city_towns
-                .FirstOrDefaultAsync(m => m.city_name == id);
-            if (city_towns == null)
+            var suppliers = await _context.suppliers
+                .FirstOrDefaultAsync(m => m.id_supplier == id);
+            if (suppliers == null)
             {
                 return NotFound();
             }
 
-            return View(city_towns);
+            return View(suppliers);
         }
 
-        // GET: city_towns/Create
+        // GET: suppliers/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: city_towns/Create
+        // POST: suppliers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("city_name,department_name")] city_towns city_towns)
+        public async Task<IActionResult> Create([Bind("id_supplier,supplier_name,telephone,email")] suppliers suppliers)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(city_towns);
+                _context.Add(suppliers);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(city_towns);
+            return View(suppliers);
         }
 
-        // GET: city_towns/Edit/5
+        // GET: suppliers/Edit/5
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -86,22 +75,22 @@ namespace Drogueria_Elcafetero
                 return NotFound();
             }
 
-            var city_towns = await _context.city_towns.FindAsync(id);
-            if (city_towns == null)
+            var suppliers = await _context.suppliers.FindAsync(id);
+            if (suppliers == null)
             {
                 return NotFound();
             }
-            return View(city_towns);
+            return View(suppliers);
         }
 
-        // POST: city_towns/Edit/5
+        // POST: suppliers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("city_name,department_name")] city_towns city_towns)
+        public async Task<IActionResult> Edit(string id, [Bind("id_supplier,supplier_name,telephone,email")] suppliers suppliers)
         {
-            if (id != city_towns.city_name)
+            if (id != suppliers.id_supplier)
             {
                 return NotFound();
             }
@@ -110,12 +99,12 @@ namespace Drogueria_Elcafetero
             {
                 try
                 {
-                    _context.Update(city_towns);
+                    _context.Update(suppliers);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!city_townsExists(city_towns.city_name))
+                    if (!suppliersExists(suppliers.id_supplier))
                     {
                         return NotFound();
                     }
@@ -126,10 +115,10 @@ namespace Drogueria_Elcafetero
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(city_towns);
+            return View(suppliers);
         }
 
-        // GET: city_towns/Delete/5
+        // GET: suppliers/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -137,34 +126,34 @@ namespace Drogueria_Elcafetero
                 return NotFound();
             }
 
-            var city_towns = await _context.city_towns
-                .FirstOrDefaultAsync(m => m.city_name == id);
-            if (city_towns == null)
+            var suppliers = await _context.suppliers
+                .FirstOrDefaultAsync(m => m.id_supplier == id);
+            if (suppliers == null)
             {
                 return NotFound();
             }
 
-            return View(city_towns);
+            return View(suppliers);
         }
 
-        // POST: city_towns/Delete/5
+        // POST: suppliers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
-            var city_towns = await _context.city_towns.FindAsync(id);
-            if (city_towns != null)
+            var suppliers = await _context.suppliers.FindAsync(id);
+            if (suppliers != null)
             {
-                _context.city_towns.Remove(city_towns);
+                _context.suppliers.Remove(suppliers);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool city_townsExists(string id)
+        private bool suppliersExists(string id)
         {
-            return _context.city_towns.Any(e => e.city_name == id);
+            return _context.suppliers.Any(e => e.id_supplier == id);
         }
     }
 }

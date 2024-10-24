@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Drogueria_Elcafetero.Models.discount>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id_supplier_invoice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.discount_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.discount_value)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.start_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.end_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.conditions)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_supplier_invoice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.discount_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.discount_value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.end_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.conditions)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id_discount">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id_discount">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id_discount">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

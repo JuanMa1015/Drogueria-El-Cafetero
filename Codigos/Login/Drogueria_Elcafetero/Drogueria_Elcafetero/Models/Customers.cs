@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 namespace Drogueria_el_cafetero.Models
 {
-    public class Customers
+    public class customers
     {
         [Key] public int id_customer { get; set; }
         public string customer_name { get; set; }

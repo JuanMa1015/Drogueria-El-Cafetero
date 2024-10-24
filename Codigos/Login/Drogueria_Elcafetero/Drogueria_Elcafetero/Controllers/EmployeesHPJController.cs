@@ -71,7 +71,6 @@ namespace Drogueria_Elcafetero.Controllers
                 return RedirectToAction("AdminVM", "Admin");
             }
 
-            return View();
         }
 
         

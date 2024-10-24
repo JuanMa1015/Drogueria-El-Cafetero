@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Drogueria_Elcafetero.Models
 {
-    public class Sales 
+    public class sales 
     {
-        [Key] public int id_Sale { get; set; }
+        [Key] public int id_sale { get; set; }
         public int id_customer { get; set; }
         public int id_employee { get; set; }
         public DateTime sale_date { get; set; }
