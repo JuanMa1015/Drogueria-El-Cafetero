@@ -1,36 +1,115 @@
 ﻿@model Drogueria_Elcafetero.Models.address
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles";
+    Layout = null;
 }
 
-<h1>Details</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles de Dirección</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-<div>
-    <h4>address</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.city_name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.city_name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.id_supplier)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_supplier)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id_address">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            color: white;
+            background-color: #007bff; /* Fondo azul para detalles */
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        dl {
+            margin: 0;
+        }
+
+        dt {
+            font-weight: bold;
+            color: #333;
+        }
+
+        dd {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Color azul */
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Color azul más oscuro */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Detalles de Dirección</h1>
+
+        <div>
+            <h4>Detalles de la Dirección</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.city_name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.city_name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.description)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.description)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.id_supplier)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.id_supplier)
+                </dd>
+            </dl>
+        </div>
+
+        <div class="form-group" style="text-align:center; margin-top: 20px;">
+            <a class="btn" asp-action="Edit" asp-route-id="@Model?.id_address">Editar</a>
+            <a class="btn" asp-action="Index">Volver a la Lista</a>
+        </div>
+    </div>
+</body>
+</html>

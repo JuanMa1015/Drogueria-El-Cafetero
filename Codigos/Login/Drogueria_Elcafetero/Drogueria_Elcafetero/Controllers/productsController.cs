@@ -11,7 +11,7 @@ using Drogueria_Elcafetero.Permisos;
 
 namespace Drogueria_Elcafetero.Controllers
 {
-    [PermisosRol(Rol.Administrador)]
+    [PermisosRol(rol.Administrador)]
     public class productsController : Controller
     {
         private readonly Drogueria_ElcafeteroContext _context;
@@ -60,6 +60,15 @@ namespace Drogueria_Elcafetero.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (products.expiration_date.Kind == DateTimeKind.Unspecified)
+                {
+                    products.expiration_date = DateTime.SpecifyKind(products.expiration_date, DateTimeKind.Utc);
+
+                }
+                else
+                {
+                    products.expiration_date = products.expiration_date.ToUniversalTime();
+                }
                 _context.Add(products);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

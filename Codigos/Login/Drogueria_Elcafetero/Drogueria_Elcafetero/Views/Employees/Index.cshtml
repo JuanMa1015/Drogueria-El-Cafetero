@@ -5,62 +5,56 @@
     Layout = null;
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Empleados - Farmacia El Cafetero</title>
+</head>
+<body>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.employee_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.salary)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.hiring_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.password_hash)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.id_rol)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.employee_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.salary)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.hiring_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.password_hash)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_rol)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_employee">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_employee">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_employee">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <header>
+        <h1>Listado de Empleados</h1>
+    </header>
+
+    <div class="container">
+        <p>
+            <a class="btn-create" asp-action="Create">Crear Nuevo Empleado</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.employee_name)</th>
+                    <th>@Html.DisplayNameFor(model => model.salary)</th>
+                    <th>@Html.DisplayNameFor(model => model.hiring_date)</th>
+                    <th>@Html.DisplayNameFor(model => model.email)</th>
+                    <th>@Html.DisplayNameFor(model => model.password_hash)</th>
+                    <th>@Html.DisplayNameFor(model => model.id_rol)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.employee_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.salary)</td>
+                        <td>@Html.DisplayFor(modelItem => item.hiring_date)</td>
+                        <td>@Html.DisplayFor(modelItem => item.email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.password_hash)</td>
+                        <td>@Html.DisplayFor(modelItem => item.id_rol)</td>
+                        <td class="actions">
+                            <a class="btn-action btn-edit" asp-action="Edit" asp-route-id="@item.id_employee">Editar</a>
+                            <a class="btn-action btn-details" asp-action="Details" asp-route-id="@item.id_employee">Detalles</a>
+                            <a class="btn-action btn-delete" asp-action="Delete" asp-route-id="@item.id_employee">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

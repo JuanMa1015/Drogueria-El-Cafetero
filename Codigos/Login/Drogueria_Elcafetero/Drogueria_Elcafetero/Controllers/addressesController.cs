@@ -11,7 +11,7 @@ using Drogueria_Elcafetero.Permisos;
 
 namespace Drogueria_Elcafetero.Controllers
 {
-    [PermisosRol(Rol.Administrador)]
+    [PermisosRol(rol.Administrador)]
     public class addressesController : Controller
     {
 

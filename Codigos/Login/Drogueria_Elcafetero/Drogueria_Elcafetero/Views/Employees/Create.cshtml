@@ -1,59 +1,172 @@
 ﻿@model Drogueria_Elcafetero.Models.Employees
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Empleado";
     Layout = null;
 }
 
-<h1>Create</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Empleado - Farmacia El Cafetero</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-<h4>Employees</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4da6ff 0%, #2196f3 100%);
+            color: white;
+            text-align: center;
+            padding: 2em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            padding: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            transition: transform 0.3s ease;
+        }
+
+            .form-container:hover {
+                transform: translateY(-5px);
+            }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+            input:focus, select:focus {
+                border-color: #0056b3;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #0066cc, #0099ff);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+            .btn:hover {
+                background: linear-gradient(45deg, #0052a3, #007acc);
+                transform: scale(1.05);
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            }
+
+        .text-danger {
+            color: #e74c3c;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Crear Empleado</h1>
+    </header>
+
+    <div class="form-container">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="employee_name" class="control-label"></label>
+                <label asp-for="employee_name" class="control-label">Nombre del Empleado</label>
                 <input asp-for="employee_name" class="form-control" />
                 <span asp-validation-for="employee_name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="salary" class="control-label"></label>
-                <input asp-for="salary" class="form-control" />
+                <label asp-for="salary" class="control-label">Salario</label>
+                <input asp-for="salary" type="number" step="0.01" class="form-control" />
                 <span asp-validation-for="salary" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="hiring_date" class="control-label"></label>
-                <input asp-for="hiring_date" class="form-control" />
+                <label asp-for="hiring_date" class="control-label">Fecha de Contratación</label>
+                <input asp-for="hiring_date" type="date" class="form-control" />
                 <span asp-validation-for="hiring_date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="email" class="control-label"></label>
-                <input asp-for="email" class="form-control" />
+                <label asp-for="email" class="control-label">Correo Electrónico</label>
+                <input asp-for="email" type="email" class="form-control" />
                 <span asp-validation-for="email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="password_hash" class="control-label"></label>
-                <input asp-for="password_hash" class="form-control" />
+                <label asp-for="password_hash" class="control-label">Contraseña</label>
+                <input asp-for="password_hash" type="password" class="form-control" />
                 <span asp-validation-for="password_hash" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="id_rol" class="control-label"></label>
-                <select asp-for="id_rol" class="form-control"></select>
+                <label asp-for="id_rol" class="control-label">Rol</label>
+                <select asp-for="id_rol" class="form-control">
+                    <option value="">Seleccionar Rol</option>
+                    <!-- Aquí puedes agregar las opciones para los roles si tienes una lista -->
+                </select>
                 <span asp-validation-for="id_rol" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="container">
+        <a class="btn" asp-action="Index">Volver al listado</a>
+    </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+</body>
+</html>

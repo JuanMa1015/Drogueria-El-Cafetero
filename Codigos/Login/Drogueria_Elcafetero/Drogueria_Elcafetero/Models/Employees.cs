@@ -10,6 +10,7 @@ namespace Drogueria_Elcafetero.Models
         public string email { get; set; }
         public string password_hash { get; set; }
 
-        public Rol id_rol { get; set; }
+        public  rol id_rol = (rol)(int)rol.Empleado;
+
     }
 }

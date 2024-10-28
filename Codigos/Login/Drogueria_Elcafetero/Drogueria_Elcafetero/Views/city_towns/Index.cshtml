@@ -1,35 +1,51 @@
 ﻿@model IEnumerable<Drogueria_Elcafetero.Models.city_towns>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Ciudades y Pueblos";
+    Layout = null;
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Ciudades y Pueblos - Farmacia El Cafetero</title>
+    <link  rel="stylesheet" href="~/css/styleIndexAdmin.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Ciudades y Pueblos</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.department_name)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.department_name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.city_name">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.city_name">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.city_name">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <p>
+            <a class="btn-create" asp-action="Create">Crear Nueva Ciudad/Pueblo</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.department_name)
+                    </th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.department_name)
+                        </td>
+                        <td class="actions">
+                            <a class="btn-action btn-edit" asp-action="Edit" asp-route-id="@item.city_name">Editar</a>
+                            <a class="btn-action btn-details" asp-action="Details" asp-route-id="@item.city_name">Detalles</a>
+                            <a class="btn-action btn-delete" asp-action="Delete" asp-route-id="@item.city_name">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

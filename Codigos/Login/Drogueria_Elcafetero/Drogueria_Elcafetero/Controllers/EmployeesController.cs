@@ -11,7 +11,7 @@ using Drogueria_Elcafetero.Permisos;
 
 namespace Drogueria_Elcafetero.Controllers
 {
-    [PermisosRol(Rol.Administrador)]
+    [PermisosRol(rol.Administrador)]
     public class employeesController : Controller
     {
         private readonly Drogueria_ElcafeteroContext _context;
@@ -60,6 +60,16 @@ namespace Drogueria_Elcafetero.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                if (Employees.hiring_date.Kind == DateTimeKind.Unspecified)
+                {
+                    Employees.hiring_date = DateTime.SpecifyKind(Employees.hiring_date, DateTimeKind.Utc);
+
+                }
+                else
+                {
+                    Employees.hiring_date = Employees.hiring_date.ToUniversalTime();
+                }
                 _context.Add(Employees);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

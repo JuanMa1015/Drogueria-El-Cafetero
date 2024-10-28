@@ -2,7 +2,7 @@
 
 namespace Drogueria_Elcafetero.Models
 {
-    public class Sales_Details
+    public class sales_details
     {
         [Key] public int id_detail { get; set; }
         public int id_sale { get; set; }

@@ -13,7 +13,7 @@ namespace Drogueria_Elcafetero.Datos
 {
     public class DBEmployee
     {
-        private static string CadenaSQL = "Host=ep-delicate-bread-a5yfcfjs.us-east-2.aws.neon.tech;Port=5432;Database=Drogueria_El_Cafetero;Username=Drogueria_El_Cafetero_owner;Password=JZNHkhQ3Cl0V;SSL Mode=Require";
+        private static string CadenaSQL = "Host=ep-round-sun-a5bxi93t.us-east-2.aws.neon.tech;Database=Drogueria_El_Cafetero;Username=Drogueria_El_Cafetero_owner;Password=rxaQSkAh92RU;SSL Mode=Require;Trust Server Certificate=true";
 
         public Employees EncontrarUsuarios(string email, string password_hash)
         {
@@ -42,7 +42,7 @@ namespace Drogueria_Elcafetero.Datos
                             employee_name = dr["employee_name"].ToString(),
                             email = dr["email"].ToString(),
                             password_hash = dr["password_hash"].ToString(),
-                            id_rol = (Rol)dr["id_Rol"]
+                            id_rol = (rol)dr["id_Rol"]
                         };
                     }
                 }
@@ -78,7 +78,7 @@ namespace Drogueria_Elcafetero.Datos
                             employee_name = dr["employee_name"].ToString(),
                             email = dr["email"].ToString(),
                             password_hash = dr["password_hash"].ToString(),
-                            id_rol = (Rol)dr["id_Rol"]
+                            id_rol = (rol)dr["id_Rol"]
                         };
                     }
                 }

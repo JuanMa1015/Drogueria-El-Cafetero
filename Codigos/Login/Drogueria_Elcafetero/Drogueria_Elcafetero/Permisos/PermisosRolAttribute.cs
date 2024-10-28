@@ -7,9 +7,9 @@ namespace Drogueria_Elcafetero.Permisos
 {
     public class PermisosRolAttribute : ActionFilterAttribute
     {
-        private readonly Rol id_rol;
+        private readonly rol id_rol;
 
-        public  PermisosRolAttribute(Rol _id_rol)
+        public  PermisosRolAttribute(rol _id_rol)
         {
             id_rol = _id_rol;
         }

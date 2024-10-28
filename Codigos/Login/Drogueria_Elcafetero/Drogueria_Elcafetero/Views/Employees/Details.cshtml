@@ -1,55 +1,138 @@
 ﻿@model Drogueria_Elcafetero.Models.Employees
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de Empleado";
     Layout = null;
 }
 
-<h1>Details</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Empleado</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css" />
+    <link rel="stylesheet" href="~/css/viewsAdmin.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+   @*  <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
 
-<div>
-    <h4>Employees</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.employee_name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.employee_name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.salary)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.salary)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.hiring_date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.hiring_date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.email)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.password_hash)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.password_hash)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.id_rol)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.id_rol)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.id_employee">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4da6ff 0%, #2196f3 100%);
+            color: white;
+            text-align: center;
+            padding: 2em;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #0066cc, #0099ff);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #0052a3, #007acc);
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        dl {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        dt {
+            font-weight: bold;
+            width: 25%;
+        }
+
+        dd {
+            width: 75%;
+            margin-left: 0;
+        }
+
+        hr {
+            border-top: 2px solid #4da6ff;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .actions a {
+            margin-right: 10px;
+        }
+    </style> *@
+</head>
+<body>
+
+    <header>
+        <h1>Detalles del Empleado</h1>
+    </header>
+
+    <div class="container">
+        <div>
+            <h4>Empleado</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-2">@Html.DisplayNameFor(model => model.employee_name)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.employee_name)</dd>
+
+                <dt class="col-sm-2">@Html.DisplayNameFor(model => model.salary)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.salary)</dd>
+
+                <dt class="col-sm-2">@Html.DisplayNameFor(model => model.hiring_date)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.hiring_date)</dd>
+
+                <dt class="col-sm-2">@Html.DisplayNameFor(model => model.email)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.email)</dd>
+
+                <dt class="col-sm-2">@Html.DisplayNameFor(model => model.password_hash)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.password_hash)</dd>
+
+                <dt class="col-sm-2">@Html.DisplayNameFor(model => model.id_rol)</dt>
+                <dd class="col-sm-10">@Html.DisplayFor(model => model.id_rol)</dd>
+            </dl>
+        </div>
+
+        <div class="actions">
+            <a class="btn" asp-action="Edit" asp-route-id="@Model?.id_employee">Editar</a> |
+            <a class="btn" asp-action="Index">Volver al Listado</a>
+        </div>
+    </div>
+
+</body>
+</html>

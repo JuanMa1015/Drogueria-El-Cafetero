@@ -1,43 +1,57 @@
 ﻿@model Drogueria_Elcafetero.Models.address
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Dirección";
+    Layout = null;
 }
 
-<h1>Create</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Dirección</title>
+    <link rel="stylesheet" href="~/css/style3.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Dirección</h1>
 
-<h4>address</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+        <h4>Información de la Dirección</h4>
+        <hr />
+
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="city_name" class="control-label"></label>
+                <label asp-for="city_name" class="control-label">Nombre de la Ciudad</label>
                 <input asp-for="city_name" class="form-control" />
                 <span asp-validation-for="city_name" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
+                <label asp-for="description" class="control-label">Descripción</label>
                 <input asp-for="description" class="form-control" />
                 <span asp-validation-for="description" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <label asp-for="id_supplier" class="control-label"></label>
+                <label asp-for="id_supplier" class="control-label">ID del Proveedor</label>
                 <input asp-for="id_supplier" class="form-control" />
                 <span asp-validation-for="id_supplier" class="text-danger"></span>
             </div>
+
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
+                <a class="btn-secondary" asp-action="Index">Volver a la Lista</a>
             </div>
         </form>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>

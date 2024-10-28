@@ -1,0 +1,164 @@
+﻿@model IEnumerable<Drogueria_Elcafetero.Models.sales_invoices>
+
+@{
+    ViewData["Title"] = "Listado de Facturas de Ventas";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Facturas de Ventas - Farmacia El Cafetero</title>
+    <link rel="stylesheet" href="~/css/styleIndexAdmin.css" />
+@*     <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            color: white;
+            background-color: #0066cc; /* Fondo azul */
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .btn-create {
+            background-color: #0066cc;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .btn-create:hover {
+            background-color: #004d99;
+            transform: scale(1.05);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            table-layout: fixed; /* Evitar barra deslizadora */
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            word-wrap: break-word; /* Permitir que el texto se ajuste dentro de la celda */
+        }
+
+        th {
+            background-color: #0066cc;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:hover {
+            background-color: #f1f9ff;
+        }
+
+        .btn-action {
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-edit {
+            background-color: #4CAF50; /* Verde para Editar */
+        }
+
+        .btn-edit:hover {
+            background-color: #45a049;
+        }
+
+        .btn-details {
+            background-color: #2196F3; /* Azul para Detalles */
+        }
+
+        .btn-details:hover {
+            background-color: #0b7dda;
+        }
+
+        .btn-delete {
+            background-color: #f44336; /* Rojo para Eliminar */
+        }
+
+        .btn-delete:hover {
+            background-color: #da190b;
+        }
+
+        /* Diseño en pantallas grandes */
+        .actions {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+        }
+    </style> *@
+</head>
+<body>
+    <div class="container">
+        <h1>Listado de Facturas de Ventas</h1>
+
+        <p>
+            <a class="btn-create" asp-action="Create">Crear Una Nueva Factura de Venta</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.id_sale)</th>
+                    <th>@Html.DisplayNameFor(model => model.issue_number)</th>
+                    <th>@Html.DisplayNameFor(model => model.issue_date)</th>
+                    <th>@Html.DisplayNameFor(model => model.total_invoice)</th>
+                    <th>@Html.DisplayNameFor(model => model.state)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.id_sale)</td>
+                        <td>@Html.DisplayFor(modelItem => item.issue_number)</td>
+                        <td>@Html.DisplayFor(modelItem => item.issue_date)</td>
+                        <td>@Html.DisplayFor(modelItem => item.total_invoice)</td>
+                        <td>@Html.DisplayFor(modelItem => item.state)</td>
+                        <td class="actions">
+                            <a class="btn-action btn-edit" asp-action="Edit" asp-route-id="@item.id_invoice">Editar</a>
+                            <a class="btn-action btn-details" asp-action="Details" asp-route-id="@item.id_invoice">Detalles</a>
+                            <a class="btn-action btn-delete" asp-action="Delete" asp-route-id="@item.id_invoice">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

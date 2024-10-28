@@ -7,11 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Drogueria_Elcafetero.Data;
 using Drogueria_Elcafetero.Models;
-using Drogueria_Elcafetero.Permisos;
 
 namespace Drogueria_Elcafetero.Controllers
 {
-    [PermisosRol(Rol.Administrador)]
     public class suppliersController : Controller
     {
         private readonly Drogueria_ElcafeteroContext _context;
@@ -28,7 +26,7 @@ namespace Drogueria_Elcafetero.Controllers
         }
 
         // GET: suppliers/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -68,7 +66,7 @@ namespace Drogueria_Elcafetero.Controllers
         }
 
         // GET: suppliers/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -88,7 +86,7 @@ namespace Drogueria_Elcafetero.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("id_supplier,supplier_name,telephone,email")] suppliers suppliers)
+        public async Task<IActionResult> Edit(int id, [Bind("id_supplier,supplier_name,telephone,email")] suppliers suppliers)
         {
             if (id != suppliers.id_supplier)
             {
@@ -119,7 +117,7 @@ namespace Drogueria_Elcafetero.Controllers
         }
 
         // GET: suppliers/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -139,7 +137,7 @@ namespace Drogueria_Elcafetero.Controllers
         // POST: suppliers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var suppliers = await _context.suppliers.FindAsync(id);
             if (suppliers != null)
@@ -151,7 +149,7 @@ namespace Drogueria_Elcafetero.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool suppliersExists(string id)
+        private bool suppliersExists(int id)
         {
             return _context.suppliers.Any(e => e.id_supplier == id);
         }

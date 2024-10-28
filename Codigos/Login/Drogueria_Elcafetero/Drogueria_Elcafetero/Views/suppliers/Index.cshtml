@@ -1,47 +1,52 @@
 ﻿@model IEnumerable<Drogueria_Elcafetero.Models.suppliers>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Proveedores";
+    Layout = null;
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Proveedores - Farmacia El Cafetero</title>
+    <link rel="stylesheet" href="~/css/styleIndexAdmin.css">
+</head>
+<body>
+    <header>
+        <h1>Listado de Proveedores</h1>
+    </header>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.supplier_name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.telephone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.email)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.supplier_name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.telephone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_supplier">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_supplier">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_supplier">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="container">
+        <p>
+            <a class="btn-create" asp-action="Create">Crear Nuevo Proveedor</a>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.supplier_name)</th>
+                    <th>@Html.DisplayNameFor(model => model.telephone)</th>
+                    <th>@Html.DisplayNameFor(model => model.email)</th>
+                    <th>Acciones</th> <!-- Agregué un encabezado para las acciones -->
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.supplier_name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.telephone)</td>
+                        <td>@Html.DisplayFor(modelItem => item.email)</td>
+                        <td class="actions">
+                            <a class="btn-action btn-edit" asp-action="Edit" asp-route-id="@item.id_supplier">Editar</a>
+                            <a class="btn-action btn-details" asp-action="Details" asp-route-id="@item.id_supplier">Detalles</a>
+                            <a class="btn-action btn-delete" asp-action="Delete" asp-route-id="@item.id_supplier">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

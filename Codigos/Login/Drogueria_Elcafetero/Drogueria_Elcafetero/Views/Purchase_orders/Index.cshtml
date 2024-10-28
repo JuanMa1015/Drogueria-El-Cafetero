@@ -1,53 +1,70 @@
 ﻿@model IEnumerable<Drogueria_Elcafetero.Models.purchase_orders>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Ordenes";
+    Layout = null;
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Direcciones</title>
+    <link rel="stylesheet" href="~/css/styleIndexAdmin.css">
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.id_supplier)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.order_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.total_order)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.state)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_supplier)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.order_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.total_order)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.state)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_purchase_order">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_purchase_order">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_purchase_order">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Ordenes</h1>
+
+        <p>
+            <a class="btn" asp-action="Create">Crear Nueva Orden</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().id_supplier)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().order_date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().total_order)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.First().state)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id_supplier)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_date)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.total_order)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.state)
+                        </td>
+                        <td class="actions">
+                            <a class="btn-action btn-edit" asp-action="Edit" asp-route-id="@item.id_purchase_order">Editar</a>
+                            <a class="btn-action btn-details" asp-action="Details" asp-route-id="@item.id_purchase_order">Detalles</a>
+                            <a class="btn-action btn-delete" asp-action="Delete" asp-route-id="@item.id_purchase_order">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

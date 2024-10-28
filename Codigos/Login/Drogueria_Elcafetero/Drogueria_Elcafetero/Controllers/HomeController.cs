@@ -24,7 +24,7 @@ namespace Drogueria_Elcafetero.Controllers
             return View();
         }
 
-        [PermisosRol(Rol.Empleado)]
+        [PermisosRol(rol.Empleado)]
         public IActionResult Privacy()
         {
             return View();

@@ -1,9 +1,10 @@
 ﻿namespace Drogueria_Elcafetero.Models
 {
-    public enum Rol
+    public enum rol
     {
         Administrador = 1,
-        Empleado = 2
+        Empleado = 2,
+        Cliente = 3
 
     }
 }

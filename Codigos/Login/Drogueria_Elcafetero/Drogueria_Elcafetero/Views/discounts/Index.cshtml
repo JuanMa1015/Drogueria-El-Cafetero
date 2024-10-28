@@ -1,71 +1,60 @@
 ﻿@model IEnumerable<Drogueria_Elcafetero.Models.discount>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Lista de Descuentos";
+    Layout = null;
 }
 
-<h1>Index</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Descuentos</title>
+    <link rel="stylesheet" href="~/css/styleIndexAdmin.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Descuentos</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.id_supplier_invoice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.discount_type)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.discount_value)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.start_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.end_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.conditions)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.id_supplier_invoice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.discount_type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.discount_value)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.start_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.end_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.conditions)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.id_discount">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.id_discount">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.id_discount">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <p>
+            <a class="btn" asp-action="Create">Crear Nuevo Descuento</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.id_supplier_invoice)</th>
+                    <th>@Html.DisplayNameFor(model => model.description)</th>
+                    <th>@Html.DisplayNameFor(model => model.discount_type)</th>
+                    <th>@Html.DisplayNameFor(model => model.discount_value)</th>
+                    <th>@Html.DisplayNameFor(model => model.start_date)</th>
+                    <th>@Html.DisplayNameFor(model => model.end_date)</th>
+                    <th>@Html.DisplayNameFor(model => model.conditions)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.id_supplier_invoice)</td>
+                        <td>@Html.DisplayFor(modelItem => item.description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.discount_type)</td>
+                        <td>@Html.DisplayFor(modelItem => item.discount_value)</td>
+                        <td>@Html.DisplayFor(modelItem => item.start_date)</td>
+                        <td>@Html.DisplayFor(modelItem => item.end_date)</td>
+                        <td>@Html.DisplayFor(modelItem => item.conditions)</td>
+                        <td class="actions">
+                            <a class="btn-action btn-edit" asp-action="Edit" asp-route-id="@item.id_discount">Editar</a>
+                            <a class="btn-action btn-details" asp-action="Details" asp-route-id="@item.id_discount">Detalles</a>
+                            <a class="btn-action btn-delete" asp-action="Delete" asp-route-id="@item.id_discount">Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

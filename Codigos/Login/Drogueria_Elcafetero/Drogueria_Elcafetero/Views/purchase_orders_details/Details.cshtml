@@ -1,0 +1,48 @@
+﻿@model Drogueria_Elcafetero.Models.purchase_orders_details
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>purchase_orders_details</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_purchase_order)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_purchase_order)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.id_product)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id_product)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.amount_product)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.amount_product)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.unit_price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.unit_price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.subtotal)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.subtotal)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id_order_detail">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

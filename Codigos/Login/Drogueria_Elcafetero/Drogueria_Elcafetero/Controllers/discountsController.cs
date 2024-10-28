@@ -11,7 +11,7 @@ using Drogueria_Elcafetero.Permisos;
 
 namespace Drogueria_Elcafetero.Controllers
 {
-    [PermisosRol(Rol.Administrador)]
+    [PermisosRol(rol.Administrador)]
     public class discountsController : Controller
     {
         private readonly Drogueria_ElcafeteroContext _context;
@@ -60,6 +60,17 @@ namespace Drogueria_Elcafetero.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (discount.start_date.Kind == DateTimeKind.Unspecified && discount.start_date.Kind == DateTimeKind.Unspecified)
+                {
+                    discount.start_date = DateTime.SpecifyKind(discount.start_date, DateTimeKind.Utc);
+                    discount.end_date = DateTime.SpecifyKind(discount.end_date, DateTimeKind.Utc);
+
+                }
+                else
+                {
+                    discount.start_date = discount.start_date.ToUniversalTime();
+                    discount.end_date = discount.end_date.ToUniversalTime();
+                }
                 _context.Add(discount);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

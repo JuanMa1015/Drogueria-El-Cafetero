@@ -1,63 +1,177 @@
 ﻿@model Drogueria_Elcafetero.Models.discount
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Descuento";
+    Layout = null;
 }
 
-<h1>Create</h1>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Descuento</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
 
-<h4>discount</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            color: white;
+            background-color: #007bff; /* Fondo azul */
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus {
+            border-color: #0056b3;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 91, 183, 0.5);
+        }
+
+        .btn-primary {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #777;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px; /* Espaciado superior */
+        }
+
+        .btn-secondary:hover {
+            background-color: #555;
+        }
+
+        .text-danger {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Descuento</h1>
+
+        <h4>Información del Descuento</h4>
+        <hr />
+
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
             <div class="form-group">
-                <label asp-for="id_supplier_invoice" class="control-label"></label>
+                <label asp-for="id_supplier_invoice" class="control-label">ID de Factura del Proveedor</label>
                 <input asp-for="id_supplier_invoice" class="form-control" />
                 <span asp-validation-for="id_supplier_invoice" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="description" class="control-label"></label>
+                <label asp-for="description" class="control-label">Descripción</label>
                 <input asp-for="description" class="form-control" />
                 <span asp-validation-for="description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="discount_type" class="control-label"></label>
+                <label asp-for="discount_type" class="control-label">Tipo de Descuento</label>
                 <input asp-for="discount_type" class="form-control" />
                 <span asp-validation-for="discount_type" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="discount_value" class="control-label"></label>
-                <input asp-for="discount_value" class="form-control" />
+                <label asp-for="discount_value" class="control-label">Valor del Descuento</label>
+                <input asp-for="discount_value" type="number" class="form-control" />
                 <span asp-validation-for="discount_value" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="start_date" class="control-label"></label>
-                <input asp-for="start_date" class="form-control" />
+                <label asp-for="start_date" class="control-label">Fecha de Inicio</label>
+                <input asp-for="start_date" type="date" class="form-control" />
                 <span asp-validation-for="start_date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="end_date" class="control-label"></label>
-                <input asp-for="end_date" class="form-control" />
+                <label asp-for="end_date" class="control-label">Fecha de Fin</label>
+                <input asp-for="end_date" type="date" class="form-control" />
                 <span asp-validation-for="end_date" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="conditions" class="control-label"></label>
+                <label asp-for="conditions" class="control-label">Condiciones</label>
                 <input asp-for="conditions" class="form-control" />
                 <span asp-validation-for="conditions" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Crear" class="btn btn-primary" />
             </div>
         </form>
+
+        <div>
+            <a class="btn-secondary" asp-action="Index">Volver a la Lista</a>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>
