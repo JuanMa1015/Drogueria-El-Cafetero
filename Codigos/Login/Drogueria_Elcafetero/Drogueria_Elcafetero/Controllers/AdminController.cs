@@ -1,15 +1,15 @@
-﻿using Drogueria_Elcafetero.Permisos;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Drogueria_Elcafetero.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Drogueria_Elcafetero.Controllers
 {
     public class AdminController : Controller
     {
-        [PermisosRol(rol.Administrador)]
+        
         public IActionResult AdminVM()
         {
             return View();

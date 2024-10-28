@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
-using Drogueria_Elcafetero.Permisos;
 
 namespace Drogueria_Elcafetero.Controllers
 {
@@ -24,7 +23,7 @@ namespace Drogueria_Elcafetero.Controllers
             return View();
         }
 
-        [PermisosRol(rol.Empleado)]
+
         public IActionResult Privacy()
         {
             return View();

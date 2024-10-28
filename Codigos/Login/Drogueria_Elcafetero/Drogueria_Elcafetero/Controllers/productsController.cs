@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Drogueria_Elcafetero.Data;
 using Drogueria_Elcafetero.Models;
-using Drogueria_Elcafetero.Permisos;
+
 
 namespace Drogueria_Elcafetero.Controllers
 {
-    [PermisosRol(rol.Administrador)]
+
     public class productsController : Controller
     {
         private readonly Drogueria_ElcafeteroContext _context;
