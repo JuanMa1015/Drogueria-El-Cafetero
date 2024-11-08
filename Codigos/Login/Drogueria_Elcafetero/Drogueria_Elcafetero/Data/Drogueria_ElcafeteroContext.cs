@@ -14,7 +14,7 @@ namespace Drogueria_Elcafetero.Data
             : base(options)
         {
         }
-
+        public DbSet<Drogueria_Elcafetero.Models.detailsProduct> detailsProduct { get; set; }
         public DbSet<Drogueria_Elcafetero.Models.address> address { get; set; }
         public DbSet<Drogueria_Elcafetero.Models.Employees> employees { get; set; }
         public DbSet<Drogueria_Elcafetero.Models.city_towns> city_towns { get; set; }

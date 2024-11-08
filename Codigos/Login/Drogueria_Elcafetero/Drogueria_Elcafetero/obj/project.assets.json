@@ -2,6 +2,12 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "bootstrap/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "jquery": "1.9.0"
+        }
+      },
       "BouncyCastle.Cryptography/2.4.0": {
         "type": "package",
         "compile": {
@@ -14,6 +20,9 @@
             "related": ".xml"
           }
         }
+      },
+      "Font.Awesome/5.15.4": {
+        "type": "package"
       },
       "Humanizer/2.14.1": {
         "type": "package",
@@ -607,6 +616,15 @@
           "lib/net6.0/zh-Hant/Humanizer.resources.dll": {
             "locale": "zh-Hant"
           }
+        }
+      },
+      "jQuery/1.9.0": {
+        "type": "package"
+      },
+      "jQuery.LoadingOverlay/2.1.5": {
+        "type": "package",
+        "dependencies": {
+          "jQuery": "1.7.0"
         }
       },
       "MailKit/4.8.0": {
@@ -2365,6 +2383,12 @@
           "lib/netstandard2.0/NuGet.Versioning.dll": {}
         }
       },
+      "SweetAlert.Bootstrap/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Twitter.Bootstrap": "3.0.1.1"
+        }
+      },
       "System.Buffers/4.5.0": {
         "type": "package",
         "compile": {
@@ -2935,10 +2959,37 @@
             "rid": "win"
           }
         }
+      },
+      "Twitter.Bootstrap/3.0.1.1": {
+        "type": "package",
+        "dependencies": {
+          "bootstrap": "3.0.1"
+        }
       }
     }
   },
   "libraries": {
+    "bootstrap/3.0.1": {
+      "sha512": "rwpiPJiWRbGRypo/NnyqzwS9hWLMLujLU1vM2OfeuZJ2yNGb86RzmQKEcWbewWu+eJkcYatCqpn/U5zNgotVHQ==",
+      "type": "package",
+      "path": "bootstrap/3.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bootstrap.3.0.1.nupkg.sha512",
+        "bootstrap.nuspec",
+        "content/Content/bootstrap-theme.css",
+        "content/Content/bootstrap-theme.min.css",
+        "content/Content/bootstrap.css",
+        "content/Content/bootstrap.min.css",
+        "content/Scripts/bootstrap.js",
+        "content/Scripts/bootstrap.min.js",
+        "content/fonts/glyphicons-halflings-regular.eot",
+        "content/fonts/glyphicons-halflings-regular.svg",
+        "content/fonts/glyphicons-halflings-regular.ttf",
+        "content/fonts/glyphicons-halflings-regular.woff"
+      ]
+    },
     "BouncyCastle.Cryptography/2.4.0": {
       "sha512": "SwXsAV3sMvAU/Nn31pbjhWurYSjJ+/giI/0n6tCrYoupEK34iIHCuk3STAd9fx8yudM85KkLSVdn951vTng/vQ==",
       "type": "package",
@@ -2957,6 +3008,60 @@
         "lib/netstandard2.0/BouncyCastle.Cryptography.dll",
         "lib/netstandard2.0/BouncyCastle.Cryptography.xml",
         "packageIcon.png"
+      ]
+    },
+    "Font.Awesome/5.15.4": {
+      "sha512": "Okg91rA7RWbd+eKyBNNnvlvzFee7A4yIi0WdTrJMVPos1ntONAVn/m96Ex9qvVXKKiroBZ1vtCXtpFMnHNof1g==",
+      "type": "package",
+      "path": "font.awesome/5.15.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Content/all.css",
+        "Content/Content/all.min.css",
+        "Content/Content/brands.css",
+        "Content/Content/brands.min.css",
+        "Content/Content/fontawesome.css",
+        "Content/Content/fontawesome.min.css",
+        "Content/Content/regular.css",
+        "Content/Content/regular.min.css",
+        "Content/Content/solid.css",
+        "Content/Content/solid.min.css",
+        "Content/Content/svg-with-js.css",
+        "Content/Content/svg-with-js.min.css",
+        "Content/Content/v4-shims.css",
+        "Content/Content/v4-shims.min.css",
+        "Content/Scripts/fontawesome/all.js",
+        "Content/Scripts/fontawesome/all.min.js",
+        "Content/Scripts/fontawesome/brands.js",
+        "Content/Scripts/fontawesome/brands.min.js",
+        "Content/Scripts/fontawesome/conflict-detection.js",
+        "Content/Scripts/fontawesome/conflict-detection.min.js",
+        "Content/Scripts/fontawesome/fontawesome.js",
+        "Content/Scripts/fontawesome/fontawesome.min.js",
+        "Content/Scripts/fontawesome/regular.js",
+        "Content/Scripts/fontawesome/regular.min.js",
+        "Content/Scripts/fontawesome/solid.js",
+        "Content/Scripts/fontawesome/solid.min.js",
+        "Content/Scripts/fontawesome/v4-shims.js",
+        "Content/Scripts/fontawesome/v4-shims.min.js",
+        "Content/webfonts/fa-brands-400.eot",
+        "Content/webfonts/fa-brands-400.svg",
+        "Content/webfonts/fa-brands-400.ttf",
+        "Content/webfonts/fa-brands-400.woff",
+        "Content/webfonts/fa-brands-400.woff2",
+        "Content/webfonts/fa-regular-400.eot",
+        "Content/webfonts/fa-regular-400.svg",
+        "Content/webfonts/fa-regular-400.ttf",
+        "Content/webfonts/fa-regular-400.woff",
+        "Content/webfonts/fa-regular-400.woff2",
+        "Content/webfonts/fa-solid-900.eot",
+        "Content/webfonts/fa-solid-900.svg",
+        "Content/webfonts/fa-solid-900.ttf",
+        "Content/webfonts/fa-solid-900.woff",
+        "Content/webfonts/fa-solid-900.woff2",
+        "font.awesome.5.15.4.nupkg.sha512",
+        "font.awesome.nuspec"
       ]
     },
     "Humanizer/2.14.1": {
@@ -3703,6 +3808,40 @@
         "lib/netstandard1.0/zh-Hant/Humanizer.resources.dll",
         "lib/netstandard2.0/zh-Hant/Humanizer.resources.dll",
         "logo.png"
+      ]
+    },
+    "jQuery/1.9.0": {
+      "sha512": "bS6OGSd/QL39vKKhATpeehgZDCzV6foRJ52EocEGAB29VetwXkQHN6KQIBlBbW9VJzuHr+rQxHYZ13MnPGQ/vw==",
+      "type": "package",
+      "path": "jquery/1.9.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/jquery-1.9.0-vsdoc.js",
+        "Content/Scripts/jquery-1.9.0.js",
+        "Content/Scripts/jquery-1.9.0.min.js",
+        "Content/Scripts/jquery-1.9.0.min.map",
+        "Tools/common.ps1",
+        "Tools/install.ps1",
+        "Tools/jquery-1.9.0.intellisense.js",
+        "Tools/uninstall.ps1",
+        "jquery.1.9.0.nupkg.sha512",
+        "jquery.nuspec"
+      ]
+    },
+    "jQuery.LoadingOverlay/2.1.5": {
+      "sha512": "/W3aBl7mdr2GfqkMEkCiBxsGlTv64sVVP6x0NQptcUC4jshAt8FNNGanLdNqCz5YtgR4bSzUZc99/yA+zXOFcA==",
+      "type": "package",
+      "path": "jquery.loadingoverlay/2.1.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/Scripts/loadingoverlay.js",
+        "content/Scripts/loadingoverlay.min.js",
+        "content/Scripts/loadingoverlay.min.js.map",
+        "jquery.loadingoverlay.2.1.5.nupkg.sha512",
+        "jquery.loadingoverlay.nuspec"
       ]
     },
     "MailKit/4.8.0": {
@@ -6657,6 +6796,19 @@
         "nuget.versioning.nuspec"
       ]
     },
+    "SweetAlert.Bootstrap/1.0.1": {
+      "sha512": "GOwRZiUaTDUegSgIwz+0kiW7ChrrXaM7vPCVfkynT4LX8hW1lA8mPfDZr454CnNbd/KXT2oywPio66zRemlaaA==",
+      "type": "package",
+      "path": "sweetalert.bootstrap/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Content/sweetalert.css",
+        "Content/Scripts/sweetalert.min.js",
+        "sweetalert.bootstrap.1.0.1.nupkg.sha512",
+        "sweetalert.bootstrap.nuspec"
+      ]
+    },
     "System.Buffers/4.5.0": {
       "sha512": "pL2ChpaRRWI/p4LXyy4RgeWlYF2sgfj/pnVMvBqwNFr5cXg7CXNnWZWxrOONLg8VGdFB8oB+EG2Qw4MLgTOe+A==",
       "type": "package",
@@ -7703,10 +7855,23 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "Twitter.Bootstrap/3.0.1.1": {
+      "sha512": "9SzxEOEB/rKKeTO/2Tv9uPRzQg/chRfofY9yZ71Sgpxfubp1IXiQlRRFc7IhH+fxo3S/u0umS4dUSgHeYnFIsw==",
+      "type": "package",
+      "path": "twitter.bootstrap/3.0.1.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "readme.txt",
+        "twitter.bootstrap.3.0.1.1.nupkg.sha512",
+        "twitter.bootstrap.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "Font.Awesome >= 5.15.4",
       "MailKit >= 4.8.0",
       "Microsoft.AspNetCore.Authentication.Cookies >= 2.2.0",
       "Microsoft.AspNetCore.Mvc.DataAnnotations >= 2.2.0",
@@ -7714,7 +7879,9 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.6",
       "Npgsql >= 8.0.4",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.8",
-      "System.ComponentModel.Annotations >= 5.0.0"
+      "SweetAlert.Bootstrap >= 1.0.1",
+      "System.ComponentModel.Annotations >= 5.0.0",
+      "jQuery.LoadingOverlay >= 2.1.5"
     ]
   },
   "packageFolders": {
@@ -7767,6 +7934,10 @@
       "net8.0": {
         "targetAlias": "net8.0",
         "dependencies": {
+          "Font.Awesome": {
+            "target": "Package",
+            "version": "[5.15.4, )"
+          },
           "MailKit": {
             "target": "Package",
             "version": "[4.8.0, )"
@@ -7797,9 +7968,17 @@
             "target": "Package",
             "version": "[8.0.8, )"
           },
+          "SweetAlert.Bootstrap": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
           "System.ComponentModel.Annotations": {
             "target": "Package",
             "version": "[5.0.0, )"
+          },
+          "jQuery.LoadingOverlay": {
+            "target": "Package",
+            "version": "[2.1.5, )"
           }
         },
         "imports": [

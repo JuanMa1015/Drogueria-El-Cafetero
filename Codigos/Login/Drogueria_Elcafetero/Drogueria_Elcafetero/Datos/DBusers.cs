@@ -1,63 +1,61 @@
 ﻿using Drogueria_el_cafetero.Models;
 using Npgsql;
-using System.Data.SqlClient;
 using System.Data;
-using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using NpgsqlTypes;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Drogueria_Elcafetero.Datos
 {
     public class DBusers
     {
-        private static string CadenaSQL = "Host=ep-jolly-math-a5dsqqss.us-east-2.aws.neon.tech;Database=Drogueria_El_Cafetero;Username=Drogueria_El_Cafetero_owner;Password=ATl8nUMi6IVx;Ssl Mode=Require";
+        private readonly string _connectionString;
 
-        public static bool Registrar(users users)
+        public DBusers(IConfiguration configuration)
         {
-            bool respuesta = false;
-            try
-            {
-                using (NpgsqlConnection conexion = new NpgsqlConnection (CadenaSQL))
-                {
-                    string query = "insert into users (user_name,email,password_hash,token,confirmed," +
-                        " reset_password)";
-                    query += " values (@user_name,@email,@password_hash,@token,@confirmed,@reset_password)";
-
-                    NpgsqlCommand cmd = new NpgsqlCommand(query, conexion);
-                    cmd.Parameters.AddWithValue("@user_name", NpgsqlDbType.Varchar).Value = users.user_name;
-                    cmd.Parameters.AddWithValue("@email", users.email);
-                    cmd.Parameters.AddWithValue("@password_hash", users.password_hash);
-                    cmd.Parameters.AddWithValue("@token", users.token);
-                    cmd.Parameters.AddWithValue("@confirmed", NpgsqlDbType.Boolean).Value = users.confirmed;
-                    cmd.Parameters.AddWithValue("@reset_password", users.reset_password);
-                    //cmd.Parameters.AddWithValue("@confirmed_password", users.confirmed_password);
-                    //cmd.Parameters.AddWithValue("@rol", NpgsqlDbType.Varchar).Value = users.rol;
-
-
-                    cmd.CommandType = CommandType.Text;
-
-                    conexion.Open();
-
-                    int filasafectadas = cmd.ExecuteNonQuery();
-                    if (filasafectadas > 0) respuesta = true;
-                }
-                return respuesta;
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-           
+            // Asigna la cadena de conexión a la variable desde el archivo appsettings.json
+            _connectionString = configuration.GetConnectionString("Drogueria_ElcafeteroContext");
         }
 
-        public static users Validar(string email, string password_hash)
+            public bool Registrar(users users)
+            {
+                bool respuesta = false;
+                try
+                {
+                    using (NpgsqlConnection conexion = new NpgsqlConnection(_connectionString))
+                    {
+                        string query = "insert into users (user_name, email, password_hash, token, confirmed, reset_password)";
+                        query += " values (@user_name, @email, @password_hash, @token, @confirmed, @reset_password)";
+
+                        NpgsqlCommand cmd = new NpgsqlCommand(query, conexion);
+                        cmd.Parameters.AddWithValue("@user_name", NpgsqlDbType.Varchar).Value = users.user_name;
+                        cmd.Parameters.AddWithValue("@email", users.email);
+                        cmd.Parameters.AddWithValue("@password_hash", users.password_hash);
+                        cmd.Parameters.AddWithValue("@token", users.token);
+                        cmd.Parameters.AddWithValue("@confirmed", NpgsqlDbType.Boolean).Value = users.confirmed;
+                        cmd.Parameters.AddWithValue("@reset_password", users.reset_password);
+
+                        cmd.CommandType = CommandType.Text;
+
+                        conexion.Open();
+
+                        int filasafectadas = cmd.ExecuteNonQuery();
+                        if (filasafectadas > 0) respuesta = true;
+                    }
+                    return respuesta;
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+
+
+        public  users Validar(string email, string password_hash)
         {
             users user = null;
             try
             {
-                using (NpgsqlConnection conexion = new NpgsqlConnection(CadenaSQL))
+                using (NpgsqlConnection conexion = new NpgsqlConnection(_connectionString))
                 {
                     string query = "SELECT user_name, reset_password, confirmed, rol FROM users";
                     query += " WHERE email = @email and password_hash = @password_hash";
@@ -96,12 +94,12 @@ namespace Drogueria_Elcafetero.Datos
             return user;
         }
         [HttpPost]
-        public static users Obtener(string email)
+        public  users Obtener(string email)
         {
             users users = null;
             try
             {
-                using (NpgsqlConnection conexion = new NpgsqlConnection(CadenaSQL))
+                using (NpgsqlConnection conexion = new NpgsqlConnection(_connectionString))
                 {
                     string query = "select user_name,password_hash,reset_password,confirmed,token from users";
                     query += " where email=@email";
@@ -139,13 +137,13 @@ namespace Drogueria_Elcafetero.Datos
             return users;
         }
 
-        public static bool RestablecerActualizar(bool reset_password, string password_hash, string token)
+        public  bool RestablecerActualizar(bool reset_password, string password_hash, string token)
         {
             bool respuesta = false;
 
             try
             {
-                using (NpgsqlConnection conexion = new NpgsqlConnection(CadenaSQL))
+                using (NpgsqlConnection conexion = new NpgsqlConnection(_connectionString))
                 {
                     string query = @"UPDATE users SET " +
                         "reset_password = @reset_password, " +
@@ -173,12 +171,12 @@ namespace Drogueria_Elcafetero.Datos
             }
         }
 
-        public static bool Confirmar(string token)
+        public  bool Confirmar(string token)
         {
             bool respuesta = false;
             try
             {
-                using (NpgsqlConnection conexion = new NpgsqlConnection(CadenaSQL))
+                using (NpgsqlConnection conexion = new NpgsqlConnection(_connectionString))
                 {
                     string query = @"UPDATE users SET " +
                         "confirmed = true " +

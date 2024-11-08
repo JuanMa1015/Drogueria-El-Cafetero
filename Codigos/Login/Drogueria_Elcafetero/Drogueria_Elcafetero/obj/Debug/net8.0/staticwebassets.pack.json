@@ -25,8 +25,24 @@
       "PackagePath": "staticwebassets\\assets\\img\\error-404-monochrome.svg"
     },
     {
-      "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\detailadmin.css",
-      "PackagePath": "staticwebassets\\css\\detailadmin.css"
+      "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
+      "PackagePath": "staticwebassets\\css\\CardProductos.css"
+    },
+    {
+      "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\createAdmin.css",
+      "PackagePath": "staticwebassets\\css\\createAdmin.css"
+    },
+    {
+      "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\deleteAdmin.css",
+      "PackagePath": "staticwebassets\\css\\deleteAdmin.css"
+    },
+    {
+      "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\detailsAdmin.css",
+      "PackagePath": "staticwebassets\\css\\detailsAdmin.css"
+    },
+    {
+      "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\editAdmin.css",
+      "PackagePath": "staticwebassets\\css\\editAdmin.css"
     },
     {
       "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\indexadmin.css",

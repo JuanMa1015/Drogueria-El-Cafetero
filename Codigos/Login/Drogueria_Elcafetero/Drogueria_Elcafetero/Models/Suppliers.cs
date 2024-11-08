@@ -8,5 +8,6 @@ namespace Drogueria_Elcafetero.Models
         public string supplier_name { get; set; }
         public string telephone { get; set; }
         public string email { get; set; }
+        public bool active { get; set; } = true;
     }
 }

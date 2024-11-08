@@ -7,10 +7,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Drogueria_Elcafetero.Data;
 using Drogueria_Elcafetero.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Drogueria_Elcafetero.Controllers
 {
+
 
     public class employeesController : Controller
     {

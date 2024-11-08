@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Drogueria_Elcafetero.Data;
 using Drogueria_el_cafetero.Models;
 
-namespace Drogueria_Elcafetero
+namespace Drogueria_Elcafetero.Controllers
 {
     public class usersController : Controller
     {

@@ -4,20 +4,22 @@ using Drogueria_Elcafetero.Datos;
 using Drogueria_Elcafetero.Servicios;
 using Drogueria_Elcafetero.Models;
 using WebAppCorreo.Servicios;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Security.Authentication;
 using System.Security.Claims;
+using System.Configuration;
 
 namespace WebAppCorreo.Controllers
 {
     public class InicioController : Controller
     {
         private readonly IWebHostEnvironment _env;
-        public InicioController(IWebHostEnvironment env)
+        private readonly DBusers _dbusers;
+
+        public InicioController(IWebHostEnvironment env, IConfiguration configuration)
         {
             _env = env; // Inicializa el IWebHostEnvironment
+            _dbusers = new DBusers(configuration); // Inicializa _dbusers con la clase DBusers
         }
 
         // GET: Inicio
@@ -27,9 +29,9 @@ namespace WebAppCorreo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string email, string password_hash)
+        public async Task<ActionResult> Login(string email, string password_hash)
         {
-            users Users = DBusers.Validar(email, UtilidadServicio.ConvertirSHA256(password_hash));
+            users Users = _dbusers.Validar(email, UtilidadServicio.ConvertirSHA256(password_hash));
 
             if (Users != null)
             {
@@ -43,13 +45,24 @@ namespace WebAppCorreo.Controllers
                 }
                 else
                 {
+
+                    var claims = new List<Claim>
+                    {
+                        new Claim(ClaimTypes.Name, Users.user_name),
+                        new Claim(ClaimTypes.Role, Users.rol)
+                    };
+
+                    var clasimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(clasimsIdentity));
+
                     if (Users.rol == "Cliente")
                     {
                         return RedirectToAction("Index", "Home");
                     }
                     else if (Users.rol == "Administrador")
                     {
-                        return RedirectToAction("AdminVM", "Admin");
+                        return RedirectToAction("Admin", "Home");
                     }
                     else
                     {
@@ -72,7 +85,7 @@ namespace WebAppCorreo.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            return RedirectToAction("Login", "Inicio"); 
+            return RedirectToAction("IndexSinLogin", "Home"); 
         }
 
         public ActionResult Registrar()
@@ -91,14 +104,14 @@ namespace WebAppCorreo.Controllers
                 return View();
             }
 
-            if (DBusers.Obtener(User.email) == null)
+            if (_dbusers.Obtener(User.email) == null)
             {
                 User.password_hash = UtilidadServicio.ConvertirSHA256(User.password_hash);
                 User.token = UtilidadServicio.GenerarToken();
                 User.reset_password = false;
                 User.confirmed = false;
 
-                bool respuesta = DBusers.Registrar(User);
+                bool respuesta = _dbusers.Registrar(User);
 
                 if (respuesta)
                 {
@@ -140,7 +153,7 @@ namespace WebAppCorreo.Controllers
 
         public ActionResult Confirmar(string token)
         {
-            ViewBag.Respuesta = DBusers.Confirmar(token);
+            ViewBag.Respuesta = _dbusers.Confirmar(token);
             return View();
         }
 
@@ -151,11 +164,11 @@ namespace WebAppCorreo.Controllers
         [HttpPost]
         public ActionResult Restablecer(string email)
         {
-            users Users = DBusers.Obtener(email);
+            users Users = _dbusers.Obtener(email);
             ViewBag.Correo = email;
             if (Users != null)
             {
-                bool respuesta = DBusers.RestablecerActualizar(true, Users.password_hash, Users.token);
+                bool respuesta = _dbusers.RestablecerActualizar(true, Users.password_hash, Users.token);
 
                 if (respuesta)
                 {
@@ -209,7 +222,7 @@ namespace WebAppCorreo.Controllers
                 return View();
             }
 
-            bool respuesta = DBusers.RestablecerActualizar(false, UtilidadServicio.ConvertirSHA256(password_hash), token);
+            bool respuesta = _dbusers.RestablecerActualizar(false, UtilidadServicio.ConvertirSHA256(password_hash), token);
 
             if (respuesta)
                 ViewBag.Restablecido = true;

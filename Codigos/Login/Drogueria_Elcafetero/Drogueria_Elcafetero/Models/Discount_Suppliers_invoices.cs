@@ -7,7 +7,7 @@ namespace Drogueria_Elcafetero.Models
     {
         [Key] public int id_discount_suppliers_invoices { get; set; }
         public int id_discount {  get; set; }
-        public string id_supplier_invoice { get; set; }
+        public int id_supplier_invoice { get; set; }
         public double discount_amount { get; set; }
     }
 }

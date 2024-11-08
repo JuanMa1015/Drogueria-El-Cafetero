@@ -4,163 +4,213 @@
     ViewData["Title"] = "Editar Empleado";
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Editar Empleado</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #4da6ff 0%, #2196f3 100%);
-            color: white;
-            text-align: center;
-            padding: 2em;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #0066cc, #0099ff);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-        }
-
-        .btn:hover {
-            background: linear-gradient(45deg, #0052a3, #007acc);
-            transform: scale(1.05);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        form {
-            background-color: #fff;
-            padding: 2em;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        .text-danger {
-            color: #e3342f;
-        }
-
-        hr {
-            border-top: 2px solid #4da6ff;
-        }
-
-        a {
-            color: #0066cc;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="~/css/styles.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="~/css/editAdmin.css">
 </head>
-<body>
+<body class="sb-nav-fixed">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+        <a class="navbar-brand ps-3" asp-controller="Admin" asp-action="AdminVM">Administrador</a>
+        <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" asp-controller="Inicio" asp-action="Login">Cerrar Sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseEmpleados" aria-expanded="false" aria-controls="collapseEmpleados">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Empleados
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseEmpleados" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="" asp-controller="Employees" asp-action="Index">Lista De Empleados</a>
+                                <a class="nav-link" asp-area="" asp-controller="Employees" asp-action="Create">Nuevo Empleado</a>
+                            </nav>
+                        </div>
+                        @*
+                        <div class="sb-sidenav-menu-heading">Productos</div> *@
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">
+                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
+                            Productos
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseProductos" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Lista De Productos</a>
+                                <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Create">Nuevo Producto</a>
+                            </nav>
+                        </div>
 
-    <header>
-        <h1>Editar Empleado</h1>
-    </header>
+                        @* <div class="sb-sidenav-menu-heading">Ordenes</div> *@
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrdenes" aria-expanded="false" aria-controls="collapseOrdenes">
+                            <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
+                            Ordenes
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseOrdenes" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="" asp-controller="purchase_orders" asp-action="Index">Lista De Ordenes</a>
+                                <a class="nav-link" asp-area="" asp-controller="purchase_orders_details" asp-action="Index">Detalles De Ordenes</a>
+                                <a class="nav-link" asp-area="" asp-controller="purchase_orders_invoice" asp-action="Index">Facturas</a>
+                                <a class="nav-link" asp-area="" asp-controller="purchase_orders" asp-action="Create">Nueva Orden</a>
+                            </nav>
+                        </div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Edit">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="id_employee" />
+                        @* <div class="sb-sidenav-menu-heading">Proveedores</div> *@
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProveedores" aria-expanded="false" aria-controls="collapseProveedores">
+                            <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                            Proveedores
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseProveedores" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="" asp-controller="suppliers" asp-action="Index">Lista De Proveedores</a>
+                                <a class="nav-link" asp-area="" asp-controller="suppliers" asp-action="Create">Nuevo Proveedor</a>
+                                <a class="nav-link" asp-area="" asp-controller="suppliers_invoices" asp-action="Index">Facturas</a>
+                                <a class="nav-link" asp-area="" asp-controller="discount_suppliers_invoices" asp-action="Index">Descuentos</a>
+                                <a class="nav-link" asp-area="" asp-controller="suppliers_products" asp-action="Index">Productos de Proveedores</a>
+                            </nav>
+                        </div>
 
-                    <div class="form-group">
-                        <label asp-for="employee_name" class="control-label"></label>
-                        <input asp-for="employee_name" class="form-control" />
-                        <span asp-validation-for="employee_name" class="text-danger"></span>
+                        @* <div class="sb-sidenav-menu-heading">Ventas</div> *@
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVentas" aria-expanded="false" aria-controls="collapseVentas">
+                            <div class="sb-nav-link-icon"><i class="fas fa-cash-register"></i></div>
+                            Ventas
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseVentas" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="" asp-controller="sales" asp-action="Index">Lista De Ventas</a>
+                                <a class="nav-link" asp-area="" asp-controller="sales_details" asp-action="Index">Detalles De Venta</a>
+                                <a class="nav-link" asp-area="" asp-controller="sales_invoices" asp-action="Index">Facturas</a>
+                                <a class="nav-link" asp-area="" asp-controller="sales" asp-action="Create">Nueva Venta</a>
+                            </nav>
+                        </div>
+
+                        @* <div class="sb-sidenav-menu-heading">Direcciones</div> *@
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDirecciones" aria-expanded="false" aria-controls="collapseDirecciones">
+                            <div class="sb-nav-link-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            Direcciones
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseDirecciones" aria-labelledby="headingFour" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="" asp-controller="addresses" asp-action="Index">Lista De Direcciones</a>
+                                <a class="nav-link" asp-area="" asp-controller="addresses" asp-action="Create">Nueva Dirección</a>
+                                <a class="nav-link" asp-area="" asp-controller="city_towns" asp-action="Index">ciudades</a>
+                            </nav>
+                        </div>
+
+                        @* <div class="sb-sidenav-menu-heading">Clientes</div> *@
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
+                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            Clientes
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseClientes" aria-labelledby="headingFour" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" asp-area="" asp-controller="users" asp-action="Index">Lista De Clientes</a>
+                                <a class="nav-link" asp-area="" asp-controller="users" asp-action="Create">Nuevo Cliente</a>
+                            </nav>
+                        </div>
+                        <!-- Aquí va tu menú de navegación -->
                     </div>
-
-                    <div class="form-group">
-                        <label asp-for="salary" class="control-label"></label>
-                        <input asp-for="salary" class="form-control" />
-                        <span asp-validation-for="salary" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="hiring_date" class="control-label"></label>
-                        <input asp-for="hiring_date" class="form-control" />
-                        <span asp-validation-for="hiring_date" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="email" class="control-label"></label>
-                        <input asp-for="email" class="form-control" />
-                        <span asp-validation-for="email" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="password_hash" class="control-label"></label>
-                        <input asp-for="password_hash" class="form-control" />
-                        <span asp-validation-for="password_hash" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <label asp-for="rol" class="control-label"></label>
-                        <select asp-for="rol" class="form-control"></select>
-                        <span asp-validation-for="rol" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group">
-                        <input type="submit" value="Guardar" class="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
+                </div>
+            </nav>
         </div>
+        <div id="layoutSidenav_content">
+            <main class="container">
+                <header>
+                    <h1>Editar Empleado</h1>
+                </header>
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="Edit">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="id_employee" />
 
-        <div>
-            <a class="btn" asp-action="Index">Volver al Listado</a>
+                            <div class="form-group">
+                                <label asp-for="employee_name" class="control-label"></label>
+                                <input asp-for="employee_name" class="form-control" />
+                                <span asp-validation-for="employee_name" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="salary" class="control-label"></label>
+                                <input asp-for="salary" class="form-control" />
+                                <span asp-validation-for="salary" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="hiring_date" class="control-label"></label>
+                                <input asp-for="hiring_date" class="form-control" type="date" />
+                                <span asp-validation-for="hiring_date" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="email" class="control-label"></label>
+                                <input asp-for="email" class="form-control" type="email" />
+                                <span asp-validation-for="email" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="password_hash" class="control-label"></label>
+                                <input asp-for="password_hash" class="form-control" type="password" />
+                                <span asp-validation-for="password_hash" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label asp-for="rol" class="control-label"></label>
+                                <select asp-for="rol" class="form-control">
+                                    <option value="">Seleccione un rol</option>
+                                    <option value="Admin">Admin</option>
+                                    <option value="User">User</option>
+                                    <!-- Add other roles as needed -->
+                                </select>
+                                <span asp-validation-for="rol" class="text-danger"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <input type="submit" value="Guardar" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="back-button">
+                    <a class="btn" asp-action="Index">Volver al Listado</a>
+                </div>
+            </main>
+            <footer class="py-4 bg-light mt-auto">
+                <div class="container-fluid">
+                    <div class="d-flex align-items-center justify-content-between small">
+                        <div class="text-muted">Copyright &copy; Droguería El Cafetero 2024</div>
+                    </div>
+                </div>
+            </footer>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
+    <script src="~/js/datatables-simple-demo.js"></script>
 </body>
 </html>

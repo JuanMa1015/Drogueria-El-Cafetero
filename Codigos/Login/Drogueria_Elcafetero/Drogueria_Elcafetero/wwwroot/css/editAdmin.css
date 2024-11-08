@@ -1,0 +1,253 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f8ff;
+}
+
+h1 {
+    color: #2c3e50;
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px;
+    margin: -20px -20px 20px -20px;
+    text-align: center;
+}
+
+h4 {
+    color: #2980b9;
+    margin-bottom: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #bde0fe;
+    margin: 20px 0;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.col-md-4 {
+    width: 100%;
+    max-width: 500px;
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.control-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #bde0fe;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+    .form-control:focus {
+        outline: none;
+        border-color: #4a90e2;
+        box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+    }
+
+.form-check {
+    padding-left: 25px;
+    margin-top: 15px;
+}
+
+.form-check-input {
+    margin-left: -25px;
+    margin-top: 4px;
+}
+
+.form-check-label {
+    color: #2c3e50;
+}
+
+.text-danger {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+.btn-primary {
+    background-color: #4a90e2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 20px;
+}
+
+    .btn-primary:hover {
+        background-color: #357abd;
+        transform: translateY(-1px);
+    }
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+    a:hover {
+        color: #357abd;
+        text-decoration: underline;
+    }
+
+/* Estilos para los checkboxes */
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.col-md-4 {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        margin: -10px -10px 15px -10px;
+        padding: 12px;
+    }
+
+    .col-md-4 {
+        padding: 15px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .btn-primary {
+        padding: 12px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+.form-control:focus-visible {
+    outline: 2px solid #4a90e2;
+    outline-offset: 1px;
+}
+
+.btn-primary:focus-visible {
+    outline: 2px solid #4a90e2;
+    outline-offset: 2px;
+}
+
+/* Estilos para estados disabled */
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.btn-primary:disabled {
+    background-color: #b3d4f7;
+    cursor: not-allowed;
+}
+
+/* Validación personalizada */
+.input-validation-error {
+    border-color: #dc3545;
+}
+
+.field-validation-error {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Tooltip de validación */
+.validation-tooltip {
+    position: absolute;
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    z-index: 1;
+}
+/* Agregar estos estilos al archivo CSS existente */
+
+.button-group {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+    .btn-secondary:hover {
+        background-color: #5a6268;
+        transform: translateY(-1px);
+        text-decoration: none;
+        color: white;
+    }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .btn-secondary {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

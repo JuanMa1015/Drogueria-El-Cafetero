@@ -6,7 +6,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -22,7 +22,7 @@
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" asp-controller="Admin" asp-action="AdminVM">Administrador</a>
+        <a class="navbar-brand ps-3" asp-controller="Home" asp-action="Admin">Administrador</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
@@ -49,8 +49,6 @@
                                 <a class="nav-link" asp-area="" asp-controller="Employees" asp-action="Create">Nuevo Empleado</a>
                             </nav>
                         </div>
-                        @*
-                        <div class="sb-sidenav-menu-heading">Productos</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">
                             <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
                             Productos
@@ -62,8 +60,6 @@
                                 <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Create">Nuevo Producto</a>
                             </nav>
                         </div>
-
-                        @* <div class="sb-sidenav-menu-heading">Ordenes</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrdenes" aria-expanded="false" aria-controls="collapseOrdenes">
                             <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
                             Ordenes
@@ -77,8 +73,6 @@
                                 <a class="nav-link" asp-area="" asp-controller="purchase_orders" asp-action="Create">Nueva Orden</a>
                             </nav>
                         </div>
-
-                        @* <div class="sb-sidenav-menu-heading">Proveedores</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProveedores" aria-expanded="false" aria-controls="collapseProveedores">
                             <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
                             Proveedores
@@ -93,8 +87,6 @@
                                 <a class="nav-link" asp-area="" asp-controller="suppliers_products" asp-action="Index">Productos de Proveedores</a>
                             </nav>
                         </div>
-
-                        @* <div class="sb-sidenav-menu-heading">Ventas</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVentas" aria-expanded="false" aria-controls="collapseVentas">
                             <div class="sb-nav-link-icon"><i class="fas fa-cash-register"></i></div>
                             Ventas
@@ -108,8 +100,6 @@
                                 <a class="nav-link" asp-area="" asp-controller="sales" asp-action="Create">Nueva Venta</a>
                             </nav>
                         </div>
-
-                        @* <div class="sb-sidenav-menu-heading">Direcciones</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDirecciones" aria-expanded="false" aria-controls="collapseDirecciones">
                             <div class="sb-nav-link-icon"><i class="fas fa-map-marker-alt"></i></div>
                             Direcciones
@@ -122,8 +112,6 @@
                                 <a class="nav-link" asp-area="" asp-controller="city_towns" asp-action="Index">ciudades</a>
                             </nav>
                         </div>
-
-                        @* <div class="sb-sidenav-menu-heading">Clientes</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                             Clientes
@@ -135,25 +123,22 @@
                                 <a class="nav-link" asp-area="" asp-controller="users" asp-action="Create">Nuevo Cliente</a>
                             </nav>
                         </div>
-
                     </div>
                 </div>
-
             </nav>
         </div>
         <div id="layoutSidenav_content">
             <main class="mt-4">
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Lista de Categorías</h1>
+                    <h1 class="mt-4">Lista de Ciudades</h1>
 
-                    <a href="@Url.Action("Create", "city_towns")" class="btn-add">+ Agregar Nueva Direccion</a>
+                    <a href="@Url.Action("Create", "city_towns")" class="btn-add">+ Agregar Nueva Ciudad</a>
 
                     <table class="modern-table">
                         <thead>
                             <tr>
                                 <th>@Html.DisplayNameFor(model => model.city_name)</th>
                                 <th>@Html.DisplayNameFor(model => model.department_name)</th>
-
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -163,23 +148,17 @@
                                 <tr>
                                     <td>@Html.DisplayFor(modelItem => item.city_name)</td>
                                     <td>@Html.DisplayFor(modelItem => item.department_name)</td>
-
                                     <td class="action-cell">
-                                        <!-- Botón Editar -->
                                         <button class="action-btn" title="Editar">
                                             <a asp-action="Edit" asp-route-id="@item.city_name">
                                                 <i class='bx bx-edit'></i>
                                             </a>
                                         </button>
-
-                                        <!-- Botón Detalles -->
                                         <button class="action-btn" title="Detalles">
                                             <a asp-action="Details" asp-route-id="@item.city_name">
                                                 <i class='bx bx-show-alt'></i>
                                             </a>
                                         </button>
-
-                                        <!-- Botón Eliminar -->
                                         <button class="action-btn" title="Eliminar">
                                             <a asp-action="Delete" asp-route-id="@item.city_name">
                                                 <i class="fas fa-trash-alt"></i>
@@ -190,7 +169,6 @@
                             }
                         </tbody>
                     </table>
-
                 </div>
             </main>
         </div>

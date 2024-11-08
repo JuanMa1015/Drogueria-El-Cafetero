@@ -10,5 +10,8 @@ namespace Drogueria_Elcafetero.Models
         public int units_in_stock { get; set; }
         public int id_supplier { get; set; }
         public DateTime expiration_date { get; set; }
+        public bool active { get; set; } = true;
+        public string image { get; set; }
+        public int id_category { get; set; }
     }
 }

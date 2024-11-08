@@ -1,78 +1,109 @@
-﻿.btn-add {
-    background-color: #0080FF; /* Color azul */
-    color: white;
-    border-radius: 30px;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    margin-bottom: 20px;
+﻿:root {
+    --color-bg: #f0f8ff;
+    --color-text: #333;
+    --color-primary: #4a90e2;
+    --color-primary-light: #5da0e2;
+    --color-secondary: #e8f4ff;
+    --color-accent: #2c3e50;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: var(--color-primary);
+}
+
+.navbar {
+    background-color: var(--color-primary);
+    padding: 10px 0;
+}
+
+    .navbar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+    }
+
+        .navbar a:hover {
+            background-color: var(--color-primary-light);
+        }
+
+.btn {
     display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--color-primary);
+    color: white;
     text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-    .btn-add:hover {
-        background-color: #0070e0; /* Color azul más oscuro */
+    .btn:hover {
+        background-color: var(--color-primary-light);
     }
 
-/* Encabezado de la tabla con color azul */
-.modern-table thead {
-    background-color: #0080FF; /* Color azul */
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
-.modern-table th {
-    color: #333;
-    font-weight: bold;
-    text-transform: uppercase;
-    padding: 10px 12px;
-    font-size: 14px;
+    .btn-secondary:hover {
+        background-color: #d8e8f8;
+    }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
     text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-/* Estilo de las celdas de la tabla */
-.modern-table td {
-    padding: 10px 12px;
-    border-bottom: 1px solid #e0e0e0;
-    vertical-align: middle;
+th {
+    background-color: var(--color-secondary);
+    color: var(--color-primary);
 }
 
-/* Estilo minimalista para los botones de acción */
-.action-cell {
-    text-align: center;
-    padding-left: 0;
-    padding-right: 0;
+tr:hover {
+    background-color: #f5f5f5;
 }
 
-/* Botones de acción (sin fondo, sin borde) */
 .action-btn {
-    background: transparent;
+    background: none;
     border: none;
+    color: var(--color-primary);
     cursor: pointer;
-    font-size: 16px;
-    padding: 5px 10px;
-    transition: background-color 0.3s;
+    font-size: 1.2em;
+    margin: 0 5px;
 }
 
-/* Estilos para los botones de acción */
-.btn-edit {
-    color: #0080FF; /* Azul para editar */
-}
-
-    .btn-edit:hover {
-        background-color: #0070e0; /* Fondo azul más oscuro al pasar el ratón */
+    .action-btn:hover {
+        color: var(--color-accent);
     }
 
-.btn-details {
-    color: #0080FF; /* Azul para detalles */
-}
-
-    .btn-details:hover {
-        background-color: #0070e0; /* Fondo azul más oscuro al pasar el ratón */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
     }
 
-.btn-delete {
-    color: #dc3545; /* Rojo para eliminar */
-}
-
-    .btn-delete:hover {
-        background-color: #f5c6cb; /* Fondo rojo claro al pasar el ratón */
+    table, th, td {
+        font-size: 14px;
     }
+}

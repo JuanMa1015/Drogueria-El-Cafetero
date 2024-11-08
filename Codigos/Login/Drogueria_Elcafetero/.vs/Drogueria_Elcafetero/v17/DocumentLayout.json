@@ -1,12 +1,54 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\wwwroot\\css\\cardproductos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\wwwroot\\css\\cardproductos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CardProductos.css",
+              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
+              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
+              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
+              "RelativeToolTip": "Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
+              "ViewState": "AgIAAGwAAAAAAAAAAAAAAFgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-11-08T22:05:18.239Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Drogueria_Elcafetero\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAKUAAAAAAAAAAAAowKwAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T21:53:23.49Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
