@@ -138,3 +138,31 @@
         color: white;
         margin-right: 10px;
     }
+
+/*Iniciar sesion*/
+
+/* Estilo para el botón de "Iniciar sesión" */
+.btn-outline-primary {
+    padding: 0.375rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #007bff; /* Color de texto azul */
+    background-color: white; /* Fondo blanco */
+    border: 2px solid #007bff; /* Borde azul */
+    border-radius: 0.25rem; /* Bordes redondeados */
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para los cambios de color */
+}
+
+    /* Efecto hover para el botón */
+    .btn-outline-primary:hover {
+        background-color: #007bff; /* Fondo azul al pasar el mouse */
+        color: white; /* Color de texto blanco al pasar el mouse */
+        border-color: #007bff; /* Borde azul */
+    }
+
+    /* Efecto active (al hacer clic) */
+    .btn-outline-primary:active {
+        background-color: #0056b3; /* Fondo azul más oscuro al hacer clic */
+        border-color: #0056b3; /* Borde azul más oscuro */
+    }
+

@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\css\\CardProductos.css"
     },
     {
+      "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\NavbarIndex.css",
+      "PackagePath": "staticwebassets\\css\\NavbarIndex.css"
+    },
+    {
       "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\createAdmin.css",
       "PackagePath": "staticwebassets\\css\\createAdmin.css"
     },

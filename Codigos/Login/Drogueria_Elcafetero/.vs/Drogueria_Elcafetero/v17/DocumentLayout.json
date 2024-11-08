@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\views\\home\\indexsinlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\views\\home\\indexsinlogin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\wwwroot\\css\\cardproductos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\wwwroot\\css\\cardproductos.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\wwwroot\\css\\navbarindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\wwwroot\\css\\navbarindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|c:\\users\\gonza\\desktop\\drogueria-el-cafetero\\codigos\\login\\drogueria_elcafetero\\drogueria_elcafetero\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{AB2DD292-2D33-4469-A534-DB2E1D2D32C4}|Drogueria_Elcafetero\\Drogueria_Elcafetero.csproj|solutionrelative:drogueria_elcafetero\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,30 +26,56 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CardProductos.css",
-              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
-              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
-              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
-              "RelativeToolTip": "Drogueria_Elcafetero\\wwwroot\\css\\CardProductos.css",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAFgAAAAdAAAAAAAAAA==",
+              "DocumentIndex": 2,
+              "Title": "NavbarIndex.css",
+              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\NavbarIndex.css",
+              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\wwwroot\\css\\NavbarIndex.css",
+              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\NavbarIndex.css",
+              "RelativeToolTip": "Drogueria_Elcafetero\\wwwroot\\css\\NavbarIndex.css",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2024-11-08T22:05:18.239Z",
+              "WhenOpened": "2024-11-08T23:02:36.753Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Drogueria_Elcafetero\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T22:33:17.478Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "IndexSinLogin.cshtml",
+              "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\Home\\IndexSinLogin.cshtml",
+              "RelativeDocumentMoniker": "Drogueria_Elcafetero\\Views\\Home\\IndexSinLogin.cshtml",
+              "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\Home\\IndexSinLogin.cshtml",
+              "RelativeToolTip": "Drogueria_Elcafetero\\Views\\Home\\IndexSinLogin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-08T22:21:51.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "Drogueria_Elcafetero\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "Drogueria_Elcafetero\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAKUAAAAAAAAAAAAowKwAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-08T21:53:23.49Z",
               "EditorCaption": ""

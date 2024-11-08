@@ -59,9 +59,34 @@ namespace Drogueria_Elcafetero.Controllers
         }
 
 
-        public IActionResult IndexSinLogin()
+        public async Task<IActionResult> IndexSinLogin()
         {
-            return View();
+            var detailsProducts = await _context.detailsProduct
+                    .FromSqlRaw(@"SELECT 
+                         p.id_product AS IdProduct,
+                         p.product_name AS ProductName,
+                         s.supplier_name AS SupplierName,
+                         c.category_name AS CategoryName,
+                         p.price AS Price,
+                         p.units_in_stock AS UnitsInStock,
+                         p.expiration_date AS ExpirationDate,
+                         p.active AS Active,
+                         p.image AS Image
+                     FROM 
+                         Products p
+                     JOIN 
+                         Suppliers s ON p.id_supplier = s.id_supplier
+                     JOIN 
+                         Category c ON p.id_category = c.id_category")
+                .ToListAsync();
+
+            if (detailsProducts == null)
+            {
+                detailsProducts = new List<detailsProduct>(); // Initialize an empty list to prevent null reference
+                Console.WriteLine("No se encontraron productos.");
+            }
+
+            return View(detailsProducts);
         }
 
 
