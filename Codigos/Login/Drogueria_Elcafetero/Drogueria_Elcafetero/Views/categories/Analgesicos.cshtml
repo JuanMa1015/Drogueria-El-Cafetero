@@ -1,0 +1,180 @@
+﻿@model IEnumerable<Drogueria_Elcafetero.Models.detailsProduct>
+
+@{
+    ViewData["Title"] = "Home Page";
+
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"]</title>
+    <!-- CSS de Bootstrap para estilos -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/css/bootstrap.min.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="~/css/CardProductos.css" />
+    <link rel="stylesheet" href="~/css/NavbarIndex.css" />
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="navbar-container container-fluid">
+            <!-- Parte izquierda de la barra de navegación -->
+            <div class="navbar-left">
+                <!-- Ícono de menú con opciones desplegables -->
+                <div class="dropdown">
+                    <i class="fas fa-bars navbar-icon" id="menuIcon"></i>
+                    <div id="dropdownMenu" class="dropdown-content">
+                        <a asp-area="" asp-controller="categories" asp-action="Analgesicos">Analgésicos</a>
+                        <a href="#">Laxantes</a>
+                        <a href="#">Antiinflamatorios</a>
+                    </div>
+                </div>
+
+                <!-- Botón de búsqueda con lupa al final -->
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Buscar...">
+                    <span class="search-icon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Parte derecha de la barra de navegación -->
+            <a class="btn btn-outline-primary" asp-area="" asp-controller="Inicio" asp-action="Login">Iniciar sesión</a>
+        </div>
+    </nav>
+
+    <div class="productos-container">
+        @if (Model != null && Model.Any())
+
+        {
+            @foreach (var product in Model)
+
+            {
+                @if (product.CategoryName == "Analgésicos")
+                {
+                    <div class="producto-card">
+                        <img src="@product.Image" alt="@product.ProductName" class="producto-imagen" />
+                        <div class="producto-detalles">
+                            <h3>@product.ProductName</h3>
+                            <p>@product.CategoryName</p>
+                            <p class="product-price">$@product.Price</p>
+                            <button class="add-to-cart-btn">Agregar al carrito</button>
+                        </div>
+                    </div>
+                }
+            
+            }
+        }
+
+        else
+
+        {
+            <p>No hay productos disponibles.</p>
+        }
+    </div>
+
+    <footer class="footer">
+        <div class="footer-section">
+            <h4>Drogueria El Cafetero</h4>
+            <div class="app-links"></div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Contáctanos</h4>
+            <p>Desde celular a nivel nacional</p>
+            <p class="contact-number">601 486 5000</p>
+            <p>Línea nacional de ventas</p>
+            <p class="contact-number">01 8000 910545</p>
+            <div class="social-icons">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-whatsapp"></i>
+                <i class="fab fa-tiktok"></i>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h4>Nosotros</h4>
+            <ul>
+                <li>Quiénes somos</li>
+                <li>Nuestra Historia</li>
+                <li>Negocios Institucionales</li>
+                <li>Sostenibilidad</li>
+                <li>Noticias Cruz Verde</li>
+                <li>Notificaciones</li>
+                <li>Trabaja con nosotros</li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Legales</h4>
+            <ul>
+                <li>Aviso de privacidad</li>
+                <li>Políticas</li>
+                <li>Términos y condiciones</li>
+                <li>TyC-Textos legales</li>
+                <li>Reversión de pago</li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Nuestros servicios</h4>
+            <ul>
+                <li>Domicilios</li>
+                <li>Retiro en droguería</li>
+                <li>Entregas nacionales</li>
+                <li>Droguerías</li>
+                <li>Catálogos Cruz Verde</li>
+                <li>Convenios</li>
+                <li>Buzón digital</li>
+                <li>Preguntas frecuentes</li>
+                <li>Uso de medicamentos</li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h4>Club Cruz Verde</h4>
+            <ul>
+                <li>Inscríbete</li>
+                <li>Beneficios</li>
+                <li>Artículos sobre salud y bienestar</li>
+                <li>Términos y condiciones</li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Scripts de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- JavaScript para alternar el menú desplegable y cerrarlo al hacer clic fuera -->
+    <script>
+        // Selecciona el ícono y el menú
+        const menuIcon = document.getElementById("menuIcon");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+
+        // Alterna la visibilidad del menú al hacer clic en el ícono
+        menuIcon.addEventListener("click", (event) => {
+            event.stopPropagation(); // Evita que el clic en el ícono cierre el menú
+            dropdownMenu.classList.toggle("show");
+        });
+
+        // Cierra el menú al hacer clic en cualquier parte fuera del menú
+        document.addEventListener("click", (event) => {
+            if (!dropdownMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                dropdownMenu.classList.remove("show");
+            }
+        });
+    </script>
+</body>
+</html>

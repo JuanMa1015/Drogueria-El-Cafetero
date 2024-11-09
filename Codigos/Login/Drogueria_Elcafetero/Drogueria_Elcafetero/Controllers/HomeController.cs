@@ -59,6 +59,16 @@ namespace Drogueria_Elcafetero.Controllers
         }
 
 
+
+        public async Task<IActionResult> Search(string query)
+        {
+            var products = await _context.detailsProduct
+                .Where(p => p.ProductName.Contains(query) || p.CategoryName.Contains(query))
+                .ToListAsync();
+
+            return View("Index", products);
+        }
+
         public async Task<IActionResult> IndexSinLogin()
         {
             var detailsProducts = await _context.detailsProduct

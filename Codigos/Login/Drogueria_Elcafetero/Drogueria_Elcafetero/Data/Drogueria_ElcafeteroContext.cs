@@ -32,5 +32,6 @@ namespace Drogueria_Elcafetero.Data
         public DbSet<Drogueria_Elcafetero.Models.sales_details> sales_details { get; set; }
         public DbSet<Drogueria_Elcafetero.Models.discount_suppliers_invoices> discount_suppliers_invoices { get; set; }
         public DbSet<Drogueria_el_cafetero.Models.users> users { get; set; }
+        public DbSet<Drogueria_Elcafetero.Models.category> category { get; set; }
     }
 }
