@@ -9,4 +9,4 @@ Correo: gonzalezjuanmanuel645@gmail.com
 Contraseña: 1234
 ## Cliente
 Correo: sogonik432@cironex.com
-Contraseñaa: 1234
+Contraseña: 1234
