@@ -30,9 +30,21 @@
                 <div class="dropdown">
                     <i class="fas fa-bars navbar-icon" id="menuIcon"></i>
                     <div id="dropdownMenu" class="dropdown-content">
-                        <a asp-area="" asp-controller="categories" asp-action="Analgesicos">Analgésicos</a>
-                        <a href="#">Laxantes</a>
-                        <a href="#">Antiinflamatorios</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                            <a asp-area="" asp-controller="categories" asp-action="Analgesicos">Analgésicos</a>
+                            <a asp-area="" asp-controller="categories" asp-action="Laxantes">Laxantes</a>
+                            <a asp-area="" asp-controller="categories" asp-action="Antiinflamatorios">Antiinflamatorios</a>
+                        }
+                        else
+                        {
+                            <a asp-area="" asp-controller="Home" asp-action="IndexSinLogin">Inicio</a>
+                            <a asp-area="" asp-controller="categories" asp-action="Analgesicos">Analgésicos</a>
+                            <a asp-area="" asp-controller="categories" asp-action="Laxantes">Laxantes</a>
+                            <a asp-area="" asp-controller="categories" asp-action="Antiinflamatorios">Antiinflamatorios</a>
+                        }
+          
                     </div>
                 </div>
 
@@ -46,7 +58,39 @@
             </div>
 
             <!-- Parte derecha de la barra de navegación -->
-            <a class="btn btn-outline-primary" asp-area="" asp-controller="Inicio" asp-action="Login">Iniciar sesión</a>
+            <div class="navbar-right">
+                @if (User.Identity.IsAuthenticated)
+
+                {
+                    <!-- Botón Carrito -->
+                    <button class="btn btn-outline-light btn-custom" type="button">
+                        <i class="fas fa-shopping-cart me-2"></i> Carrito
+                        <span class="badge bg-light text-dark ms-2 rounded-pill">0</span>
+                    </button>
+
+                    <!-- Dropdown de usuario -->
+                    <div class="nav-item dropdown">
+                        <a class="btn btn-outline-light btn-custom dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-user"></i> @User.Identity.Name
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" asp-area="" asp-controller="" asp-action="">Mis Compras</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Inicio" asp-action="Salir">Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
+                }
+
+                else
+
+                {
+                    <!-- Botones Iniciar Sesión y Registrarse -->
+                    <a class="btn btn-outline-light btn-custom" asp-area="" asp-controller="Inicio" asp-action="Login">
+                         Iniciar Sesión
+                    </a>
+
+                }
+            </div>
         </div>
     </nav>
 

@@ -21,6 +21,8 @@ namespace Drogueria_Elcafetero.Controllers
             _context = context;
             _logger = logger;
         }
+
+        [Authorize(Roles = "Cliente")]
         public async Task<IActionResult> Index()
         {
             var detailsProducts = await _context.detailsProduct
