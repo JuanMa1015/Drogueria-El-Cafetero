@@ -9,8 +9,7 @@ namespace Drogueria_Elcafetero.Models
         public int id_user { get; set; }
         public int id_product { get; set; }
         public int quantity { get; set; }
-        public decimal unit_price { get; set; }
-        public decimal total_price { get; set; }
+        public decimal price { get; set; }
 
         [Required]
         public DateTime date { get; set; } = DateTime.Now;

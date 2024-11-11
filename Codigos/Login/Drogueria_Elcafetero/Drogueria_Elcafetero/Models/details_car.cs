@@ -9,7 +9,6 @@ namespace Drogueria_Elcafetero.Models
         public string NombreProducto { get; set; }
         public int Cantidad { get; set; }
         public decimal Precio { get; set; }
-        public decimal PrecioTotal { get; set; }
         public DateTime Fecha { get; set; }
     }
 }

@@ -45,7 +45,7 @@ namespace Drogueria_Elcafetero
                 // Si ya existe, incrementar la cantidad y actualizar el precio total dinámicamente
                 carritoExistente.quantity += 1;
                 // Actualizar el total_price multiplicando la cantidad por el precio del producto
-                carritoExistente.total_price = Convert.ToDecimal(carritoExistente.quantity * producto.price);
+                carritoExistente.price = Convert.ToDecimal(carritoExistente.quantity * producto.price);
 
                 _context.Update(carritoExistente);
             }
@@ -57,9 +57,8 @@ namespace Drogueria_Elcafetero
                     id_user = usuario.id_user,
                     id_product = idProducto,
                     quantity = 1,
-                    date = DateTime.UtcNow, 
-                    unit_price = Convert.ToDecimal(producto.price),// Convertir la fecha a UTC
-                    total_price = Convert.ToDecimal(producto.price)
+                    date = DateTime.UtcNow,// Convertir la fecha a UTC
+                    price = Convert.ToDecimal(producto.price)
 
                 };
 
@@ -73,13 +72,6 @@ namespace Drogueria_Elcafetero
             return RedirectToAction(nameof(Index)); // Asegúrate de tener un índice donde se vea el carrito
         }
 
-
-
-
-
-
-
-
         // GET: cars
         public async Task<IActionResult> Index()
         {
@@ -89,10 +81,8 @@ namespace Drogueria_Elcafetero
                 u.user_name AS NombreUsuario, 
                 p.product_name AS NombreProducto, 
                 c.quantity AS Cantidad, 
-                p.price As Precio,
                 c.date AS Fecha,
-                c.unit_price,
-                c.total_price As PrecioTotal
+                c.price As Precio
             FROM 
                 car c
             JOIN 
