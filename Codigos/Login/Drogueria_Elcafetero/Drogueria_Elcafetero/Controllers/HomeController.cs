@@ -5,7 +5,6 @@ using Drogueria_Elcafetero.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ProyectoTest.Logica;
 using System.Diagnostics;
 using System.Security.Claims;
 

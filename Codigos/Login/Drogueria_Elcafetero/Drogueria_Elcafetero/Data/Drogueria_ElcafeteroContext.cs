@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Drogueria_el_cafetero.Models;
 using Drogueria_Elcafetero.Models;
+using System.Runtime.ConstrainedExecution;
 
 namespace Drogueria_Elcafetero.Data
 {
@@ -14,6 +15,8 @@ namespace Drogueria_Elcafetero.Data
             : base(options)
         {
         }
+        public DbSet<Drogueria_Elcafetero.Models.car> car { get; set; }
+        public DbSet<Drogueria_Elcafetero.Models.details_car> details_car { get; set; }
         public DbSet<Drogueria_Elcafetero.Models.detailsProduct> detailsProduct { get; set; }
         public DbSet<Drogueria_Elcafetero.Models.address> address { get; set; }
         public DbSet<Drogueria_Elcafetero.Models.Employees> employees { get; set; }
@@ -34,4 +37,5 @@ namespace Drogueria_Elcafetero.Data
         public DbSet<Drogueria_el_cafetero.Models.users> users { get; set; }
         public DbSet<Drogueria_Elcafetero.Models.category> category { get; set; }
     }
+
 }

@@ -13,5 +13,6 @@ namespace Drogueria_Elcafetero.Models
         public bool active { get; set; } = true;
         public string image { get; set; }
         public int id_category { get; set; }
+
     }
 }

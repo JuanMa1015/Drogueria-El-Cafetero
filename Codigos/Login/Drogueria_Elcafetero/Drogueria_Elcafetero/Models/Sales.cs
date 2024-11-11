@@ -10,5 +10,7 @@ namespace Drogueria_Elcafetero.Models
         public int id_employee { get; set; }
         public DateTime sale_date { get; set; }
         public double total_sale { get; set; }
+
+        public ICollection<sales_details> sales_details { get; set; }
     }
 }

@@ -10,5 +10,8 @@ namespace Drogueria_Elcafetero.Models
         public int amount_products { get; set; }
         public double unit_price { get; set; }
         public double subtotal { get; set; }
+
+        public sales sale { get; set; }
+        products products { get; set; }
     }
 }

@@ -78,10 +78,7 @@
                 {
                     <!-- Botones Iniciar Sesión y Registrarse -->
                     <a class="btn btn-outline-light btn-custom" asp-area="" asp-controller="Inicio" asp-action="Login">
-                        <i class="fas fa-sign-in-alt me-2"></i> Iniciar Sesión
-                    </a>
-                    <a class="btn btn-outline-light btn-custom" asp-area="" asp-controller="Inicio" asp-action="Registrar">
-                        <i class="fas fa-user-plus me-2"></i> Registrarse
+                        Iniciar Sesión
                     </a>
                 }
             </div>
@@ -101,7 +98,10 @@
                         @*                         <p>Proveedor: @producto.proveedor</p> *@
                         <p> $@product.Price</p>
                         @*                        <p>Unidades en stock: @producto.unidades_stock</p>
-                *@                        <button class="add-to-cart-btn">Agregar al carrito</button>
+                *@                      <form method="post" asp-controller="cars" asp-action="AgregarAlCarrito" asp-route-idProducto="@product.IdProduct">
+                            <button type="submit" class="btn btn-primary">Agregar al carrito</button>
+                        </form>
+
                     </div>
                 </div>
             }
