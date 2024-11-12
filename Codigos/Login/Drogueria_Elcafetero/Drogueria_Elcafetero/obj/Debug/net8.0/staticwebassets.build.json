@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "k4LivBa4cgGBNdrKq6iMOi3V4i/zX18X63T83b6zbT8=",
+  "Hash": "ZttnxA59U5eE1kszrg7cx3I7rcr/NhTaVuwllvYhva0=",
   "Source": "Drogueria_Elcafetero",
   "BasePath": "_content/Drogueria_Elcafetero",
   "Mode": "Default",
@@ -188,6 +188,25 @@
       "OriginalItemSpec": "wwwroot\\css\\Carrito.css"
     },
     {
+      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\DetailsAdmin.css",
+      "SourceId": "Drogueria_Elcafetero",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\",
+      "BasePath": "_content/Drogueria_Elcafetero",
+      "RelativePath": "css/DetailsAdmin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\DetailsAdmin.css"
+    },
+    {
       "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\EditAdmin.css",
       "SourceId": "Drogueria_Elcafetero",
       "SourceType": "Discovered",
@@ -319,6 +338,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\js\\AlertaCarrito.js",
+      "SourceId": "Drogueria_Elcafetero",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\",
+      "BasePath": "_content/Drogueria_Elcafetero",
+      "RelativePath": "js/AlertaCarrito.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\AlertaCarrito.js"
     },
     {
       "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\js\\datatables-simple-demo.js",

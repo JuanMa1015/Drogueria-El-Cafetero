@@ -4,6 +4,7 @@
     Layout = null;
 }
 <link rel="stylesheet" href="/css/Carrito.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="container">
     <!-- Carrito de Compras y Detalles de Envío -->
     <div class="row mt-5">
@@ -27,6 +28,7 @@
                                     <th class="text-center">Cantidad</th>
                                     <th class="text-center">Precio</th>
                                     <th class="text-center">Subtotal</th>
+                                    <th class="text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -34,9 +36,9 @@
                                 {
                                     <tr>
                                         <td>@item.NombreProducto</td>
-                                        <td>@item.Cantidad</td>
+                                        <td><input type="text" class="form-control cantidad" value="@item.Cantidad" disabled/></td>
                                         <td><input type="text" class="form-control precio" value="$@item.Precio" disabled></td>
-                                        <td><input type="text" class="form-control subtotal" value="$@(item.Cantidad * item.Precio)" disabled /></td>
+                                        <td><input type="text" class="form-control subtotal" value="$@(item.Cantidad * item.Precio)" disabled/></td>
                                         <td class="text-center">
                                             <!-- Botón de eliminar -->
                                             <form asp-area="" asp-controller="cars" asp-action="Delete" asp-route-id="@item.CarritoId" method="post">
@@ -54,26 +56,57 @@
                     <!-- Total a Pagar -->
                     <div class="d-flex justify-content-between align-items-center mt-4">
                         <span class="total-text font-weight-bold">Total a Pagar</span>
-                        <span id="totalPagar" class="font-weight-bold" style="font-size: 1.5rem; color: #28a745;">$/. 0</span>
+                        <span id="totalPagar" class="font-weight-bold" style="font-size: 1.5rem; color: #28a745;">$ 0</span>
                     </div>
 
                     <div class="d-flex justify-content-between mt-3">
                         <!-- Botón Proceder al Pago (Izquierda) -->
-                        <button class="btn btn-outline-secondary btn-lg btn-seguir-comprando" type="button" asp-controller="Home" asp-action="Index">
-                            Proceder Al Pago
-                        </button>
+                        <form asp-controller="Home" asp-action="Index" method="post">
+                            <button class="btn btn-outline-secondary btn-lg btn-seguir-comprando" type="submit">
+                                Proceder Al Pago
+                            </button>
+                        </form>
 
                         <!-- Botón Seguir Comprando (Derecha) -->
-                        <button class="btn btn-outline-secondary btn-lg btn-seguir-comprando" type="button" asp-controller="Home" asp-action="Index">
-                            Seguir Comprando
-                        </button>
+                        <form asp-controller="Home" asp-action="Index" method="get">
+                            <button class="btn btn-outline-secondary btn-lg btn-seguir-comprando" type="submit">
+                                Seguir Comprando
+                            </button>
+                        </form>
                     </div>
-
-
 
                 </div>
             </div>
         </div>
-
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        function updateTotal() {
+            let total = 0;
+            $('.subtotal').each(function () {
+                const subtotalValue = parseFloat($(this).val().replace('$', '').replace(',', ''));
+                total += subtotalValue;
+            });
+            $('#totalPagar').text(`$/. ${total.toFixed(2)}`);
+        }
+
+        $('.change-quantity').on('click', function () {
+            const action = $(this).data('action');
+            const row = $(this).closest('tr');
+            const quantityInput = row.find('.cantidad');
+            const price = parseFloat(row.find('.precio').val().replace('$', '').replace(',', ''));
+            let quantity = parseInt(quantityInput.val());
+
+
+            const subtotal = quantity * price;
+            row.find('.subtotal').val(`$${subtotal.toFixed(2)}`);
+
+            updateTotal();
+        });
+
+        // Inicializar el total al cargar la página
+        updateTotal();
+    });
+</script>

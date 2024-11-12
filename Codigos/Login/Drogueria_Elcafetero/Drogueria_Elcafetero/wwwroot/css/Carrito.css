@@ -126,3 +126,30 @@ body {
         outline: none;
         box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
     }
+
+/* Estilo para el botón "Añadir al carrito" */
+.btn-add-to-cart {
+    display: inline-block;
+    background-color: #28a745; /* Color verde */
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .btn-add-to-cart:hover {
+        background-color: #218838; /* Un verde más oscuro para el hover */
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-add-to-cart:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
+    }

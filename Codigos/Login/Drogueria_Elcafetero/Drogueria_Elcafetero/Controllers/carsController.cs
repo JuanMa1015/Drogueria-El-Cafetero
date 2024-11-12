@@ -45,7 +45,7 @@ namespace Drogueria_Elcafetero.Controllers
                 // Si ya existe, incrementar la cantidad y actualizar el precio total dinámicamente
                 carritoExistente.quantity += 1;
                 // Actualizar el total_price multiplicando la cantidad por el precio del producto
-                carritoExistente.price = Convert.ToDecimal(carritoExistente.quantity * producto.price);
+                //carritoExistente.price = Convert.ToDecimal(carritoExistente.quantity * producto.price);
 
                 _context.Update(carritoExistente);
             }
@@ -69,7 +69,7 @@ namespace Drogueria_Elcafetero.Controllers
             await _context.SaveChangesAsync();
 
             // Redirigir al carrito
-            return RedirectToAction(nameof(Index)); // Asegúrate de tener un índice donde se vea el carrito
+            return Ok(); // Asegúrate de tener un índice donde se vea el carrito
         }
 
         // GET: cars

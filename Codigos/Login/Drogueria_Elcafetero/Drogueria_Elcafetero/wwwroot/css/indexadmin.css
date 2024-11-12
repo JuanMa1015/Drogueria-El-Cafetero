@@ -15,67 +15,9 @@ body {
     padding: 0;
 }
 
-.sb-nav-fixed {
-    padding-top: 56px;
-}
 
-.sb-topnav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-    background-color: var(--primary-color);
-    padding: 0.5rem 1rem;
-}
 
-.navbar-brand {
-    color: var(--secondary-color);
-    font-weight: bold;
-}
 
-#layoutSidenav {
-    display: flex;
-}
-
-#layoutSidenav_nav {
-    flex-basis: 225px;
-    flex-shrink: 0;
-    transition: transform .15s ease-in-out;
-    z-index: 1038;
-    transform: translateX(-225px);
-}
-
-.sb-sidenav-toggled #layoutSidenav_nav {
-    transform: translateX(0);
-}
-
-.sb-sidenav {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-}
-
-.sb-sidenav-menu {
-    padding: 1rem;
-}
-
-    .sb-sidenav-menu .nav-link {
-        color: rgba(255, 255, 255, 0.5);
-        padding: 0.75rem 1rem;
-        margin-bottom: 0.5rem;
-        border-radius: 0.25rem;
-        transition: all 0.15s ease-in-out;
-    }
-
-        .sb-sidenav-menu .nav-link:hover {
-            color: var(--secondary-color);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-
-#layoutSidenav_content {
-    padding: 1.5rem;
-    flex-grow: 1;
-}
 
 .container-fluid {
     max-width: 1200px;
@@ -157,14 +99,6 @@ h1 {
         color: var(--primary-color);
     }
 
-@media (min-width: 768px) {
-    #layoutSidenav_nav {
-        transform: translateX(0);
-    }
 
-    #layoutSidenav_content {
-        margin-left: 225px;
-    }
-}
 
 

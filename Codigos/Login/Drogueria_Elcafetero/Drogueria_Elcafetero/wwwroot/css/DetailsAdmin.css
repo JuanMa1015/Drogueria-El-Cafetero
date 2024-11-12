@@ -1,0 +1,100 @@
+﻿/* General Styles */
+body {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.container-fluid, .mt-4 {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+h1, h4 {
+    color: #000000;
+}
+
+hr {
+    border-top: 1px solid #000000;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #000000;
+}
+
+    .navbar .navbar-brand,
+    .navbar .navbar-nav .nav-link,
+    .navbar .navbar-nav .dropdown-item {
+        color: #ffffff;
+    }
+
+    .navbar .dropdown-menu {
+        background-color: #ffffff;
+        border: 1px solid #000000;
+    }
+
+        .navbar .dropdown-menu .dropdown-item {
+            color: #000000;
+        }
+
+            .navbar .dropdown-menu .dropdown-item:hover {
+                background-color: #cccccc;
+                color: #000000;
+            }
+
+/* Button Styles */
+.btn-primary {
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+}
+
+    .btn-primary:hover {
+        background-color: #333333;
+        border-color: #333333;
+    }
+
+.btn-secondary {
+    background-color: #ffffff;
+    border-color: #000000;
+    color: #000000;
+}
+
+    .btn-secondary:hover {
+        background-color: #cccccc;
+        color: #000000;
+    }
+
+/* Details Section */
+dl.row {
+    color: #000000;
+}
+
+dt, dd {
+    color: #000000;
+}
+
+/* Links */
+a {
+    color: #000000;
+}
+
+    a:hover {
+        color: #333333;
+        text-decoration: underline;
+    }
+
+/* Sidebar Colors Excluded */
+.sb-topnav {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.sb-sidenav .nav-link,
+.sb-sidenav .sb-sidenav-menu .nav .sb-nav-link-icon {
+    color: inherit;
+}
+
+.sb-sidenav-menu .nav-link:hover {
+    background-color: #333333;
+}
