@@ -1,0 +1,128 @@
+﻿/* Estilo global */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo del contenedor */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Estilo de las tarjetas */
+.card {
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* Tabla del carrito */
+.table {
+    margin-bottom: 30px;
+    font-size: 1rem;
+}
+
+    .table th, .table td {
+        text-align: center;
+        padding: 15px;
+    }
+
+    .table th {
+        background-color: #f4f4f4;
+    }
+
+.table-hover tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Total */
+.total-text {
+    font-size: 1.25rem;
+}
+
+#totalPagar {
+    font-size: 1.75rem;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Botón de pago */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    color: #fff;
+    border-radius: 8px;
+    width: 200px;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+/* Detalles de envío */
+.form-control {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 14px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+/* Estilo responsivo */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    .table {
+        font-size: 0.9rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+}
+
+/* Estilo para el botón de "Seguir Comprando" alineado a la derecha */
+.btn-seguir-comprando {
+    color: #007bff;
+    border-color: #007bff;
+    background-color: transparent;
+    font-weight: bold;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    margin-left: 10px; /* Para separar ligeramente de "Proceder al Pago" */
+}
+
+    .btn-seguir-comprando:hover {
+        color: #fff;
+        background-color: #007bff;
+        border-color: #007bff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-seguir-comprando:focus {
+        outline: none;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }

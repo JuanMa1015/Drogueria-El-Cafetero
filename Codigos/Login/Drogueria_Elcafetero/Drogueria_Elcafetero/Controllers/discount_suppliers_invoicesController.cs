@@ -22,7 +22,30 @@ namespace Drogueria_Elcafetero.Controllers
         // GET: discount_suppliers_invoices
         public async Task<IActionResult> Index()
         {
-            return View(await _context.discount_suppliers_invoices.ToListAsync());
+            var detailsdiscountsupplierinvioces = await _context.detailsdiscountsupplierinvioces
+                    .FromSqlRaw(@"SELECT
+                                    ds.id_discount_suppliers_invoices AS IdDiscountSupplierInvoice,
+                                    si.invoice_number AS SupplierInvioceNumber,
+                                    d.description AS DiscountDescription,
+                                    ds.discount_amount AS DiscountAmount,
+                                    si.total_invoice AS InvioceTotal
+                                FROM
+                                    Discount_Suppliers_invoices ds
+                                JOIN
+                                    Discount d ON ds.id_discount = d.id_discount
+                                JOIN
+                                    Suppliers_invoices si ON ds.id_supplier_invoice = si.id_supplier_invoice
+
+                                ")
+                .ToListAsync();
+
+            if (detailsdiscountsupplierinvioces == null)
+            {
+                detailsdiscountsupplierinvioces = new List<detailsdiscountsupplierinvioces>(); // Initialize an empty list to prevent null reference
+                Console.WriteLine("No se encontraron productos.");
+            }
+
+            return View(detailsdiscountsupplierinvioces);
         }
 
         // GET: discount_suppliers_invoices/Details/5

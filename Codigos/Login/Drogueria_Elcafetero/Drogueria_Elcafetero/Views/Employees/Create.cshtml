@@ -20,7 +20,7 @@
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <a class="navbar-brand ps-3" asp-controller="Admin" asp-action="AdminVM">Administrador</a>
+        <a class="navbar-brand ps-3" asp-controller="Home" asp-action="Admin">Administrador</a>
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
@@ -37,33 +37,32 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseEmpleados" aria-expanded="false" aria-controls="collapseEmpleados">
-                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            <div class="sb-nav-link-icon"><i class='bx bx-group'></i></div>
                             Empleados
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseEmpleados" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" asp-area="" asp-controller="Employees" asp-action="Index">Lista De Empleados</a>
-                                <a class="nav-link" asp-area="" asp-controller="Employees" asp-action="Create">Nuevo Empleado</a>
                             </nav>
                         </div>
                         @*
                         <div class="sb-sidenav-menu-heading">Productos</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProductos" aria-expanded="false" aria-controls="collapseProductos">
-                            <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="sb-nav-link-icon"><i class='bx bx-cart'></i></div>
                             Productos
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseProductos" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Lista De Productos</a>
-                                <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Create">Nuevo Producto</a>
+                                <a class="nav-link" asp-area="" asp-controller="categories" asp-action="Index">Lista De Categorías</a>
                             </nav>
                         </div>
 
                         @* <div class="sb-sidenav-menu-heading">Ordenes</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseOrdenes" aria-expanded="false" aria-controls="collapseOrdenes">
-                            <div class="sb-nav-link-icon"><i class="fas fa-list-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class='bx bx-list-ul'></i></div>
                             Ordenes
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -72,29 +71,26 @@
                                 <a class="nav-link" asp-area="" asp-controller="purchase_orders" asp-action="Index">Lista De Ordenes</a>
                                 <a class="nav-link" asp-area="" asp-controller="purchase_orders_details" asp-action="Index">Detalles De Ordenes</a>
                                 <a class="nav-link" asp-area="" asp-controller="purchase_orders_invoice" asp-action="Index">Facturas</a>
-                                <a class="nav-link" asp-area="" asp-controller="purchase_orders" asp-action="Create">Nueva Orden</a>
                             </nav>
                         </div>
 
                         @* <div class="sb-sidenav-menu-heading">Proveedores</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseProveedores" aria-expanded="false" aria-controls="collapseProveedores">
-                            <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                            <div class="sb-nav-link-icon"><i class='bx bx-store'></i></div>
                             Proveedores
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseProveedores" aria-labelledby="headingThree" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" asp-area="" asp-controller="suppliers" asp-action="Index">Lista De Proveedores</a>
-                                <a class="nav-link" asp-area="" asp-controller="suppliers" asp-action="Create">Nuevo Proveedor</a>
                                 <a class="nav-link" asp-area="" asp-controller="suppliers_invoices" asp-action="Index">Facturas</a>
                                 <a class="nav-link" asp-area="" asp-controller="discount_suppliers_invoices" asp-action="Index">Descuentos</a>
-                                <a class="nav-link" asp-area="" asp-controller="suppliers_products" asp-action="Index">Productos de Proveedores</a>
                             </nav>
                         </div>
 
                         @* <div class="sb-sidenav-menu-heading">Ventas</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseVentas" aria-expanded="false" aria-controls="collapseVentas">
-                            <div class="sb-nav-link-icon"><i class="fas fa-cash-register"></i></div>
+                            <div class="sb-nav-link-icon"><i class='bx bx-dollar'></i></div>
                             Ventas
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
@@ -103,37 +99,33 @@
                                 <a class="nav-link" asp-area="" asp-controller="sales" asp-action="Index">Lista De Ventas</a>
                                 <a class="nav-link" asp-area="" asp-controller="sales_details" asp-action="Index">Detalles De Venta</a>
                                 <a class="nav-link" asp-area="" asp-controller="sales_invoices" asp-action="Index">Facturas</a>
-                                <a class="nav-link" asp-area="" asp-controller="sales" asp-action="Create">Nueva Venta</a>
                             </nav>
                         </div>
 
                         @* <div class="sb-sidenav-menu-heading">Direcciones</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseDirecciones" aria-expanded="false" aria-controls="collapseDirecciones">
-                            <div class="sb-nav-link-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class='bx bx-map'></i></div>
                             Direcciones
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseDirecciones" aria-labelledby="headingFour" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" asp-area="" asp-controller="addresses" asp-action="Index">Lista De Direcciones</a>
-                                <a class="nav-link" asp-area="" asp-controller="addresses" asp-action="Create">Nueva Dirección</a>
                                 <a class="nav-link" asp-area="" asp-controller="city_towns" asp-action="Index">ciudades</a>
                             </nav>
                         </div>
 
                         @* <div class="sb-sidenav-menu-heading">Clientes</div> *@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
-                            <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                            <div class="sb-nav-link-icon"><i class='bx bx-user-circle'></i></div>
                             Clientes
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseClientes" aria-labelledby="headingFour" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" asp-area="" asp-controller="users" asp-action="Index">Lista De Clientes</a>
-                                <a class="nav-link" asp-area="" asp-controller="users" asp-action="Create">Nuevo Cliente</a>
                             </nav>
                         </div>
-                        <!-- Aquí puedes añadir los elementos de navegación como en el código original -->
                     </div>
                 </div>
             </nav>

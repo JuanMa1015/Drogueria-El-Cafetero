@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hO4AFpiQauH0sVjpbgAUN0Vja32cgDJCFr82Ea90Cjk=",
+  "Hash": "k4LivBa4cgGBNdrKq6iMOi3V4i/zX18X63T83b6zbT8=",
   "Source": "Drogueria_Elcafetero",
   "BasePath": "_content/Drogueria_Elcafetero",
   "Mode": "Default",
@@ -169,12 +169,12 @@
       "OriginalItemSpec": "wwwroot\\css\\CardProductos.css"
     },
     {
-      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\createAdmin.css",
+      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\Carrito.css",
       "SourceId": "Drogueria_Elcafetero",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\",
       "BasePath": "_content/Drogueria_Elcafetero",
-      "RelativePath": "css/createAdmin.css",
+      "RelativePath": "css/Carrito.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -185,15 +185,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\createAdmin.css"
+      "OriginalItemSpec": "wwwroot\\css\\Carrito.css"
     },
     {
-      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\deleteAdmin.css",
+      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\EditAdmin.css",
       "SourceId": "Drogueria_Elcafetero",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\",
       "BasePath": "_content/Drogueria_Elcafetero",
-      "RelativePath": "css/deleteAdmin.css",
+      "RelativePath": "css/EditAdmin.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -204,15 +204,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\deleteAdmin.css"
+      "OriginalItemSpec": "wwwroot\\css\\EditAdmin.css"
     },
     {
-      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\detailsAdmin.css",
+      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\IndexAdmin.css",
       "SourceId": "Drogueria_Elcafetero",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\",
       "BasePath": "_content/Drogueria_Elcafetero",
-      "RelativePath": "css/detailsAdmin.css",
+      "RelativePath": "css/IndexAdmin.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -223,45 +223,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\detailsAdmin.css"
-    },
-    {
-      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\editAdmin.css",
-      "SourceId": "Drogueria_Elcafetero",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\",
-      "BasePath": "_content/Drogueria_Elcafetero",
-      "RelativePath": "css/editAdmin.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\editAdmin.css"
-    },
-    {
-      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\indexadmin.css",
-      "SourceId": "Drogueria_Elcafetero",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\",
-      "BasePath": "_content/Drogueria_Elcafetero",
-      "RelativePath": "css/indexadmin.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\indexadmin.css"
+      "OriginalItemSpec": "wwwroot\\css\\IndexAdmin.css"
     },
     {
       "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\NavbarIndex.css",

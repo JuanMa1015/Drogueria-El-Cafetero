@@ -52,26 +52,24 @@
 
     <div class="productos-container">
         @if (Model != null && Model.Any())
-
         {
             @foreach (var product in Model)
-
             {
-
                 <div class="producto-card">
                     <img src="@product.Image" alt="@product.ProductName" class="producto-imagen" />
                     <div class="producto-detalles">
                         <h3>@product.ProductName</h3>
                         <p>@product.CategoryName</p>
                         <p class="product-price">$@product.Price</p>
-                        <button class="add-to-cart-btn">Agregar al carrito</button>
+                        <form asp-controller="Inicio" asp-action="Login" method="get">
+                            <button type="submit" class="add-to-cart-btn">Agregar al carrito</button>
+                        </form>
+
                     </div>
                 </div>
             }
         }
-
         else
-
         {
             <p>No hay productos disponibles.</p>
         }

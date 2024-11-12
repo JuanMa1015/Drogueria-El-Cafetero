@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Drogueria_Elcafetero.Data;
 using Drogueria_Elcafetero.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.Blazor;
 
 
 namespace Drogueria_Elcafetero.Controllers
@@ -24,11 +25,32 @@ namespace Drogueria_Elcafetero.Controllers
             _context = context;
         }
 
-     
+
         // GET: addresses
         public async Task<IActionResult> Index()
         {
-            return View(await _context.address.ToListAsync());
+            var detailsadress = await _context.detailsadressess
+                    .FromSqlRaw(@"SELECT 
+                                    a.id_address AS IdAddress,
+                                    a.city_name AS CityName,
+                                    a.description Description,
+                                    s.supplier_name AS SupplierName  
+                                FROM 
+                                    Address a
+                                JOIN 
+                                    Suppliers s ON a.id_supplier = s.id_supplier
+                                JOIN 
+                                    City_towns c ON a.city_name = c.city_name
+                                ")
+                .ToListAsync();
+
+            if (detailsadress == null)
+            {
+                detailsadress = new List<detailsadressess>(); // Initialize an empty list to prevent null reference
+                Console.WriteLine("No se encontraron productos.");
+            }
+
+            return View(detailsadress);
         }
 
         // GET: addresses/Details/5
@@ -39,15 +61,19 @@ namespace Drogueria_Elcafetero.Controllers
                 return NotFound();
             }
 
-            var address = await _context.address
+            var adress = await _context.address
                 .FirstOrDefaultAsync(m => m.id_address == id);
-            if (address == null)
+            if (adress == null)
             {
                 return NotFound();
             }
 
-            return View(address);
+            return View(adress);
         }
+
+
+
+
 
         // GET: addresses/Create
         public IActionResult Create()

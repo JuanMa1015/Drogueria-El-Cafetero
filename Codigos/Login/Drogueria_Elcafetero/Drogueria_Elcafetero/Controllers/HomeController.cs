@@ -59,8 +59,6 @@ namespace Drogueria_Elcafetero.Controllers
             return View();
         }
 
-
-
         public async Task<IActionResult> Search(string query)
         {
             var products = await _context.detailsProduct

@@ -3,32 +3,77 @@
 @{
     Layout = null;
 }
+<link rel="stylesheet" href="/css/Carrito.css" />
+<div class="container">
+    <!-- Carrito de Compras y Detalles de Envío -->
+    <div class="row mt-5">
+        <!-- Carrito de Compras -->
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-body">
+                    <h3 class="text-center mb-4">Tu Carrito de Compras</h3>
 
-<h1>Tu Carrito de Compras</h1>
+                    <!-- Mensaje de elementos en el carrito -->
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="text-muted">Tienes <strong>@Model.Count()</strong> artículo(s) en tu carrito</span>
+                    </div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Producto</th>
-            <th>Cantidad</th>
-            <th>Fecha</th>
-            <th>Precio</th>
-            <th>Acciones</th>
+                    <!-- Tabla de Detalles del Carrito -->
+                    <div class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th class="text-center">Producto</th>
+                                    <th class="text-center">Cantidad</th>
+                                    <th class="text-center">Precio</th>
+                                    <th class="text-center">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.NombreProducto</td>
+                                        <td>@item.Cantidad</td>
+                                        <td><input type="text" class="form-control precio" value="$@item.Precio" disabled></td>
+                                        <td><input type="text" class="form-control subtotal" value="$@(item.Cantidad * item.Precio)" disabled /></td>
+                                        <td class="text-center">
+                                            <!-- Botón de eliminar -->
+                                            <form asp-area="" asp-controller="cars" asp-action="Delete" asp-route-id="@item.CarritoId" method="post">
+                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash-alt"></i> Eliminar
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
 
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.NombreProducto</td>
-                <td>@item.Cantidad</td>
-                <td>@item.Fecha.ToString("g")</td>
-                <td>@item.Precio</td>
-                <td>
-                    <a href="@Url.Action("Delete", "cars", new { id = item.CarritoId })" class="btn btn-danger">Eliminar</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                    <!-- Total a Pagar -->
+                    <div class="d-flex justify-content-between align-items-center mt-4">
+                        <span class="total-text font-weight-bold">Total a Pagar</span>
+                        <span id="totalPagar" class="font-weight-bold" style="font-size: 1.5rem; color: #28a745;">$/. 0</span>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-3">
+                        <!-- Botón Proceder al Pago (Izquierda) -->
+                        <button class="btn btn-outline-secondary btn-lg btn-seguir-comprando" type="button" asp-controller="Home" asp-action="Index">
+                            Proceder Al Pago
+                        </button>
+
+                        <!-- Botón Seguir Comprando (Derecha) -->
+                        <button class="btn btn-outline-secondary btn-lg btn-seguir-comprando" type="button" asp-controller="Home" asp-action="Index">
+                            Seguir Comprando
+                        </button>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

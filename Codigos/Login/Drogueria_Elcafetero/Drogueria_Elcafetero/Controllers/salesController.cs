@@ -24,8 +24,31 @@ namespace Drogueria_Elcafetero.Controllers
         // GET: sales
         public async Task<IActionResult> Index()
         {
-            return View(await _context.sales.ToListAsync());
+            var detailssales = await _context.detailssales
+                    .FromSqlRaw(@"SELECT 
+                                    s.id_sale AS IdSale,
+                                    c.customer_name AS CustomerName,
+                                    e.employee_name AS EmployeeName,
+                                    s.sale_date AS SaleDate,
+                                    s.total_sale AS TotalSale
+                                FROM 
+                                    Sales s
+                                JOIN 
+                                    Customers c ON s.id_customer = c.id_customer
+                                JOIN 
+                                    Employees e ON s.id_employee = e.id_employee
+                                ")
+                .ToListAsync();
+
+            if (detailssales == null)
+            {
+                detailssales = new List<detailssales>(); // Initialize an empty list to prevent null reference
+                Console.WriteLine("No se encontraron productos.");
+            }
+
+            return View(detailssales);
         }
+
 
         // GET: sales/Details/5
         public async Task<IActionResult> Details(int? id)

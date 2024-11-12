@@ -4,6 +4,7 @@ namespace Drogueria_Elcafetero.Models
 {
     public class details_car
     {
+
          [Key] public int CarritoId { get; set; }
         public string NombreUsuario { get; set; }
         public string NombreProducto { get; set; }
