@@ -52,33 +52,22 @@ CREATE TABLE category (
 -- Índices
 CREATE INDEX idx_id_supplier_product ON Products(id_supplier);
 
--- Crear tabla intermedia para relaciones muchos a muchos
-CREATE TABLE Suppliers_products (
-    id_supplier_product SERIAL PRIMARY KEY,
-    id_product INT REFERENCES Products(id_product) ON DELETE CASCADE,
-    id_supplier INT REFERENCES Suppliers(id_supplier) ON DELETE CASCADE,
-    price DECIMAL CHECK (price >= 0),
-    agreement_date DATE DEFAULT CURRENT_DATE
-);
-
-CREATE INDEX idx_product_supplier ON Suppliers_products(id_product, id_supplier);
-
 -- Crear tabla de órdenes de compra y dependientes
 CREATE TABLE Purchase_orders (
     id_purchase_order SERIAL PRIMARY KEY,
     id_supplier INT REFERENCES Suppliers(id_supplier) ON DELETE CASCADE,
     order_date DATE NOT NULL DEFAULT CURRENT_DATE,
     total_order DECIMAL NOT NULL CHECK (total_order >= 0),
-    state VARCHAR(30)
+    state BOOLEAN
 );
 
-CREATE TABLE Suppliers_invoices (
+CREATE TABLE suppliers_invoices (
     id_supplier_invoice SERIAL PRIMARY KEY,
     id_purchase_order INT REFERENCES Purchase_orders(id_purchase_order) ON DELETE CASCADE,
     invoice_number VARCHAR(100) NOT NULL,
     issue_date DATE NOT NULL DEFAULT CURRENT_DATE,
     total_invoice DECIMAL NOT NULL CHECK (total_invoice >= 0),
-    state VARCHAR(30) NOT NULL
+    state BOOLEAN
 );
 
 -- Tabla de descuentos y relación con facturas de proveedores
@@ -148,7 +137,7 @@ CREATE TABLE Sales_invoices (
     issue_number VARCHAR(100) NOT NULL,
     issue_date DATE NOT NULL DEFAULT CURRENT_DATE,
     total_invoice DECIMAL NOT NULL CHECK (total_invoice >= 0),
-    state VARCHAR(30) NOT NULL
+    state BOOLEAN
 );
 
 -- Detalles de órdenes de compra y sus facturas
@@ -167,7 +156,7 @@ CREATE TABLE Purchase_orders_invoice (
     invoice_number VARCHAR(100) NOT NULL,
     issue_date DATE NOT NULL DEFAULT CURRENT_DATE,
     total_invoice DECIMAL NOT NULL CHECK (total_invoice >= 0),
-    state VARCHAR(30) NOT NULL
+    state BOOLEAN
 );
 
 -- Índice adicional

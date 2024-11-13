@@ -29,6 +29,12 @@ namespace Drogueria_Elcafetero.Controllers
                 return NotFound(); // Si no existe el producto
             }
 
+            if (producto.units_in_stock == 0)
+            {
+                TempData["Mensaje"] = "No hay unidades disponibles en stock para este producto.";
+                return RedirectToAction("Index", "Home");
+            }
+
             // Obtener el usuario logueado
             var usuario = await _context.users.FirstOrDefaultAsync(u => u.user_name == User.Identity.Name);
             if (usuario == null)

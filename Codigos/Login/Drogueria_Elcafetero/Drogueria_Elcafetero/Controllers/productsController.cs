@@ -19,6 +19,7 @@ namespace Drogueria_Elcafetero.Controllers
             _context = context;
         }
 
+
         // GET: products
         public async Task<IActionResult> Index()
         {
@@ -81,12 +82,24 @@ namespace Drogueria_Elcafetero.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("id_product,product_name,price,units_in_stock,id_supplier,expiration_date,active,image,id_category")] products products)
         {
-            if (ModelState.IsValid)
-            {
+                if (ModelState.IsValid)
+                {
+                    products.expiration_date = products.expiration_date.ToUniversalTime();
+
+                    if (products.expiration_date.Kind == DateTimeKind.Unspecified)
+                    {
+                        products.expiration_date = DateTime.SpecifyKind(products.expiration_date, DateTimeKind.Utc);
+
+                    }
+                    else
+                    {
+                        products.expiration_date = products.expiration_date.ToUniversalTime();
+                    }                
                 _context.Add(products);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+                    return RedirectToAction(nameof(Index));
+                }
+            
             return View(products);
         }
 
@@ -120,6 +133,17 @@ namespace Drogueria_Elcafetero.Controllers
 
             if (ModelState.IsValid)
             {
+                products.expiration_date = products.expiration_date.ToUniversalTime();
+
+                if (products.expiration_date.Kind == DateTimeKind.Unspecified)
+                {
+                    products.expiration_date = DateTime.SpecifyKind(products.expiration_date, DateTimeKind.Utc);
+
+                }
+                else
+                {
+                    products.expiration_date = products.expiration_date.ToUniversalTime();
+                }
                 try
                 {
                     _context.Update(products);

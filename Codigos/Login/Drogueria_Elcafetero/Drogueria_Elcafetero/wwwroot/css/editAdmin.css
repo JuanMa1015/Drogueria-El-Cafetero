@@ -20,39 +20,6 @@ h1 {
     color: var(--primary-color);
 }
 
-/* Navbar */
-.sb-topnav.navbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1030;
-    background-color: var(--primary-color);
-    padding: 0.5rem 1rem;
-}
-
-.navbar-brand {
-    color: var(--secondary-color);
-    font-weight: bold;
-}
-
-/* Sidebar */
-.sb-sidenav-dark {
-    background-color: var(--primary-color);
-}
-
-.sb-sidenav-menu .nav-link {
-    color: rgba(255, 255, 255, 0.5);
-    padding: 0.75rem 1rem;
-    margin-bottom: 0.5rem;
-    border-radius: 0.25rem;
-    transition: all 0.15s ease-in-out;
-}
-
-    .sb-sidenav-menu .nav-link:hover {
-        color: var(--secondary-color);
-        background-color: rgba(255, 255, 255, 0.1);
-    }
 
 /* Formulario */
 .form-group label {
@@ -99,32 +66,4 @@ input.form-control {
     border: 1px solid var(--primary-color);
 }
 
-    .back-button .btn:hover {
-        background-color: var(--primary-color);
-        color: var(--secondary-color);
-    }
 
-/* Navbar Links */
-.navbar-nav .nav-item .nav-link {
-    color: var(--secondary-color);
-}
-
-    .navbar-nav .nav-item .nav-link:hover {
-        color: #f8f9fa;
-    }
-
-/* Ajuste de Input */
-input[type="date"] {
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-}
-
-#layoutSidenav_content {
-    padding: 1.5rem;
-    flex-grow: 1;
-}
-
-.container-fluid {
-    max-width: 1200px;
-    margin: 0 auto;
-}

@@ -54,10 +54,12 @@
             <div class="navbar-right">
                 @if (User.Identity.IsAuthenticated)
                 {
+
                     <!-- Botón Carrito -->
                     <a class="btn btn-outline-light btn-custom" asp-controller="cars" asp-action="Index">
                         <i class="fas fa-shopping-cart me-2"></i> Carrito
-                        <span class="badge bg-light text-dark ms-2 rounded-pill">0</span>
+                        <span id="cart-count" class="badge bg-light text-dark ms-2 rounded-pill">0</span>
+
                     </a>
 
                     <!-- Dropdown de usuario -->
@@ -210,6 +212,7 @@
             }
         });
     </script>
+ 
 
 </body>
 </html>

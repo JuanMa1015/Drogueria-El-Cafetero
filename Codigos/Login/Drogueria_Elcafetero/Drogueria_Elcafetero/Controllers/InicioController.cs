@@ -64,10 +64,14 @@ namespace WebAppCorreo.Controllers
                     {
                         return RedirectToAction("Admin", "Home");
                     }
-                    else
+                    else if (Users.rol == "Empleado")
                     {
-                        return RedirectToAction("IndexEmployee", "EmployeesHPJ");
+                        return RedirectToAction("Index", "Employees");
                     }
+                    else
+                            {
+                                return RedirectToAction("", "");
+                            }
                    
                 }
 

@@ -1,100 +1,68 @@
-﻿/* General Styles */
-body {
-    background-color: #ffffff;
-    color: #000000;
+﻿/* EditAdmin.css */
+
+body.sb-nav-fixed {
+    background-color: #f0f0f0; /* Fondo blanco suave */
+    font-family: Arial, sans-serif;
 }
 
-.container-fluid, .mt-4 {
-    background-color: #ffffff;
-    color: #000000;
+header h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #000; /* Negro */
+    margin-top: 20px;
 }
 
-h1, h4 {
-    color: #000000;
+.container {
+    margin-top: 30px;
 }
 
-hr {
-    border-top: 1px solid #000000;
+.form-group {
+    margin-bottom: 1rem;
 }
 
-/* Navbar Styles */
-.navbar {
-    background-color: #000000;
-}
-
-    .navbar .navbar-brand,
-    .navbar .navbar-nav .nav-link,
-    .navbar .navbar-nav .dropdown-item {
-        color: #ffffff;
+    .form-group label {
+        font-weight: bold;
+        color: #333; /* Gris oscuro para el texto */
     }
 
-    .navbar .dropdown-menu {
-        background-color: #ffffff;
-        border: 1px solid #000000;
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #333; /* Borde gris oscuro */
+    padding: 0.5rem;
+    background-color: #fff; /* Blanco */
+    color: #000; /* Negro */
+}
+
+    .form-control:focus {
+        border-color: #000; /* Negro */
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.15); /* Sombra negra suave */
     }
 
-        .navbar .dropdown-menu .dropdown-item {
-            color: #000000;
-        }
-
-            .navbar .dropdown-menu .dropdown-item:hover {
-                background-color: #cccccc;
-                color: #000000;
-            }
-
-/* Button Styles */
 .btn-primary {
-    background-color: #000000;
-    border-color: #000000;
-    color: #ffffff;
+    background-color: #000; /* Negro */
+    border-color: #000;
+    color: #fff; /* Blanco */
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
 }
 
     .btn-primary:hover {
-        background-color: #333333;
-        border-color: #333333;
+        background-color: #333; /* Gris oscuro */
+        border-color: #333;
     }
 
-.btn-secondary {
-    background-color: #ffffff;
-    border-color: #000000;
-    color: #000000;
+.back-button {
+    margin-top: 20px;
 }
 
-    .btn-secondary:hover {
-        background-color: #cccccc;
-        color: #000000;
+    .back-button .btn {
+        background-color: #333; /* Gris oscuro */
+        color: #fff; /* Blanco */
+        border-radius: 4px;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
     }
 
-/* Details Section */
-dl.row {
-    color: #000000;
-}
-
-dt, dd {
-    color: #000000;
-}
-
-/* Links */
-a {
-    color: #000000;
-}
-
-    a:hover {
-        color: #333333;
-        text-decoration: underline;
-    }
-
-/* Sidebar Colors Excluded */
-.sb-topnav {
-    background-color: #000000;
-    color: #ffffff;
-}
-
-.sb-sidenav .nav-link,
-.sb-sidenav .sb-sidenav-menu .nav .sb-nav-link-icon {
-    color: inherit;
-}
-
-.sb-sidenav-menu .nav-link:hover {
-    background-color: #333333;
-}
+        .back-button .btn:hover {
+            background-color: #000; /* Negro */
+        }

@@ -32,7 +32,7 @@
 @*                     <li><a class="dropdown-item" href="#!">Settings</a></li>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li> *@
                     <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" asp-area="" asp-controller="Inicio" asp-action="Sallir">Cerrar Sesión</a></li>
+                    <li><a class="dropdown-item" asp-area="" asp-controller="Inicio" asp-action="Login">Cerrar Sesión</a></li>
                 </ul>
             </li>
         </ul>
@@ -123,14 +123,14 @@
             </nav>
         </div>
 
-        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseClientes" aria-expanded="false" aria-controls="collapseClientes">
+        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUsuarios" aria-expanded="false" aria-controls="collapseUsuarios">
                             <div class="sb-nav-link-icon"><i class='bx bx-user-circle'></i></div>
-            Clientes
+            Usuarios
             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
-        <div class="collapse" id="collapseClientes" aria-labelledby="headingFour" data-bs-parent="#sidenavAccordion">
+        <div class="collapse" id="collapseUsuarios" aria-labelledby="headingFour" data-bs-parent="#sidenavAccordion">
             <nav class="sb-sidenav-menu-nested nav">
-                                        <a class="nav-link" asp-area="" asp-controller="users" asp-action="Index">Lista De Clientes</a>
+                                        <a class="nav-link" asp-area="" asp-controller="users" asp-action="Index">Lista De Usuarios</a>
             </nav>
         </div>
 

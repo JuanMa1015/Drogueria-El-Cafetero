@@ -18,6 +18,6 @@ namespace Drogueria_Elcafetero.Models
         public double total_order { get; set; }
 
         [DisplayName("Estado")]
-        public string state { get; set; }
+        public bool state { get; set; }
     }
 }
