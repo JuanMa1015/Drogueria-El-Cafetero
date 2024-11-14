@@ -24,22 +24,19 @@ namespace Drogueria_Elcafetero.Controllers
         public async Task<IActionResult> Index()
         {
             var detailsProducts = await _context.detailsProduct
-                    .FromSqlRaw(@"SELECT 
-                         p.id_product AS IdProduct,
-                         p.product_name AS ProductName,
-                         s.supplier_name AS SupplierName,
-                         c.category_name AS CategoryName,
-                         p.price AS Price,
-                         p.units_in_stock AS UnitsInStock,
-                         p.expiration_date AS ExpirationDate,
-                         p.active AS Active,
-                         p.image AS Image
-                     FROM 
-                         Products p
-                     JOIN 
-                         Suppliers s ON p.id_supplier = s.id_supplier
-                     JOIN 
-                         Category c ON p.id_category = c.id_category")
+                    .FromSqlRaw(@"SELECT p.id_product AS IdProduct, 
+                                   p.product_name AS ProductName, 
+                                   s.supplier_name AS SupplierName,
+                                   c.category_name AS CategoryName, 
+                                   p.price AS Price, 
+                                   p.units_in_stock AS UnitsInStock, 
+                                   p.expiration_date AS ExpirationDate, 
+                                   p.active AS Active,
+                                   p.image AS Image
+                            FROM products p
+                            JOIN suppliers s ON p.id_supplier = s.id_supplier
+                            JOIN category c ON p.id_category = c.id_category
+                            WHERE p.expiration_date >= CURRENT_DATE AND p.active = TRUE")
                 .ToListAsync();
 
             if (detailsProducts == null)
@@ -50,6 +47,66 @@ namespace Drogueria_Elcafetero.Controllers
 
             return View(detailsProducts);
         }
+
+        public async Task<IActionResult> ProductosVencidos()
+        {
+            var productosVencidos = await _context.expiredproduct
+                .FromSqlRaw(@"SELECT p.id_product AS IdProduct, 
+                               p.product_name AS ProductName, 
+                               s.supplier_name AS SupplierName, 
+                               c.category_name AS CategoryName, 
+                               p.price AS Price, 
+                               p.units_in_stock AS UnitsInStock, 
+                               p.expiration_date AS ExpirationDate, 
+                               p.active AS Active,
+                               p.image AS Image
+                        FROM products p
+                        JOIN suppliers s ON p.id_supplier = s.id_supplier  
+                        JOIN category c ON p.id_category = c.id_category
+                        WHERE p.expiration_date < CURRENT_DATE")
+                .ToListAsync();
+
+            if (productosVencidos == null || !productosVencidos.Any())
+            {
+                productosVencidos = new List<expiredproduct>();
+                Console.WriteLine("No se encontraron productos.");
+            }
+
+            return View(productosVencidos);
+        }
+
+        public async Task<IActionResult> DesactivarProductosVencidos()
+        {
+            var productosVencidos = await _context.products
+                .Where(p => p.expiration_date < DateTime.Now)
+                .ToListAsync();
+
+            foreach (var producto in productosVencidos)
+            {
+                producto.active = false;  // Desactivamos el producto
+            }
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> DesactivarProductosSinStock()
+        {
+            var productosSinStock = await _context.products
+                .Where(p => p.units_in_stock == 0)
+                .ToListAsync();
+
+            foreach (var producto in productosSinStock)
+            {
+                producto.active = false;  // Marcamos el producto como inactivo
+            }
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Index", "Products");
+        }
+
 
         // GET: products/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -177,7 +177,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="image" class="control-label"></label>
-                                    <input asp-for="image" class="form-control" />
+                                    <input asp-for="image" class="form-control" placeholder="Copia la URL de la imagen para ser agregada" />
                                     <span asp-validation-for="image" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
@@ -203,5 +203,27 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="/js/scripts.js"></script>
+   @*  <script>
+        const urlInput = document.getElementById('urlInput');
+        const fileInput = document.getElementById('fileInput');
+
+        // Deshabilitar el campo de archivo si hay texto en el campo de URL
+        urlInput.addEventListener('input', function() {
+            if (urlInput.value.trim() !== '') {
+                fileInput.disabled = true;
+            } else {
+                fileInput.disabled = false;
+            }
+        });
+
+        // Deshabilitar el campo de URL si hay un archivo seleccionado
+        fileInput.addEventListener('change', function() {
+            if (fileInput.files.length > 0) {
+                urlInput.disabled = true;
+            } else {
+                urlInput.disabled = false;
+            }
+        });
+    </script> *@
 </body>
 </html>

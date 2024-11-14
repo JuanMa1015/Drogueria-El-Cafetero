@@ -260,3 +260,101 @@ ON Purchase_Orders_Details FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
 
 CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
 ON Purchase_orders_invoice FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+
+
+CREATE OR REPLACE PROCEDURE agregar_al_carrito(
+    p_id_producto INT,
+    p_id_usuario INT
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    v_stock INT;
+    v_existe_carrito INT;
+    v_precio DECIMAL;
+BEGIN
+    -- Obtener el stock disponible del producto
+    SELECT units_in_stock INTO v_stock
+    FROM products
+    WHERE id_product = p_id_producto;
+
+    -- Verificar si el producto tiene stock
+    IF v_stock = 0 THEN
+        RAISE EXCEPTION 'Producto sin stock disponible';
+    END IF;
+
+    -- Verificar si el producto ya está en el carrito
+    SELECT COUNT(*) INTO v_existe_carrito
+    FROM car
+    WHERE id_user = p_id_usuario AND id_product = p_id_producto;
+
+    IF v_existe_carrito > 0 THEN
+        -- Si el producto ya está en el carrito, incrementar la cantidad
+        UPDATE car
+        SET quantity = quantity + 1
+        WHERE id_user = p_id_usuario AND id_product = p_id_producto;
+    ELSE
+        -- Si el producto no está en el carrito, agregarlo
+        SELECT price INTO v_precio
+        FROM products
+        WHERE id_product = p_id_producto;
+
+        INSERT INTO car (id_user, id_product, quantity, date, price)
+        VALUES (p_id_usuario, p_id_producto, 1, CURRENT_TIMESTAMP, v_precio);
+    END IF;
+
+    -- Actualizar el stock del producto
+    UPDATE products
+    SET units_in_stock = units_in_stock - 1
+    WHERE id_product = p_id_producto;
+
+    COMMIT;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE eliminar_del_carrito(
+    p_id_car INT
+)
+LANGUAGE plpgsql
+AS $$
+DECLARE
+    v_id_producto INT;
+    v_cantidad INT;
+BEGIN
+    -- Obtener el id del producto y la cantidad del carrito
+    SELECT id_product, quantity INTO v_id_producto, v_cantidad
+    FROM car
+    WHERE id_car = p_id_car;
+
+    -- Eliminar el producto del carrito
+    DELETE FROM car
+    WHERE id_car = p_id_car;
+
+    -- Actualizar el stock del producto
+    UPDATE products
+    SET units_in_stock = units_in_stock + v_cantidad
+    WHERE id_product = v_id_producto;
+
+    COMMIT;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE obtener_carrito_usuario(
+    p_id_usuario INT
+)
+LANGUAGE plpgsql
+AS $$
+BEGIN
+    -- Obtener todos los productos en el carrito del usuario
+    SELECT
+        c.id_car,
+        p.product_name AS nombre_producto,
+        c.quantity AS cantidad,
+        c.price AS precio,
+        (c.quantity * c.price) AS total
+    FROM car c
+    JOIN products p ON c.id_product = p.id_product
+    WHERE c.id_user = p_id_usuario;
+END;
+$$;

@@ -85,6 +85,15 @@
         </div>
     </nav>
 
+    <!-- Mostrar alerta si hay un error en el carrito -->
+    @if (TempData["Error"] != null)
+
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["Error"]
+        </div>
+    }
+
     <div class="productos-container">
         @if (Model != null && Model.Any())
         {
@@ -99,11 +108,18 @@
                         <p> $@product.Price</p>
                         <iframe name="hidden_iframe" style="display:none;"></iframe>
 
+                        @if (product.UnitsInStock <= 0)
+
+                        {
+                            <p class="text-danger">¡Producto fuera de stock!</p>
+                        }
+
+                        else
+
                         @*<p>Unidades en stock: @producto.unidades_stock</p>
                 *@      <form method="post" asp-controller="cars" asp-action="AgregarAlCarrito" asp-route-idProducto="@product.IdProduct" target="hidden_iframe">
                             <button type="submit" class="add-cart-btn">Agregar al carrito</button>
                         </form>
-
 
                     </div>
                 </div>
