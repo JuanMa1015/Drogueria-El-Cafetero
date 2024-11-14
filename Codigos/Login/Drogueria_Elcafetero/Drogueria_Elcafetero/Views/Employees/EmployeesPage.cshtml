@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Empleado - Panel de Control";
+    Layout = null;
+}
+
+<h1>Bienvenido, @User.Identity.Name</h1>
+<p>Esta es la vista del empleado, aquí puedes ver tus tareas o realizar acciones como crear ventas, consultar productos, etc.</p>
+
+<!-- Enlaces a las funcionalidades -->
+<p><a href="@Url.Action("CreateSale", "Sales")">Crear Venta</a></p>
+<p><a href="@Url.Action("Index", "Products")">Ver Productos</a></p>
+<p><a href="@Url.Action("Index", "PurchaseOrders")">Ver Órdenes de Compra</a></p>

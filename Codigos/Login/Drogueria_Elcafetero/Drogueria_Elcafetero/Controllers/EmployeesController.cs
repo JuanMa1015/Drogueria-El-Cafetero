@@ -80,6 +80,12 @@ namespace Drogueria_Elcafetero.Controllers
             return View(Employees);
         }
 
+        // Acción para mostrar el panel de control del empleado
+        public IActionResult EmployeesPage()
+        {
+            return View();
+        }
+
         // GET: Employees/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

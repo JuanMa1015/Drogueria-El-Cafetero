@@ -15,7 +15,7 @@
     <link href="~/css/styles.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="~/css/createAdmin.css" />
+    <link rel="stylesheet" href="~/css/CreateAdmin.css" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
@@ -159,9 +159,10 @@
                                     <span asp-validation-for="units_in_stock" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="id_supplier" class="control-label"></label>
-                                    <input asp-for="id_supplier" class="form-control" />
-                                    <span asp-validation-for="id_supplier" class="text-danger"></span>
+                                    <label for="id_supplier">Proveedor</label>
+                                    <select asp-for="id_supplier" class="form-control" asp-items="ViewBag.Suppliers">
+                                        <option value="">Seleccione un proveedor</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label asp-for="expiration_date" class="control-label"></label>
@@ -180,9 +181,10 @@
                                     <span asp-validation-for="image" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <label asp-for="id_category" class="control-label"></label>
-                                    <input asp-for="id_category" class="form-control" />
-                                    <span asp-validation-for="id_category" class="text-danger"></span>
+                                    <label for="id_category">Categoría</label>
+                                    <select asp-for="id_category" class="form-control" asp-items="ViewBag.Categories">
+                                        <option value="">Seleccione una categoría</option>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" value="Crear" class="btn btn-primary" />

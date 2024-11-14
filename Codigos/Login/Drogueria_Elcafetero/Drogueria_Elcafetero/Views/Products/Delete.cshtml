@@ -1,4 +1,4 @@
-﻿@model Drogueria_Elcafetero.Models.products
+﻿@model Drogueria_Elcafetero.Models.detailsProduct
 
 @{
     ViewData["Title"] = "Eliminar Producto";
@@ -144,58 +144,64 @@
                         <hr />
                         <dl class="row">
                             <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.product_name)
+                                @Html.DisplayNameFor(model => model.IdProduct)
                             </dt>
                             <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.product_name)
+                                @Html.DisplayFor(model => model.IdProduct)
                             </dd>
                             <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.price)
+                                @Html.DisplayNameFor(model => model.ProductName)
                             </dt>
                             <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.price)
+                                @Html.DisplayFor(model => model.ProductName)
                             </dd>
                             <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.units_in_stock)
+                                @Html.DisplayNameFor(model => model.Price)
                             </dt>
                             <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.units_in_stock)
+                                @Html.DisplayFor(model => model.Price)
                             </dd>
                             <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.id_supplier)
+                                @Html.DisplayNameFor(model => model.UnitsInStock)
                             </dt>
                             <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.id_supplier)
+                                @Html.DisplayFor(model => model.UnitsInStock)
                             </dd>
                             <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.expiration_date)
+                                @Html.DisplayNameFor(model => model.SupplierName)
                             </dt>
                             <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.expiration_date)
+                                @Html.DisplayFor(model => model.SupplierName)
                             </dd>
                             <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.active)
+                                @Html.DisplayNameFor(model => model.ExpirationDate)
                             </dt>
                             <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.active)
+                                @Html.DisplayFor(model => model.ExpirationDate)
                             </dd>
                             <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.image)
+                                @Html.DisplayNameFor(model => model.Active)
                             </dt>
                             <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.image)
+                                @Html.DisplayFor(model => model.Active)
                             </dd>
                             <dt class="col-sm-2">
-                                @Html.DisplayNameFor(model => model.id_category)
+                                @Html.DisplayNameFor(model => model.Image)
                             </dt>
                             <dd class="col-sm-10">
-                                @Html.DisplayFor(model => model.id_category)
+                                @Html.DisplayFor(model => model.Image)
+                            </dd>
+                            <dt class="col-sm-2">
+                                @Html.DisplayNameFor(model => model.CategoryName)
+                            </dt>
+                            <dd class="col-sm-10">
+                                @Html.DisplayFor(model => model.CategoryName)
                             </dd>
                         </dl>
                     </div>
 
                     <form asp-action="Delete">
-                        <input type="hidden" asp-for="id_product" />
+                        <input type="hidden" asp-for="IdProduct" />
                         <input type="submit" value="Eliminar" class="btn btn-danger" /> |
                         <a asp-action="Index" class="btn btn-secondary">Volver al Listado</a>
                     </form>

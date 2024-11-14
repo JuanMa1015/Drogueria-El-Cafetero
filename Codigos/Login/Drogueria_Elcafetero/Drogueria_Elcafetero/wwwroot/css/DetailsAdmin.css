@@ -1,68 +1,168 @@
-﻿/* EditAdmin.css */
-
-body.sb-nav-fixed {
-    background-color: #f0f0f0; /* Fondo blanco suave */
-    font-family: Arial, sans-serif;
+﻿:root {
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #f8f9fa;
+    --color-text-primary: #212529;
+    --color-text-secondary: #6c757d;
+    --color-border: #dee2e6;
+    --color-accent: #000000;
+    --transition-speed: 0.3s;
 }
 
-header h1 {
-    font-size: 1.8em;
-    font-weight: bold;
-    color: #000; /* Negro */
-    margin-top: 20px;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
 }
 
-.container {
-    margin-top: 30px;
+.sb-nav-fixed #layoutSidenav #layoutSidenav_nav {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
 }
 
-.form-group {
-    margin-bottom: 1rem;
+.sb-sidenav {
+    padding-top: 20px;
 }
 
-    .form-group label {
-        font-weight: bold;
-        color: #333; /* Gris oscuro para el texto */
+.sb-sidenav-dark {
+    background-color: var(--color-accent);
+    color: var(--color-bg-primary);
+}
+
+    .sb-sidenav-dark .sb-sidenav-menu .nav-link {
+        color: rgba(255, 255, 255, 0.8);
+        transition: color var(--transition-speed);
     }
 
+        .sb-sidenav-dark .sb-sidenav-menu .nav-link:hover {
+            color: var(--color-bg-primary);
+        }
+
+.sb-topnav {
+    background-color: var(--color-accent) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+    .sb-topnav .navbar-brand {
+        color: var(--color-bg-primary);
+        font-weight: bold;
+    }
+
+#layoutSidenav_content {
+    background-color: var(--color-bg-primary);
+    padding: 20px;
+}
+
+main {
+    background-color: var(--color-bg-primary);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+h1 {
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-border);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.nav-link {
+    color: var(--color-text-secondary);
+    transition: color var(--transition-speed);
+}
+
+    .nav-link:hover {
+        color: var(--color-accent);
+    }
+
+.btn-link {
+    color: var(--color-accent);
+}
+
+    .btn-link:hover {
+        color: var(--color-text-secondary);
+    }
+
+.dropdown-menu {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+}
+
+.dropdown-item {
+    color: var(--color-text-primary);
+}
+
+    .dropdown-item:hover {
+        background-color: var(--color-bg-secondary);
+    }
+
+.table {
+    color: var(--color-text-primary);
+}
+
+    .table thead th {
+        background-color: var(--color-bg-secondary);
+        border-bottom: 2px solid var(--color-accent);
+    }
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
 .form-control {
-    border-radius: 4px;
-    border: 1px solid #333; /* Borde gris oscuro */
-    padding: 0.5rem;
-    background-color: #fff; /* Blanco */
-    color: #000; /* Negro */
+    border-color: var(--color-border);
 }
 
     .form-control:focus {
-        border-color: #000; /* Negro */
-        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.15); /* Sombra negra suave */
+        border-color: var(--color-accent);
+        box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
     }
 
 .btn-primary {
-    background-color: #000; /* Negro */
-    border-color: #000;
-    color: #fff; /* Blanco */
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
 }
 
     .btn-primary:hover {
-        background-color: #333; /* Gris oscuro */
-        border-color: #333;
+        background-color: var(--color-text-secondary);
+        border-color: var(--color-text-secondary);
     }
 
-.back-button {
-    margin-top: 20px;
+.card {
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    transition: box-shadow var(--transition-speed);
 }
 
-    .back-button .btn {
-        background-color: #333; /* Gris oscuro */
-        color: #fff; /* Blanco */
-        border-radius: 4px;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
+    .card:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
 
-        .back-button .btn:hover {
-            background-color: #000; /* Negro */
-        }
+.card-header {
+    background-color: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    font-weight: bold;
+}
+
+.list-group-item {
+    border-color: var(--color-border);
+}
+
+    .list-group-item:hover {
+        background-color: var(--color-bg-secondary);
+    }
+
+@media (max-width: 768px) {
+    .sb-sidenav-menu {
+        padding-top: 0;
+    }
+
+    #layoutSidenav_content {
+        padding: 10px;
+    }
+
+    main {
+        padding: 15px;
+    }
+}

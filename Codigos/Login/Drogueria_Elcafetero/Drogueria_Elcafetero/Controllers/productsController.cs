@@ -72,6 +72,28 @@ namespace Drogueria_Elcafetero.Controllers
         // GET: products/Create
         public IActionResult Create()
         {
+            var categorias = _context.category
+       .Select(c => new { c.id_category, c.category_name })
+       .ToList();
+
+            var proveedores = _context.suppliers
+                .Select(p => new { p.id_supplier, p.supplier_name })
+                .ToList();
+
+            // Si estas listas son nulas o están vacías, arroja una excepción
+            if (categorias == null || !categorias.Any())
+            {
+                throw new Exception("No se encontraron categorías en la base de datos.");
+            }
+            if (proveedores == null || !proveedores.Any())
+            {
+                throw new Exception("No se encontraron proveedores en la base de datos.");
+            }
+
+            // Pasar las listas a la vista a través de ViewBag
+            ViewBag.Categories = new SelectList(categorias, "id_category", "category_name");
+            ViewBag.Suppliers = new SelectList(proveedores, "id_supplier", "supplier_name");
+
             return View();
         }
 
@@ -96,10 +118,12 @@ namespace Drogueria_Elcafetero.Controllers
                         products.expiration_date = products.expiration_date.ToUniversalTime();
                     }                
                 _context.Add(products);
+                ViewBag.Categories = new SelectList(_context.category, "id_category", "category_name", products.id_category);
+                ViewBag.Suppliers = new SelectList(_context.suppliers, "id_supplier", "supplier_name", products.id_supplier);
                 await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));
                 }
-            
+
             return View(products);
         }
 
@@ -116,6 +140,20 @@ namespace Drogueria_Elcafetero.Controllers
             {
                 return NotFound();
             }
+
+            var categorias = _context.category
+          .Select(c => new { c.id_category, c.category_name })
+          .ToList();
+
+            var proveedores = _context.suppliers
+          .Select(p => new { p.id_supplier, p.supplier_name })
+          .ToList();
+
+            // Pasar las listas a la vista a través de ViewBag
+            ViewBag.Categories = new SelectList(categorias, "id_category", "category_name", products.id_category);
+            ViewBag.Suppliers = new SelectList(proveedores, "id_supplier", "supplier_name", products.id_supplier);
+
+
             return View(products);
         }
 
@@ -166,22 +204,45 @@ namespace Drogueria_Elcafetero.Controllers
         }
 
         // GET: products/Delete/5
+        // Método GET para mostrar la vista de confirmación de eliminación
+        [HttpGet]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            // Obtener los detalles del producto junto con los datos relacionados (Proveedor y Categoría)
+            var product = await _context.detailsProduct.FromSqlRaw
+                                          (@"SELECT 
+                                                  p.id_product AS IdProduct,
+                                                  p.product_name AS ProductName,
+                                                  s.supplier_name AS SupplierName,
+                                                  c.category_name AS CategoryName,
+                                                  p.price AS Price,
+                                                  p.units_in_stock AS UnitsInStock,
+                                                  p.expiration_date AS ExpirationDate,
+                                                  p.active AS Active,
+                                                  p.image AS Image
+                                              FROM 
+                                                  Products p
+                                              INNER JOIN 
+                                                  Suppliers s ON p.id_supplier = s.id_supplier
+                                              INNER JOIN 
+                                                  category c ON p.id_category = c.id_category
+                                              WHERE p.id_product = {0}", id)
+                                          .FirstOrDefaultAsync();
 
-            var products = await _context.products
-                .FirstOrDefaultAsync(m => m.id_product == id);
-            if (products == null)
+            // Verificar si el producto existe
+            if (product == null)
             {
                 return NotFound();
             }
 
-            return View(products);
+            // Retornar la vista con los detalles del producto
+            return View(product);
         }
+
 
         // POST: products/Delete/5
         [HttpPost, ActionName("Delete")]

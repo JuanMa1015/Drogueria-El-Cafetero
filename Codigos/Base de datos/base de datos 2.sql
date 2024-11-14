@@ -1,4 +1,14 @@
 -- Crear tablas base primero, sin dependencias
+CREATE TABLE Auditory (
+id_auditory SERIAL PRIMARY KEY NOT NULL,
+table_name VARCHAR(30) NOT NULL,
+action VARCHAR(10) NOT NULL,
+previous_data TEXT,
+new_data TEXT,
+action_date TIMESTAMP WITHOUT TIME ZONE NOT NULL,
+usser VARCHAR(20) NOT NULL
+);
+
 CREATE TABLE Department (
     department_name VARCHAR(15) PRIMARY KEY
 );
@@ -51,15 +61,6 @@ CREATE TABLE category (
 
 -- Índices
 CREATE INDEX idx_id_supplier_product ON Products(id_supplier);
-
--- Crear tabla de órdenes de compra y dependientes
-CREATE TABLE Purchase_orders (
-    id_purchase_order SERIAL PRIMARY KEY,
-    id_supplier INT REFERENCES Suppliers(id_supplier) ON DELETE CASCADE,
-    order_date DATE NOT NULL DEFAULT CURRENT_DATE,
-    total_order DECIMAL NOT NULL CHECK (total_order >= 0),
-    state BOOLEAN
-);
 
 CREATE TABLE suppliers_invoices (
     id_supplier_invoice SERIAL PRIMARY KEY,
@@ -140,6 +141,15 @@ CREATE TABLE Sales_invoices (
     state BOOLEAN
 );
 
+-- Crear tabla de órdenes de compra y dependientes
+CREATE TABLE Purchase_orders (
+    id_purchase_order SERIAL PRIMARY KEY,
+    id_supplier INT REFERENCES Suppliers(id_supplier) ON DELETE CASCADE,
+    order_date DATE NOT NULL DEFAULT CURRENT_DATE,
+    total_order DECIMAL NOT NULL CHECK (total_order >= 0),
+    state BOOLEAN
+);
+
 -- Detalles de órdenes de compra y sus facturas
 CREATE TABLE Purchase_Orders_Details (
     id_order_detail SERIAL PRIMARY KEY,
@@ -172,5 +182,81 @@ CREATE TABLE car (
 );
 
 
+--Funcion para la auditoría
+CREATE OR REPLACE FUNCTION fn_accion_auditory() 
+RETURNS TRIGGER AS
+$$
+BEGIN 
+	IF (TG_OP = 'INSERT') THEN 
+		INSERT INTO Auditory(table_name, action, previous_data, new_data, action_date, usser)
+		VALUES (TG_TABLE_NAME, 'INSERT', NULL, NEW, NOW(), USER);
+		RETURN NEW;
+	ELSIF (TG_OP = 'UPDATE') THEN
+		INSERT INTO Auditory(table_name, action, previous_data, new_data, action_date, usser)
+		VALUES (TG_TABLE_NAME, 'UPDATE', OLD, NEW, NOW(), USER);
+		RETURN NEW;
+	ELSIF (TG_OP = 'DELETE') THEN
+		INSERT INTO Auditory(table_name, action, previous_data, new_data, action_date, usser)
+		VALUES (TG_TABLE_NAME, 'DELETE', OLD, NULL, NOW(), USER);
+		RETURN OLD;
+	END IF;
+	RETURN NULL;
+END;
+$$
+LANGUAGE plpgsql;
 
+--Triggers para la auditoria
 
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Department FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Customers FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON City_towns FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Suppliers FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Address FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Products FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON category FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON suppliers_invoices FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Discount FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Discount_Suppliers_invoices FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Employees FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Users FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Sales FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Sales_Details FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Sales_invoices FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Purchase_orders FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Purchase_Orders_Details FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+
+CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Purchase_orders_invoice FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()

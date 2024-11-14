@@ -13,6 +13,7 @@ namespace Drogueria_Elcafetero.Models
 
         [DisplayName("Proveedor")]
         public string SupplierName { get; set; }
+
         [DisplayName("Categoría")]
         public string CategoryName { get; set; }
 

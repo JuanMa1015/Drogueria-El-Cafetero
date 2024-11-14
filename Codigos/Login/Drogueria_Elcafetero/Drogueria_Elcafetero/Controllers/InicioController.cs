@@ -66,7 +66,7 @@ namespace WebAppCorreo.Controllers
                     }
                     else if (Users.rol == "Empleado")
                     {
-                        return RedirectToAction("Index", "Employees");
+                        return RedirectToAction("EmployeesPage", "Employees");
                     }
                     else
                             {
@@ -141,7 +141,7 @@ namespace WebAppCorreo.Controllers
                 else
                 {
                     ViewBag.Mensaje = "No se pudo crear su cuenta";
-                }
+                };
 
 
 
