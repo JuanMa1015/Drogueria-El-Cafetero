@@ -21,31 +21,33 @@
 
                     <!-- Tabla de Detalles del Carrito -->
                     <div class="table-responsive">
-                        <table class="table table-hover table-bordered">
-                            <thead class="thead-light">
+                        <table id="productos-seleccionados" class="table">
+                            <thead>
                                 <tr>
-                                    <th class="text-center">Producto</th>
-                                    <th class="text-center">Cantidad</th>
-                                    <th class="text-center">Precio</th>
-                                    <th class="text-center">Subtotal</th>
-                                    <th class="text-center">Acciones</th>
+                                    <th>Producto</th>
+                                    <th>Precio Unitario</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th>Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
+                                    <tr data-id="@item.CarritoId">
                                         <td>@item.NombreProducto</td>
-                                        <td><input type="text" class="form-control cantidad" value="@item.Cantidad" disabled/></td>
-                                        <td><input type="text" class="form-control precio" value="$@item.Precio" disabled></td>
-                                        <td><input type="text" class="form-control subtotal" value="$@(item.Cantidad * item.Precio)" disabled/></td>
-                                        <td class="text-center">
-                                            <!-- Botón de eliminar -->
-                                            <form asp-area="" asp-controller="cars" asp-action="Delete" asp-route-id="@item.CarritoId" method="post">
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash-alt"></i> Eliminar
-                                                </button>
-                                            </form>
+                                        <td class="precio">$@item.Precio</td>
+
+                                        <td>
+                                            <button class="btn-cantidad" data-id="@item.CarritoId" data-action="decrement">-</button>
+                                            <span class="cantidad">@item.Cantidad</span>
+                                            <button class="btn-cantidad" data-id="@item.CarritoId" data-action="increment">+</button>
+                                        </td>
+
+                                        <td class="subtotal">$@((item.Precio * item.Cantidad).ToString("0.00"))</td>
+
+                                        <td>
+                                            <button class="btn btn-danger btn-eliminar" data-id="@item.CarritoId">Eliminar</button>
                                         </td>
                                     </tr>
                                 }
@@ -110,3 +112,95 @@
         updateTotal();
     });
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        // Actualiza el total general del carrito
+        function updateTotal() {
+            let total = 0;
+            $('.subtotal').each(function () {
+                const subtotalValue = parseFloat($(this).text().replace('$', '').replace(',', ''));
+                total += subtotalValue;
+            });
+            $('#totalPagar').text(`$/. ${total.toFixed(2)}`);
+        }
+
+        // Evento para incrementar o decrementar cantidad
+        $('.btn-cantidad').off('click').on('click', function () {
+            const action = $(this).data('action');
+            const row = $(this).closest('tr');
+            const quantityInput = row.find('.cantidad');
+            const price = parseFloat(row.find('.precio').text().replace('$', '').replace(',', ''));
+            let quantity = parseInt(quantityInput.text());
+            const idCar = $(this).data('id');
+
+            if (action === 'increment') {
+                quantity += 1;
+            } else if (action === 'decrement' && quantity > 1) {
+                quantity -= 1;
+            }
+
+            // Actualizar cantidad en el campo visualmente
+            quantityInput.text(quantity);
+
+            // Calcula y muestra el subtotal
+            const subtotal = quantity * price;
+            row.find('.subtotal').text(`$${subtotal.toFixed(2)}`);
+            updateTotal();
+
+            // Llama al controlador para actualizar la cantidad en la base de datos
+            $.ajax({
+                url: '/cars/UpdateQuantity',
+                type: 'POST',
+                data: {
+                    id_car: idCar,
+                    nuevaCantidad: quantity,
+                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $('#totalPagar').text(`$/. ${response.precio}`);
+                    } else {
+                        alert("Error al actualizar la cantidad.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error en solicitud AJAX:", xhr.responseText);
+                    alert("Error al actualizar el carrito: " + xhr.responseText);
+                }
+            });
+        });
+
+        // Evento para eliminar un producto del carrito
+        $('.btn-eliminar').off('click').on('click', function () {
+            const row = $(this).closest('tr');
+            const idCar = $(this).data('id');
+
+            // Solicitud AJAX para eliminar el producto
+            $.ajax({
+                url: '/cars/DeleteItem',
+                type: 'POST',
+                data: {
+                    id_car: idCar,
+                    __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
+                },
+                success: function (response) {
+                    if (response.success) {
+                        row.remove(); // Elimina la fila del producto en la vista
+                        updateTotal(); // Actualiza el total
+                    } else {
+                        alert("Error al eliminar el producto del carrito.");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log("Error en solicitud AJAX:", xhr.responseText);
+                    alert("Error al eliminar el producto: " + xhr.responseText);
+                }
+            });
+        });
+
+        updateTotal(); // Calcula el total inicial al cargar la página
+    });
+</script>
+

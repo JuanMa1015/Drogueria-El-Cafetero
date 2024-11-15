@@ -358,3 +358,47 @@ BEGIN
     WHERE c.id_user = p_id_usuario;
 END;
 $$;
+
+CREATE OR REPLACE FUNCTION actualizar_cantidad_producto(carrito_id INT, nueva_cantidad INT)
+RETURNS NUMERIC AS
+$$
+DECLARE
+    nuevo_precio NUMERIC := 0; -- Inicializa nuevo_precio en 0 para evitar NULL
+    cantidad_actual INT;
+    producto_id INT;
+    diferencia INT;
+BEGIN
+    -- Selecciona la cantidad actual y el id del producto del carrito
+    SELECT quantity, p.id_product
+    INTO cantidad_actual, producto_id
+    FROM car c
+    JOIN products p ON c.id_product = p.id_product
+    WHERE c.id_car = carrito_id;
+
+    -- Verifica si se encontró un producto
+    IF producto_id IS NULL THEN
+        RAISE EXCEPTION 'Producto no encontrado para el carrito ID %', carrito_id;
+    END IF;
+
+    -- Calcula la diferencia entre la nueva cantidad y la cantidad actual
+    diferencia := nueva_cantidad - cantidad_actual;
+
+    -- Actualiza la cantidad en el carrito
+    UPDATE car
+    SET quantity = nueva_cantidad
+    WHERE id_car = carrito_id;
+
+    -- Actualiza el stock de productos según la diferencia calculada
+    UPDATE products
+    SET units_in_stock = units_in_stock - diferencia
+    WHERE id_product = producto_id;
+
+    -- Calcula el nuevo precio total para el producto en el carrito
+    SELECT COALESCE(p.price * nueva_cantidad, 0) -- Usa COALESCE para evitar NULL
+    INTO nuevo_precio
+    FROM products p
+    WHERE p.id_product = producto_id;
+
+    RETURN nuevo_precio;
+END;
+$$ LANGUAGE plpgsql;

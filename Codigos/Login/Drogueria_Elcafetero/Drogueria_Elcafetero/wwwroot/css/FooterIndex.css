@@ -1,0 +1,70 @@
+﻿.footer {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #007bff;
+    color: #f0f8ff; /* Color claro para los textos generales */
+    padding: 20px;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1 1 150px;
+    min-width: 200px;
+}
+
+    .footer-section h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #b5e4c2;
+        padding-bottom: 5px;
+    }
+
+    .footer-section p,
+    .footer-section ul {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .footer-section .contact-number {
+        color: #ffcc00; /* Color dorado para el número de contacto */
+        font-weight: bold;
+    }
+
+    .footer-section ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .footer-section ul li {
+            margin-bottom: 8px;
+        }
+
+            .footer-section ul li a {
+                color: #f0f8ff; /* Color dorado para los enlaces */
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .footer-section ul li a:hover {
+                    color: #f0f8ff; /* Color claro al pasar el cursor */
+                }
+
+.app-links img {
+    width: 120px;
+    margin-right: 10px;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+    .social-icons i {
+        font-size: 20px;
+        color: #f0f8ff;
+        margin-right: 10px;
+        transition: color 0.3s;
+    }
+
+        .social-icons i:hover {
+            color: #ffcc00; /* Color dorado al pasar el cursor */
+        }

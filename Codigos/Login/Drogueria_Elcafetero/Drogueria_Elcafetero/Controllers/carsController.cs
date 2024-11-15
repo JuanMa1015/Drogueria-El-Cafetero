@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Drogueria_Elcafetero.Data;
 using Drogueria_Elcafetero.Models;
+using Npgsql;
+using System.Data;
 
 namespace Drogueria_Elcafetero.Controllers
 {
@@ -19,82 +21,37 @@ namespace Drogueria_Elcafetero.Controllers
             _context = context;
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AgregarAlCarrito(int idProducto)
-        //{
 
-        //    // Obtener el producto seleccionado
-        //    var producto = await _context.products.FindAsync(idProducto);
-        //    if (producto == null)
-        //    {
-        //        return NotFound(); // Si no existe el producto
-        //    }
+        [HttpPost]
+        public IActionResult UpdateQuantity(int id_car, int nuevaCantidad)
+        {
+            try
+            {
+                using (var connection = (NpgsqlConnection)_context.Database.GetDbConnection())
+                {
+                    connection.Open();
 
-        //    if (producto.units_in_stock == 0)
-        //    {
-        //        TempData["Mensaje"] = "No hay unidades disponibles en stock para este producto.";
-        //        return RedirectToAction("Index", "Home");
-        //    }
+                    using (var command = new NpgsqlCommand("SELECT actualizar_cantidad_producto(@id_car, @nueva_cantidad)", connection))
+                    {
+                        command.CommandType = CommandType.Text;
+                        command.Parameters.AddWithValue("id_car", id_car);
+                        command.Parameters.AddWithValue("nueva_cantidad", nuevaCantidad);
 
+                        // Ejecuta la función y obtiene el nuevo precio
+                        var nuevoPrecio = (decimal)command.ExecuteScalar();
 
-        //    if (producto == null)
-        //    {
-        //        // Mostrar mensaje de error, producto vencido no se puede agregar al carrito
-        //        TempData["Error"] = "Este producto está vencido y no se puede agregar al carrito.";
-        //        return RedirectToAction("Index", "Home");
-        //    }
+                        return Json(new { success = true, precio = nuevoPrecio });
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log de error y respuesta de fallo
+                Console.WriteLine($"Error al actualizar cantidad: {ex.Message}");
+                return Json(new { success = false, error = ex.Message });
+            }
+        }
 
-
-
-        //    if (producto == null)
-        //    {
-        //        // Mostrar mensaje de error, producto sin stock no se puede agregar al carrito
-        //        TempData["Error"] = "Este producto está agotado y no se puede agregar al carrito.";
-        //        return RedirectToAction("Index", "Products");
-        //    }
-
-        //    // Obtener el usuario logueado
-        //    var usuario = await _context.users.FirstOrDefaultAsync(u => u.user_name == User.Identity.Name);
-        //    if (usuario == null)
-        //    {
-        //        return RedirectToAction("Login", "Inicio"); // Redirigir si el usuario no está logueado
-        //    }
-
-        //    // Buscar si el producto ya está en el carrito
-        //    var carritoExistente = await _context.car
-        //        .FirstOrDefaultAsync(c => c.id_user == usuario.id_user && c.id_product == idProducto);
-
-        //    if (carritoExistente != null)
-        //    {
-        //        // Si ya existe, incrementar la cantidad y actualizar el precio total dinámicamente
-        //        carritoExistente.quantity += 1;
-        //        // Actualizar el total_price multiplicando la cantidad por el precio del producto
-        //        //carritoExistente.price = Convert.ToDecimal(carritoExistente.quantity * producto.price);
-
-        //        _context.Update(carritoExistente);
-        //    }
-        //    else
-        //    {
-        //        // Si no existe, crear un nuevo elemento en el carrito con el precio total calculado
-        //        var nuevoCarrito = new car
-        //        {
-        //            id_user = usuario.id_user,
-        //            id_product = idProducto,
-        //            quantity = 1,
-        //            date = DateTime.UtcNow,// Convertir la fecha a UTC
-        //            price = Convert.ToDecimal(producto.price)
-
-        //        };
-
-        //        _context.Add(nuevoCarrito);
-        //    }
-
-        //    // Guardar cambios en la base de datos
-        //    await _context.SaveChangesAsync();
-
-        //    // Redirigir al carrito
-        //    return Ok(); // Asegúrate de tener un índice donde se vea el carrito
-        //}
 
         [HttpPost]
         public async Task<IActionResult> AgregarAlCarrito(int idProducto)
@@ -119,25 +76,6 @@ namespace Drogueria_Elcafetero.Controllers
 
             return RedirectToAction("Index", "cars"); // Redirigir al carrito
         }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            try
-            {
-                // Llamar al procedimiento almacenado para eliminar del carrito
-                await _context.Database.ExecuteSqlRawAsync("CALL eliminar_del_carrito({0})", id);
-            }
-            catch (Exception ex)
-            {
-                TempData["Error"] = ex.Message;
-                return RedirectToAction(nameof(Index));
-            }
-
-            return RedirectToAction(nameof(Index)); // Redirigir al carrito
-        }
-
 
         public async Task<IActionResult> Index()
         {
@@ -304,6 +242,31 @@ namespace Drogueria_Elcafetero.Controllers
 
             return View(car);
         }
+
+        [HttpPost]
+        public IActionResult DeleteItem(int id_car)
+        {
+            using (var connection = (NpgsqlConnection)_context.Database.GetDbConnection())
+            {
+                connection.Open();
+
+                using (var command = new NpgsqlCommand("CALL eliminar_del_carrito(@p_id_car)", connection))
+                {
+                    command.Parameters.AddWithValue("p_id_car", id_car);
+
+                    try
+                    {
+                        command.ExecuteNonQuery();
+                        return Json(new { success = true });
+                    }
+                    catch (Exception ex)
+                    {
+                        return Json(new { success = false, message = "Error al eliminar el producto del carrito.", error = ex.Message });
+                    }
+                }
+            }
+        }
+
 
         // POST: cars/Delete/5
         //[HttpPost, ActionName("Delete")]

@@ -49,6 +49,10 @@
       "PackagePath": "staticwebassets\\css\\EditAdmin.css"
     },
     {
+      "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\FooterIndex.css",
+      "PackagePath": "staticwebassets\\css\\FooterIndex.css"
+    },
+    {
       "Id": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\IndexAdmin.css",
       "PackagePath": "staticwebassets\\css\\IndexAdmin.css"
     },
