@@ -18,8 +18,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,7 +32,7 @@
               "RelativeDocumentMoniker": "Drogueria_Elcafetero\\Views\\cars\\Index.cshtml",
               "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Views\\cars\\Index.cshtml",
               "RelativeToolTip": "Drogueria_Elcafetero\\Views\\cars\\Index.cshtml",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAAALUAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAAJEAAAAAAAAAAAAIwI8AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-15T03:52:41.433Z",
               "EditorCaption": ""
@@ -41,7 +45,7 @@
               "RelativeDocumentMoniker": "Drogueria_Elcafetero\\Controllers\\carsController.cs",
               "ToolTip": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\Controllers\\carsController.cs",
               "RelativeToolTip": "Drogueria_Elcafetero\\Controllers\\carsController.cs",
-              "ViewState": "AgIAAO0AAAAAAAAAAAAqwPYAAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-14T13:26:23.709Z",
               "EditorCaption": ""

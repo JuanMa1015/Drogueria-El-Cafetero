@@ -44,7 +44,7 @@
                                             <button class="btn-cantidad" data-id="@item.CarritoId" data-action="increment">+</button>
                                         </td>
 
-                                        <td class="subtotal">$@((item.Precio * item.Cantidad).ToString("0.00"))</td>
+                                        <td class="subtotal">$@(item.Precio * item.Cantidad)</td>
 
                                         <td>
                                             <button class="btn btn-danger btn-eliminar" data-id="@item.CarritoId">Eliminar</button>
@@ -83,35 +83,6 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function () {
-        function updateTotal() {
-            let total = 0;
-            $('.subtotal').each(function () {
-                const subtotalValue = parseFloat($(this).val().replace('$', '').replace(',', ''));
-                total += subtotalValue;
-            });
-            $('#totalPagar').text(`$/. ${total.toFixed(2)}`);
-        }
-
-        $('.change-quantity').on('click', function () {
-            const action = $(this).data('action');
-            const row = $(this).closest('tr');
-            const quantityInput = row.find('.cantidad');
-            const price = parseFloat(row.find('.precio').val().replace('$', '').replace(',', ''));
-            let quantity = parseInt(quantityInput.val());
-
-
-            const subtotal = quantity * price;
-            row.find('.subtotal').val(`$${subtotal.toFixed(2)}`);
-
-            updateTotal();
-        });
-
-        // Inicializar el total al cargar la página
-        updateTotal();
-    });
-</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function () {
@@ -120,10 +91,17 @@
         function updateTotal() {
             let total = 0;
             $('.subtotal').each(function () {
+                // Obtener el valor del subtotal y asegurarse de que es un número
                 const subtotalValue = parseFloat($(this).text().replace('$', '').replace(',', ''));
-                total += subtotalValue;
+
+                // Verificamos si es un número válido antes de sumarlo
+                if (!isNaN(subtotalValue)) {
+                    total += subtotalValue;
+                }
             });
-            $('#totalPagar').text(`$/. ${total.toFixed(2)}`);
+
+            // Redondeamos el total a dos decimales y lo mostramos
+            $('#totalPagar').text(`$${total.toFixed(2)}`);
         }
 
         // Evento para incrementar o decrementar cantidad
@@ -147,6 +125,8 @@
             // Calcula y muestra el subtotal
             const subtotal = quantity * price;
             row.find('.subtotal').text(`$${subtotal.toFixed(2)}`);
+
+            // Llama a la función para actualizar el total inmediatamente
             updateTotal();
 
             // Llama al controlador para actualizar la cantidad en la base de datos
@@ -160,7 +140,8 @@
                 },
                 success: function (response) {
                     if (response.success) {
-                        $('#totalPagar').text(`$/. ${response.precio}`);
+                        // Aquí se actualiza el precio en la vista si el backend lo devuelve
+                        $('#totalPagar').text(`$${response.precio}`);
                     } else {
                         alert("Error al actualizar la cantidad.");
                     }
@@ -188,7 +169,7 @@
                 success: function (response) {
                     if (response.success) {
                         row.remove(); // Elimina la fila del producto en la vista
-                        updateTotal(); // Actualiza el total
+                        updateTotal(); // Actualiza el total inmediatamente
                     } else {
                         alert("Error al eliminar el producto del carrito.");
                     }
@@ -200,7 +181,9 @@
             });
         });
 
-        updateTotal(); // Calcula el total inicial al cargar la página
+        // Calcular el total inicial al cargar la página
+        updateTotal();
     });
 </script>
+
 
