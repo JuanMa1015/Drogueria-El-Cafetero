@@ -114,6 +114,10 @@ CREATE TABLE Users (
     rol VARCHAR(20) DEFAULT 'Cliente'
 );
 
+CREATE TABLE Customers (
+    id
+)
+
 -- Crear tablas de ventas y detalles de ventas
 CREATE TABLE Sales (
     id_sale SERIAL PRIMARY KEY,
@@ -168,6 +172,8 @@ CREATE TABLE Purchase_orders_invoice (
     total_invoice DECIMAL NOT NULL CHECK (total_invoice >= 0),
     state BOOLEAN
 );
+
+
 
 -- Índice adicional
 CREATE INDEX idx_city_name ON Address(city_name);
@@ -249,8 +255,8 @@ ON Sales FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
 CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
 ON Sales_Details FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
 
-CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
-ON Sales_invoices FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()
+/* CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
+ON Sales_invoices FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()*/
 
 CREATE TRIGGER takes_trigger_auditoria AFTER INSERT OR UPDATE OR DELETE
 ON Purchase_orders FOR EACH ROW EXECUTE PROCEDURE fn_accion_auditory()

@@ -7877,6 +7877,7 @@
       "Microsoft.AspNetCore.Mvc.DataAnnotations >= 2.2.0",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.6",
+      "Newtonsoft.Json >= 13.0.3",
       "Npgsql >= 8.0.4",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 8.0.8",
       "SweetAlert.Bootstrap >= 1.0.1",
@@ -7959,6 +7960,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[8.0.6, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
           },
           "Npgsql": {
             "target": "Package",

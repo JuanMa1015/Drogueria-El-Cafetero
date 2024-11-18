@@ -3,7 +3,11 @@
 @{
     Layout = null;
 }
-<link rel="stylesheet" href="/css/Carrito.css" />
+
+<head>
+    <link rel="stylesheet" href="~/css/Carrito.css" />
+</head>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <div class="container">
     <!-- Carrito de Compras y Detalles de Envío -->
@@ -63,9 +67,9 @@
 
                     <div class="d-flex justify-content-between mt-3">
                         <!-- Botón Proceder al Pago (Izquierda) -->
-                        <form asp-controller="Home" asp-action="Index" method="post">
+                        <form asp-controller="cars" asp-action="FinzalizarCompra" method="post">
                             <button class="btn btn-outline-secondary btn-lg btn-seguir-comprando" type="submit">
-                                Proceder Al Pago
+                                Finalizar pedido
                             </button>
                         </form>
 
@@ -139,10 +143,7 @@
                     __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val()
                 },
                 success: function (response) {
-                    if (response.success) {
-                        // Aquí se actualiza el precio en la vista si el backend lo devuelve
-                        $('#totalPagar').text(`$${response.precio}`);
-                    } else {
+                    if (!response.success) {
                         alert("Error al actualizar la cantidad.");
                     }
                 },
@@ -185,5 +186,3 @@
         updateTotal();
     });
 </script>
-
-

@@ -1,155 +1,167 @@
-﻿/* Estilo global */
+﻿/* Carrito.css */
+
+/* Estilos generales */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
 }
 
-/* Estilo del contenedor */
+/* Contenedor principal */
 .container {
-    max-width: 1200px;
     margin: 0 auto;
-}
-
-/* Estilo de las tarjetas */
-.card {
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-}
-
-.card-body {
     padding: 20px;
 }
 
-/* Tabla del carrito */
+/* Tarjeta del carrito */
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h3 {
+    font-weight: bold;
+}
+
+/* Mensaje de artículos en el carrito */
+.text-muted {
+    font-size: 1.1rem;
+}
+
+/* Tabla de productos */
 .table {
-    margin-bottom: 30px;
-    font-size: 1rem;
+    margin-top: 20px;
+    border-collapse: collapse;
+    width: 100%;
 }
 
     .table th, .table td {
-        text-align: center;
         padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #dee2e6;
     }
 
     .table th {
-        background-color: #f4f4f4;
+        background-color: #007bff;
+        color: white;
     }
 
-.table-hover tbody tr:hover {
-    background-color: #f1f1f1;
-}
+    .table td {
+        vertical-align: middle;
+    }
 
-/* Total */
-.total-text {
-    font-size: 1.25rem;
-}
+    /* Estilo para las imágenes de productos */
+    .table img {
+        max-width: 50px;
+        max-height: 50px;
+        object-fit: cover;
+    }
 
-#totalPagar {
-    font-size: 1.75rem;
-    font-weight: bold;
-    color: #28a745;
-}
+    /* Fila alterna de la tabla */
+    .table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
 
-/* Botón de pago */
-.btn-primary {
+/* Botones de cantidad */
+.btn-cantidad {
     background-color: #007bff;
+    color: white;
     border: none;
-    padding: 15px;
-    font-size: 1.1rem;
-    color: #fff;
-    border-radius: 8px;
-    width: 200px;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background-color 0.3s;
 }
 
-    .btn-primary:hover {
+    .btn-cantidad:hover {
         background-color: #0056b3;
     }
 
-/* Detalles de envío */
-.form-control {
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    padding: 14px;
-    font-size: 1rem;
-    margin-bottom: 20px;
+/* Botón de eliminar */
+.btn-eliminar {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
-.form-group {
-    margin-bottom: 1rem;
+    .btn-eliminar:hover {
+        background-color: #c82333;
+    }
+
+/* Total a pagar */
+.total-text {
+    font-size: 1.5rem;
 }
 
-/* Estilo responsivo */
+/* Estilo para la fila de total */
+#totalPagar {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #28a745;
+}
+
+/* Botones de acción */
+.btn-outline-secondary {
+    border: 1px solid #6c757d;
+    color: #6c757d;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: #6c757d;
+        color: white;
+    }
+
+/* Estilo para el botón de finalizar compra */
+.btn-finalizar-compra {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+    .btn-finalizar-compra:hover {
+        background-color: #218838;
+    }
+
+/* Espaciado entre elementos */
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* Media queries para responsividad */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
-
-    .btn-primary {
-        width: 100%;
-    }
-
     .table {
         font-size: 0.9rem;
     }
 
-    .form-control {
-        font-size: 0.9rem;
+        .table img {
+            max-width: 40px;
+        }
+
+    .total-text {
+        font-size: 1.2rem;
+    }
+
+    .btn-cantidad, .btn-eliminar {
+        padding: 6px 10px;
+    }
+
+    .btn-finalizar-compra {
+        font-size: 1rem;
     }
 }
-
-/* Estilo para el botón de "Seguir Comprando" alineado a la derecha */
-.btn-seguir-comprando {
-    color: #007bff;
-    border-color: #007bff;
-    background-color: transparent;
-    font-weight: bold;
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    text-transform: uppercase;
-    transition: all 0.3s ease;
-    margin-left: 10px; /* Para separar ligeramente de "Proceder al Pago" */
-}
-
-    .btn-seguir-comprando:hover {
-        color: #fff;
-        background-color: #007bff;
-        border-color: #007bff;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-seguir-comprando:focus {
-        outline: none;
-        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
-    }
-
-/* Estilo para el botón "Añadir al carrito" */
-.btn-add-to-cart {
-    display: inline-block;
-    background-color: #28a745; /* Color verde */
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-    .btn-add-to-cart:hover {
-        background-color: #218838; /* Un verde más oscuro para el hover */
-        transform: translateY(-3px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .btn-add-to-cart:focus {
-        outline: none;
-        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
-    }

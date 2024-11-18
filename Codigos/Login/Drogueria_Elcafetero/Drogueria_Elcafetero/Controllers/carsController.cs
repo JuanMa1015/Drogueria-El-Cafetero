@@ -9,6 +9,7 @@ using Drogueria_Elcafetero.Data;
 using Drogueria_Elcafetero.Models;
 using Npgsql;
 using System.Data;
+using Drogueria_el_cafetero.Models;
 
 namespace Drogueria_Elcafetero.Controllers
 {
@@ -30,6 +31,21 @@ namespace Drogueria_Elcafetero.Controllers
                 using (var connection = (NpgsqlConnection)_context.Database.GetDbConnection())
                 {
                     connection.Open();
+
+                    using (var checkStockCommand = new NpgsqlCommand(@"
+                    SELECT p.units_in_stock
+                    FROM car c 
+                    JOIN products p ON c.id_product = p.id_product 
+                    WHERE c.id_car = @id_car", connection))
+                    {
+                        checkStockCommand.Parameters.AddWithValue("carrito_id", id_car);
+                        int unidadesStock = (int)checkStockCommand.ExecuteScalar();
+
+                        if (nuevaCantidad > unidadesStock)
+                        {
+                            return Json(new { success = false, message = "No hay suficiente stock disponible" });
+                        }
+                    }
 
                     using (var command = new NpgsqlCommand("SELECT actualizar_cantidad_producto(@id_car, @nueva_cantidad)", connection))
                     {
@@ -56,6 +72,19 @@ namespace Drogueria_Elcafetero.Controllers
         [HttpPost]
         public async Task<IActionResult> AgregarAlCarrito(int idProducto)
         {
+            var producto = await _context.products.FindAsync(idProducto);
+            if (producto == null)
+            {
+                TempData["Error"] = "Producto no encontrado.";
+                return RedirectToAction("Index", "Home");
+            }
+
+            if (producto.units_in_stock <= 0)
+            {
+                TempData["Error"] = "El producto está agotado.";
+                return RedirectToAction("Index", "Home");
+            }
+
             // Obtener el usuario logueado
             var usuario = await _context.users.FirstOrDefaultAsync(u => u.user_name == User.Identity.Name);
             if (usuario == null)
@@ -110,31 +139,37 @@ namespace Drogueria_Elcafetero.Controllers
             return View("Index", carrito);
         }
 
+        public  async Task<IActionResult> FinzalizarCompra()
+        {
+            List<details_car> carrito = new List<details_car>();
 
-        // GET: cars
-        //public async Task<IActionResult> Index()
-        //{
-        //    var carrito = await _context.details_car
-        //                  .FromSqlRaw(@"SELECT 
-        //        c.id_car AS CarritoId,
-        //        u.user_name AS NombreUsuario, 
-        //        p.product_name AS NombreProducto, 
-        //        c.quantity AS Cantidad, 
-        //        c.date AS Fecha,
-        //        c.price As Precio
-        //    FROM 
-        //        car c
-        //    JOIN 
-        //        users u ON c.id_user = u.id_user
-        //    JOIN 
-        //        products p ON c.id_product = p.id_product;
-        //    ")
-        //                  .ToListAsync();
+            try
+            {
+                carrito = await _context.Set<details_car>()
+                    .FromSqlRaw(@"SELECT 
+                            c.id_car AS CarritoId,
+                            u.user_name AS NombreUsuario, 
+                            p.product_name AS NombreProducto, 
+                            c.quantity AS Cantidad, 
+                            c.date AS Fecha,
+                            c.price AS Precio
+                          FROM 
+                            car c
+                          JOIN 
+                            users u ON c.id_user = u.id_user
+                          JOIN 
+                            products p ON c.id_product = p.id_product;
+                          ")
+                    .ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                TempData["Error"] = ex.Message;
+                return RedirectToAction("Index", "Home");
+            }
 
-        //    return View("Index", carrito);
-
-        //}
-        // GET: cars/Details/5
+            return View("FinzalizarCompra", carrito);
+        }
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

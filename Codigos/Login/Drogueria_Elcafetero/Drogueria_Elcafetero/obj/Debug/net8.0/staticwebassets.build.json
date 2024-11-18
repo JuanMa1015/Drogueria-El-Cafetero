@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "RHywz0gWUWVKOYsOzZuR+hceAz6/aU6XQDiWjhz75hs=",
+  "Hash": "YPFpPVDhXtJL/zhbTaQS8rwIADeB8YEHD6xDKVLqlwU=",
   "Source": "Drogueria_Elcafetero",
   "BasePath": "_content/Drogueria_Elcafetero",
   "Mode": "Default",
@@ -262,6 +262,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\EditAdmin.css"
+    },
+    {
+      "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\FinzalizarCompra.css",
+      "SourceId": "Drogueria_Elcafetero",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\",
+      "BasePath": "_content/Drogueria_Elcafetero",
+      "RelativePath": "css/FinzalizarCompra.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\FinzalizarCompra.css"
     },
     {
       "Identity": "C:\\Users\\gonza\\Desktop\\Drogueria-El-Cafetero\\Codigos\\Login\\Drogueria_Elcafetero\\Drogueria_Elcafetero\\wwwroot\\css\\FooterIndex.css",

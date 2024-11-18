@@ -1,0 +1,149 @@
+﻿body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5faff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h3 {
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #333333;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+.table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .table thead tr {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .table th, .table td {
+        padding: 10px 15px;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .table tbody tr:hover {
+        background-color: #e6f7ff;
+    }
+
+    .table tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+.total-text {
+    color: #007bff;
+    font-size: 1.2rem;
+}
+
+#totalPagar {
+    color: #28a745;
+    font-size: 1.5rem;
+}
+
+.btn {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+        cursor: pointer;
+    }
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.5);
+}
+
+/* Contenedor principal para alinear formulario y productos en la misma fila */
+.row {
+    display: flex;
+    flex-wrap: nowrap; /* Evitar que los elementos pasen a una nueva fila */
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre las columnas */
+    align-items: flex-start; /* Alinear elementos verticalmente al inicio */
+}
+
+.col-lg-6 {
+    flex: 1; /* Ambas columnas ocupan el mismo ancho */
+    min-width: 300px; /* Ancho mínimo para columnas */
+    max-width: 50%; /* Limitar columnas a la mitad del ancho del contenedor */
+    box-sizing: border-box; /* Asegurar que padding no afecte el ancho total */
+}
+
+/* Centrar el botón dentro de su contenedor */
+.btn-container {
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin-top: 20px; /* Espacio arriba del botón */
+}
+
+/* Espaciado responsivo */
+@media screen and (max-width: 768px) {
+    .row {
+        flex-direction: column; /* Cambiar a disposición vertical en pantallas pequeñas */
+    }
+
+    .col-lg-6 {
+        width: 100%;
+        max-width: 100%; /* Asegurar que las columnas ocupen el ancho completo */
+    }
+}
