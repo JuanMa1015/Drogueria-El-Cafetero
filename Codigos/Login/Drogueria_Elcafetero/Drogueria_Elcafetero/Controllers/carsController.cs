@@ -126,7 +126,7 @@ namespace Drogueria_Elcafetero.Controllers
                           JOIN 
                             users u ON c.id_user = u.id_user
                           JOIN 
-                            products p ON c.id_product = p.id_product;
+                            products p ON c.id_product = p.id_product
                           ")
                     .ToListAsync();
             }
