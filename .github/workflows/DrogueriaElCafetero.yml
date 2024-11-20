@@ -44,5 +44,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.DrogueriaElCafetero_FA25 }}
+        publish-profile: ${{ secrets.DrogueriaElCafetero_1FCD }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
