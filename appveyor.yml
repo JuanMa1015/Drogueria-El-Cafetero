@@ -7,4 +7,4 @@ build:
   publish_wap: true
 
 build_script:
-  - dotnet publish Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero.sln -c Release -o out
+  - dotnet publish Drogueria-El-Cafetero/Codigos/Login/Drogueria_Elcafetero/Drogueria_Elcafetero.sln -c Release -o out
